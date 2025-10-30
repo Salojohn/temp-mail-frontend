@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Temporary Email (MVP)</title>
+    <style>
+        body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px}
+        .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
+        .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+        button{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db;background:#f9fafb;cursor:pointer}
+        button:hover{background:#eef2ff}.muted{color:#6b7280}.msg{white-space:pre-wrap}
+    </style>
+</head>
+<body>
+<h1>Temporary Email (MVP)</h1>
+<div class="card">
+    <div class="row">
+        <button id="create">Create address</button>
+        <div id="email" class="row"></div>
+        <span id="ttl" class="muted"></span>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Inbox</h3>
+    <div id="messages"></div>
+</div>
+
+<script>
+    const $=(s,e=document)=>e.querySelector(s); let local=null,expiresAt=null,poller=null;
+
+    document.getElementById('create').onclick = async () => {
+        const r = await fetch('/create', {method:'POST'});
+        const j = await r.json();
+        local = j.local; expiresAt = Date.now() + (j.expires_in*1000);
+        document.getElementById('email').innerHTML =
+            `<strong>${j.email}</strong> <button onclick="copyText('${j.email}')">Copy</button>`;
+        tickTTL();
+        if (poller) clearInterval(poller);
+        poller = setInterval(loadInbox, 3000);
+        loadInbox();
+    };
+
+    window.copyText = async (t)=>{ try{ await navigator.clipboard.writeText(t); alert('Copied!'); }catch{} };
+
+    function tickTTL(){
+        const int = setInterval(()=>{
+            if(!expiresAt){ clearInterval(int); return; }
+            const left = Math.max(0, Math.floor((expiresAt - Date.now())/1000));
+            document.getElementById('ttl').textContent = left ? `expires in ${left}s` : 'expired';
+            if(left===0){ clearInterval(int); if (poller) clearInterval(poller); }
+        },1000);
+    }
+
+    async function loadInbox(){
+        if(!local) return;
+        const r = await fetch(`/inbox/${local}`);
+        if(r.status!==200){
+            document.getElementById('messages').innerHTML = '<div class="muted">Inbox expired</div>';
+            clearInterval(poller); return;
+        }
+        const j = await r.json();
+        const box = document.getElementById('messages'); box.innerHTML = '';
+        for(const m of (j.messages||[])){
+            const wrap = document.createElement('div');
+            wrap.className = 'card';
+            wrap.innerHTML = `
+          <div><strong class="subject"></strong> <span class="muted from"></span></div>
+          <div class="muted time"></div>
+          <div class="msg preview"></div>
+          <details>
+            <summary>Open full message</summary>
+            <iframe class="html" sandbox="allow-same-origin" style="width:100%;height:300px;border:1px solid #e5e7eb;border-radius:8px"></iframe>
+            <pre class="plain"></pre>
+          </details>
+        `;
+            wrap.querySelector('.subject').textContent = m.subject;
+            wrap.querySelector('.from').textContent = ' — ' + m.from;
+            wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
+            wrap.querySelector('.preview').textContent = m.preview;
+
+            wrap.querySelector('details').addEventListener('toggle', async ev=>{
+                if(!ev.target.open) return;
+                const rr = await fetch(`/message/${m.id}`);
+                const full = await rr.json();
+                const iframe = wrap.querySelector('.html');
+                if(full.body_html){
+                    const blob = new Blob([full.body_html], {type:'text/html'});
+                    iframe.src = URL.createObjectURL(blob);
+                }
+                wrap.querySelector('.plain').textContent = full.body_plain || '';
+            }, {once:true});
+
+            box.appendChild(wrap);
+        }
+        if((j.messages||[]).length===0) box.innerHTML = '<div class="muted">No messages yet…</div>';
+    }
+</script>
+</body>
+</html>
