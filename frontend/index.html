@@ -1,127 +1,168 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Temporary Emails</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temporary Emails</title>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836"
-        crossorigin="anonymous"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
 
-    <style>
-        body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px}
-        .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
-        .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-        button{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db;background:#f9fafb;cursor:pointer}
-        button:hover{background:#eef2ff}.muted{color:#6b7280}.msg{white-space:pre-wrap}
-    </style>
+  <style>
+    :root{color-scheme:light dark}
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px}
+    h1{font-size:28px;margin:0 0 16px}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    button{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db;background:#f9fafb;cursor:pointer}
+    button:hover{background:#eef2ff}
+    .muted{color:#6b7280}
+    .msg{white-space:pre-wrap}
+    .error{color:#b91c1c}
+  </style>
 </head>
 <body>
 <h1>Temporary Email</h1>
+
 <div class="card">
-    <div class="row">
-        <button id="create">Create address</button>
-        <div id="email" class="row"></div>
-        <span id="ttl" class="muted"></span>
-    </div>
+  <div class="row">
+    <button id="create">Create address</button>
+    <div id="email" class="row"></div>
+    <span id="ttl" class="muted"></span>
+  </div>
+  <div id="status" class="muted"></div>
 </div>
 
 <!-- AdSense block (responsive) -->
 <div class="card" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3474217278034836"
-         data-ad-slot="YOUR_AD_SLOT_ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3474217278034836"
+       data-ad-slot="YOUR_AD_SLOT_ID"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <div class="card">
-    <h3>Inbox</h3>
-    <div id="messages"></div>
+  <h3>Inbox</h3>
+  <div id="messages"></div>
 </div>
 
 <script>
-    const $=(s,e=document)=>e.querySelector(s); let local=null,expiresAt=null,poller=null;
+  // ---------- API base URL ----------
+  // Στο live domain (temp-mail.gr) μιλάμε στο api.temp-mail.gr
+  // Αλλιώς, χρησιμοποιούμε το Render URL του API για δοκιμές.
+  const API = location.hostname.endsWith('temp-mail.gr')
+    ? 'https://api.temp-mail.gr'
+    : 'https://temp-mail-api-2.onrender.com';
 
-    document.getElementById('create').onclick = async () => {
-        const r = await fetch('/create', {method:'POST'});
-        const j = await r.json();
-        local = j.local; expiresAt = Date.now() + (j.expires_in*1000);
-        document.getElementById('email').innerHTML =
-            `<strong>${j.email}</strong> <button onclick="copyText('${j.email}')">Copy</button>`;
-        tickTTL();
-        if (poller) clearInterval(poller);
-        poller = setInterval(loadInbox, 3000);
-        loadInbox();
-    };
+  const $ = (s, e = document) => e.querySelector(s);
+  let local = null, expiresAt = null, poller = null;
 
-    window.copyText = async (t)=>{ try{ await navigator.clipboard.writeText(t); alert('Copied!'); }catch{} };
+  const setStatus = (t, isErr = false) => {
+    const el = $('#status');
+    el.textContent = t || '';
+    el.className = isErr ? 'error' : 'muted';
+  };
 
-    function tickTTL(){
-        const int = setInterval(()=>{
-            if(!expiresAt){ clearInterval(int); return; }
-            const left = Math.max(0, Math.floor((expiresAt - Date.now())/1000));
-            document.getElementById('ttl').textContent = left ? `expires in ${left}s` : 'expired';
-            if(left===0){ clearInterval(int); if (poller) clearInterval(poller); }
-        },1000);
+  $('#create').onclick = async () => {
+    try {
+      setStatus('Creating address…');
+      const r = await fetch(`${API}/create`, { method: 'POST' });
+      if (!r.ok) throw new Error(`Create failed (${r.status})`);
+      const j = await r.json();
+
+      local = j.local;
+      expiresAt = Date.now() + (j.expires_in * 1000);
+
+      $('#email').innerHTML =
+        `<strong>${j.email}</strong> <button onclick="copyText('${j.email}')">Copy</button>`;
+
+      tickTTL();
+      if (poller) clearInterval(poller);
+      poller = setInterval(loadInbox, 3000);
+      await loadInbox();
+
+      setStatus('Address ready.');
+    } catch (e) {
+      console.error(e);
+      setStatus(`Error: ${e.message}`, true);
+      alert(`API error (create): ${e.message}`);
     }
+  };
 
-    async function loadInbox(){
-        if(!local) return;
-        const r = await fetch(`/inbox/${local}`);
-        if(r.status!==200){
-            document.getElementById('messages').innerHTML = '<div class="muted">Inbox expired</div>';
-            clearInterval(poller); return;
-        }
-        const j = await r.json();
-        const box = document.getElementById('messages'); box.innerHTML = '';
-        for(const m of (j.messages||[])){
-            const wrap = document.createElement('div');
-            wrap.className = 'card';
-            wrap.innerHTML = `
+  window.copyText = async (t) => {
+    try { await navigator.clipboard.writeText(t); alert('Copied!'); }
+    catch { /* ignore */ }
+  };
+
+  function tickTTL() {
+    const int = setInterval(() => {
+      if (!expiresAt) { clearInterval(int); return; }
+      const left = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
+      $('#ttl').textContent = left ? `expires in ${left}s` : 'expired';
+      if (left === 0) { clearInterval(int); if (poller) clearInterval(poller); }
+    }, 1000);
+  }
+
+  async function loadInbox() {
+    if (!local) return;
+    try {
+      const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
+      if (!r.ok) {
+        $('#messages').innerHTML = '<div class="muted">Inbox expired</div>';
+        clearInterval(poller);
+        return;
+      }
+      const j = await r.json();
+
+      const box = $('#messages'); box.innerHTML = '';
+      const list = j.messages || [];
+      for (const m of list) {
+        const wrap = document.createElement('div');
+        wrap.className = 'card';
+        wrap.innerHTML = `
           <div><strong class="subject"></strong> <span class="muted from"></span></div>
           <div class="muted time"></div>
           <div class="msg preview"></div>
           <details>
             <summary>Open full message</summary>
-            <iframe class="html" sandbox="allow-same-origin" style="width:100%;height:300px;border:1px solid #e5e7eb;border-radius:8px"></iframe>
+            <iframe class="html" sandbox="allow-same-origin"
+                    style="width:100%;height:300px;border:1px solid #e5e7eb;border-radius:8px"></iframe>
             <pre class="plain"></pre>
           </details>
         `;
-            wrap.querySelector('.subject').textContent = m.subject;
-            wrap.querySelector('.from').textContent = ' — ' + m.from;
-            wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
-            wrap.querySelector('.preview').textContent = m.preview;
+        wrap.querySelector('.subject').textContent = m.subject || '(no subject)';
+        wrap.querySelector('.from').textContent = ' — ' + (m.from || '');
+        wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
+        wrap.querySelector('.preview').textContent = m.preview || '';
 
-            wrap.querySelector('details').addEventListener('toggle', async ev=>{
-                if(!ev.target.open) return;
-                const rr = await fetch(`/message/${m.id}`);
-                const full = await rr.json();
-                const iframe = wrap.querySelector('.html');
-                if(full.body_html){
-                    const blob = new Blob([full.body_html], {type:'text/html'});
-                    iframe.src = URL.createObjectURL(blob);
-                }
-                wrap.querySelector('.plain').textContent = full.body_plain || '';
-            }, {once:true});
+        wrap.querySelector('details').addEventListener('toggle', async ev => {
+          if (!ev.target.open) return;
+          try {
+            const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
+            const full = await rr.json();
+            const iframe = wrap.querySelector('.html');
+            if (full.body_html) {
+              const blob = new Blob([full.body_html], { type: 'text/html' });
+              iframe.src = URL.createObjectURL(blob);
+            }
+            wrap.querySelector('.plain').textContent = full.body_plain || '';
+          } catch (e) {
+            console.error(e);
+            alert('Failed to load full message.');
+          }
+        }, { once: true });
 
-            box.appendChild(wrap);
-        }
-        if((j.messages||[]).length===0) box.innerHTML = '<div class="muted">No messages yet…</div>';
+        box.appendChild(wrap);
+      }
+      if (list.length === 0) box.innerHTML = '<div class="muted">No messages yet…</div>';
+    } catch (e) {
+      console.error(e);
+      setStatus(`Inbox error: ${e.message}`, true);
     }
+  }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
