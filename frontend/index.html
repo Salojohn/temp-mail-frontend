@@ -9,8 +9,8 @@
   <link rel="canonical" href="https://temp-mail.gr/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-  <!-- Keywords (not critical for Google, αλλά χρήσιμο για άλλα engines) -->
-  <meta name="keywords" content="temporary email, temp mail, disposable email, προσωρινό email, email μιας χρήσης, temp-mail gr, spam protection, burn email, ανώνυμο email" />
+  <!-- Optional helper so Google αναγνωρίζει γρήγορα το account -->
+  <meta name="google-adsense-account" content="ca-pub-3474217278034836">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Temp mail με 1 κλικ — ασφαλές & γρήγορο." />
   <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
 
-  <!-- Favicons (προσαρμόσ’ τα στα δικά σου assets) -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -40,29 +40,21 @@
   <!-- Color scheme -->
   <meta name="color-scheme" content="light dark" />
 
-  <!-- Google AdSense (όπως ζήτησες) -->
+  <!-- Google AdSense (load ONCE globally) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
 
   <style>
     :root{
-      --bg: #0b0f1a;
-      --fg: #e5e7eb;
-      --muted:#94a3b8;
-      --card:#0f172a;
-      --border:#1f2937;
-      --brand:#8b5cf6;
-      --brand-2:#06b6d4;
-      --success:#10b981;
-      --error:#ef4444;
+      --bg:#0b0f1a; --fg:#e5e7eb; --muted:#94a3b8;
+      --card:#0f172a; --border:#1f2937;
+      --brand:#8b5cf6; --brand-2:#06b6d4;
+      --success:#10b981; --error:#ef4444;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 16px;
       color-scheme: light dark;
     }
     @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f8fafc; --fg:#0b1220; --muted:#475569;
-        --card:#ffffff; --border:#e5e7eb; --shadow: 0 10px 25px rgba(2,6,23,.08);
-      }
+      :root{ --bg:#f8fafc; --fg:#0b1220; --muted:#475569; --card:#fff; --border:#e5e7eb; --shadow:0 10px 25px rgba(2,6,23,.08); }
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -76,106 +68,54 @@
     .container{max-width:1100px;margin:0 auto;padding:28px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-    .brand .logo{
-      width:36px;height:36px; border-radius:12px;
-      background: linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), var(--shadow);
-    }
+    .brand .logo{ width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), var(--shadow); }
     .brand span{font-weight:700;letter-spacing:.2px}
     nav a{color:var(--muted);text-decoration:none;margin:0 10px}
     nav a:hover{color:var(--fg)}
-
-    .hero{
-      display:grid; gap:26px; grid-template-columns: 1.05fr .95fr; align-items:center;
-      padding:28px 0 8px;
-    }
-    .hero h1{font-size:clamp(28px,4.5vw,48px); line-height:1.05; margin:0}
+    .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 8px}
+    .hero h1{font-size:clamp(28px,4.5vw,48px);line-height:1.05;margin:0}
     .lead{font-size:clamp(16px,2vw,18px);color:var(--muted);max-width:58ch}
     .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);
-      padding:12px 16px; border-radius:14px; color:var(--fg); cursor:pointer; font-weight:600;
-      transition:.2s transform ease, .2s background ease, .2s border-color ease;
-      backdrop-filter: saturate(120%) blur(4px);
-      box-shadow: var(--shadow);
-    }
-    .btn:hover{transform:translateY(-1px); border-color:rgba(139,92,246,.6)}
-    .btn-primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      border-color: transparent;
-      color:white;
-      text-shadow: 0 1px 0 rgba(0,0,0,.15);
-    }
+    .btn{appearance:none;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);padding:12px 16px;border-radius:14px;color:var(--fg);cursor:pointer;font-weight:600;transition:.2s transform ease,.2s background ease,.2s border-color ease;backdrop-filter:saturate(120%) blur(4px);box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.6)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.15)}
     .stats{display:flex;gap:16px;flex-wrap:wrap}
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
-
-    .card{
-      border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.04), transparent);
-      border-radius: var(--radius); padding:18px; box-shadow: var(--shadow);
-    }
+    .card{border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.04), transparent);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:32px 0}
-    h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px}
-    .grid{display:grid; gap:14px}
-    @container (min-width: 800px){
-      .grid-cols-3{grid-template-columns: repeat(3, 1fr)}
-    }
+    h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
+    .grid{display:grid;gap:14px}
     @media (min-width: 900px){ .grid-cols-3{grid-template-columns: repeat(3, 1fr)} }
-
-    /* Inbox styles */
     .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
     #email strong{font-size:18px}
     .muted{color:var(--muted)}
     .error{color:var(--error)}
     .success{color:var(--success)}
     .msg{white-space:pre-wrap}
-    .message-card{border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0; background:rgba(255,255,255,.02)}
-    .skeleton{height:18px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.02), rgba(255,255,255,.06)); border-radius:8px; animation: pulse 1.2s infinite linear}
+    .message-card{border:1px solid var(--border);border-radius:12px;padding:12px;margin:10px 0;background:rgba(255,255,255,.02)}
+    .skeleton{height:18px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.02), rgba(255,255,255,.06));border-radius:8px;animation:pulse 1.2s infinite linear}
     @keyframes pulse{0%{background-position:0%}100%{background-position:100%}}
-
-    /* Ad blocks */
-    .ad-card{display:block; text-align:center}
+    .ad-card{display:block;text-align:center}
     .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-
-    /* Footer */
     footer{margin:40px 0 10px;color:var(--muted);font-size:14px;text-align:center}
-
-    /* Accessibility focus styles */
-    :focus{outline: 2px solid color-mix(in oklab, var(--brand), white 25%); outline-offset: 2px}
-
-    /* Motion-safe */
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important; transition:none!important}
-    }
+    :focus{outline:2px solid color-mix(in oklab, var(--brand), white 25%); outline-offset:2px}
+    @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
   </style>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebApplication",
-    "name":"Temporary Email GR",
-    "url":"https://temp-mail.gr/",
-    "applicationCategory":"UtilitiesApplication",
-    "operatingSystem":"Any",
-    "description":"Δημιούργησε προσωρινό email (temp mail) με 1 κλικ. Προστασία από spam χωρίς εγγραφή.",
-    "inLanguage":"el-GR",
-    "creator":{"@type":"Organization","name":"Temporary Email GR"}
-  }
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Temporary Email GR","url":"https://temp-mail.gr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Δημιούργησε προσωρινό email (temp mail) με 1 κλικ. Προστασία από spam χωρίς εγγραφή.","inLanguage":"el-GR","creator":{"@type":"Organization","name":"Temporary Email GR"}}
   </script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Τι είναι το temporary email;","acceptedAnswer":{"@type":"Answer","text":"Είναι μια διεύθυνση email μιας χρήσης για γρήγορες εγγραφές και δοκιμές, χωρίς να εκθέτεις το πραγματικό σου inbox."}},
-      {"@type":"Question","name":"Πόσο διαρκεί;","acceptedAnswer":{"@type":"Answer","text":"Η διεύθυνση λήγει αυτόματα μετά από λίγα λεπτά. Μπορείς να δημιουργήσεις ξανά νέα όποτε θέλεις."}},
-      {"@type":"Question","name":"Είναι δωρεάν;","acceptedAnswer":{"@type":"Answer","text":"Ναι, η δημιουργία προσωρινών emails είναι δωρεάν."}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Τι είναι το temporary email;","acceptedAnswer":{"@type":"Answer","text":"Είναι μια διεύθυνση email μιας χρήσης για γρήγορες εγγραφές και δοκιμές, χωρίς να εκθέτεις το πραγματικό σου inbox."}},
+    {"@type":"Question","name":"Πόσο διαρκεί;","acceptedAnswer":{"@type":"Answer","text":"Η διεύθυνση λήγει αυτόματα μετά από λίγα λεπτά. Μπορείς να δημιουργήσεις ξανά νέα όποτε θέλεις."}},
+    {"@type":"Question","name":"Είναι δωρεάν;","acceptedAnswer":{"@type":"Answer","text":"Ναι, η δημιουργία προσωρινών emails είναι δωρεάν."}}
+  ]}
   </script>
 </head>
 <body>
-  <!-- Simple GDPR/Consent banner for Ads (minimal placeholder) -->
+  <!-- Simple GDPR/Consent banner (UI μόνο) -->
   <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:9999;display:none">
     <div class="container">
       <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
@@ -228,14 +168,14 @@
       </div>
     </section>
 
-    <!-- AdSense block (responsive) -->
+    <!-- TOP: High-viewability Display -->
     <section class="section">
       <div class="card ad-card" aria-label="Διαφήμιση">
         <div class="ad-label">Διαφήμιση</div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-3474217278034836"
-             data-ad-slot="YOUR_AD_SLOT_ID_TOP"
+             data-ad-slot="PUT_TOP_DISPLAY_SLOT_ID"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -269,48 +209,15 @@
       </div>
     </section>
 
-    <!-- Another Ad block for better layout + revenue -->
+    <!-- BOTTOM: Multiplex (best CTR/RPM on utility) -->
     <section class="section">
       <div class="card ad-card" aria-label="Διαφήμιση">
         <div class="ad-label">Διαφήμιση</div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-3474217278034836"
-             data-ad-slot="YOUR_AD_SLOT_ID_MID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <h2>Συχνές Ερωτήσεις</h2>
-      <div class="grid">
-        <details class="card">
-          <summary><strong>Τι είναι το temporary/disposable email;</strong></summary>
-          <p class="muted">Email μιας χρήσης για γρήγορες εγγραφές, προσβάσιμο άμεσα, χωρίς στοιχεία.</p>
-        </details>
-        <details class="card">
-          <summary><strong>Πόσο διαρκεί;</strong></summary>
-          <p class="muted">Λήγει αυτόματα σε λίγα λεπτά. Θα βλέπεις μετρητή αντίστροφης μέτρησης στο UI.</p>
-        </details>
-        <details class="card">
-          <summary><strong>Είναι ασφαλές;</strong></summary>
-          <p class="muted">Τα HTML emails ανοίγουν σε sandboxed iframe, ενώ υπάρχει επιλογή για plain text.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- Bottom Ad -->
-    <section class="section">
-      <div class="card ad-card" aria-label="Διαφήμιση">
-        <div class="ad-label">Διαφήμιση</div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3474217278034836"
-             data-ad-slot="YOUR_AD_SLOT_ID_BOTTOM"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             data-ad-slot="7791165611"
+             data-ad-format="autorelaxed"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
     </section>
@@ -325,14 +232,12 @@
 
 <script>
   // ---------- API base URL ----------
-  // Live στο temp-mail.gr -> api.temp-mail.gr, αλλιώς Render για δοκιμές.
   const API = location.hostname.endsWith('temp-mail.gr')
     ? 'https://api.temp-mail.gr'
     : 'https://temp-mail-api-2.onrender.com';
 
   const $ = (s, e=document) => e.querySelector(s);
   let local = null, expiresAt = null, poller = null;
-
   const statusEl = $('#status');
 
   function setStatus(t, type='muted'){
@@ -340,7 +245,7 @@
     statusEl.className = type === 'error' ? 'error' : (type==='success'?'success':'muted');
   }
 
-  // Consent banner
+  // Consent banner (UI)
   (function consentInit(){
     const key = 'consent-choice-v1';
     const saved = localStorage.getItem(key);
