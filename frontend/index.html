@@ -4,13 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Temporary Email (Temp-Mail) Ελλάδα | Προσωρινό Email μιας Χρήσης • Temp-Mail.gr</title>
+  <title>Temp Mail Ελλάδα | Προσωρινό Email (Disposable) χωρίς spam • Temp-Mail.gr</title>
   <meta name="description" content="Δημιούργησε προσωρινό email (temp mail) άμεσα για ασφαλείς εγγραφές χωρίς spam. Δωρεάν, ανώνυμο, γρήγορο. Disposable email για δοκιμές & προσφορές." />
   <link rel="canonical" href="https://temp-mail.gr/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="google-adsense-account" content="ca-pub-3474217278034836">
 
-  <!-- Performance preconnects -->
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
@@ -31,81 +34,96 @@
   <meta name="twitter:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
   <meta name="twitter:description" content="Disposable email με 1 κλικ — ασφαλές & γρήγορο." />
   <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
-
-  <!-- Color scheme -->
   <meta name="color-scheme" content="light dark" />
 
   <!-- Google AdSense (load ONCE) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
 
-  <!-- Styles -->
   <style>
+    /* ====== THEME (inspired από το reference) ====== */
     :root{
-      --bg:#060a12; --bg-2:#0b1220;
-      --fg:#e9eef7; --muted:#9aa4b2;
-      --card:rgba(255,255,255,.05); --card-2:rgba(255,255,255,.035);
-      --border:rgba(255,255,255,.09);
-      --brand:#7c5cff; --brand-2:#00d0ff; --accent:#12d18e;
-      --err:#ff6b6b;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
+      /* Neutral scale */
+      --neutral-900:#020202; --neutral-800:#151518; --neutral-600:#4F4F59;
+      --neutral-500:#676774; --neutral-400:#9B9BA6; --neutral-300:#BCBCBC;
+      --neutral-200:#ECECEE; --neutral-100:#FFFFFF;
+
+      /* Accents */
+      --blue-400:#086CD9; --blue-300:#1D88FE; --blue-200:#8FC3FF; --blue-100:#EAF4FF;
+      --green-400:#11845B; --green-300:#05C168; --green-200:#7FDCA4; --green-100:#DEF2E6;
+      --red-400:#DC2B2B; --red-300:#FF5A65; --red-200:#FFBEC2; --red-100:#FFEFF0;
+
+      /* App tokens */
+      --bg: var(--neutral-900);
+      --bg-2:#0C0D10;
+      --fg: var(--neutral-100);
+      --muted: var(--neutral-400);
+      --border: rgba(255,255,255,.10);
+      --card: rgba(255,255,255,.04);
+      --card-2: rgba(255,255,255,.03);
+
+      --brand: var(--blue-300);
+      --brand-2: var(--blue-400);
+      --ok: var(--green-300);
+      --err: var(--red-300);
+
       --radius:18px; --radius-sm:14px;
-      --ring: 0 0 0 2px color-mix(in oklab, var(--brand), white 25%);
+      --shadow:0 18px 48px rgba(0,0,0,.35);
+      --ring:0 0 0 2px color-mix(in oklab, var(--brand), white 25%);
     }
     @media (prefers-color-scheme: light){
       :root{
         --bg:#f7f9fc; --bg-2:#ffffff; --fg:#0b1220; --muted:#566072;
-        --card:#ffffff; --card-2:#ffffff;
-        --border:#e6eaf0; --shadow:0 16px 40px rgba(2,6,23,.08);
+        --border:#E7E8EC; --card:#ffffff; --card-2:#ffffff; --shadow:0 16px 40px rgba(2,6,23,.08);
       }
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; color:var(--fg);
-      font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0; color:var(--fg); font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(900px 520px at 8% -10%, rgba(124,92,255,.20), transparent 55%),
-        radial-gradient(900px 520px at 108% 8%, rgba(0,208,255,.18), transparent 55%),
+        radial-gradient(900px 520px at 8% -12%, rgba(29,136,254,.18), transparent 55%),
+        radial-gradient(900px 520px at 108% 0%, rgba(8,108,217,.20), transparent 55%),
         linear-gradient(180deg, var(--bg), var(--bg-2));
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:1180px;margin:0 auto;padding:22px}
     .visually-hidden{position:absolute;left:-9999px}
 
-    /* Header */
+    /* ====== HEADER ====== */
     header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(8px);
-      background:linear-gradient(180deg, rgba(6,10,18,.65), rgba(6,10,18,.25));
+      backdrop-filter:saturate(170%) blur(10px);
+      background:linear-gradient(180deg, rgba(12,13,16,.65), rgba(12,13,16,.20));
       border-bottom:1px solid var(--border);
     }
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo-wrap{
       width:40px;height:40px;border-radius:12px;border:1px solid color-mix(in oklab, var(--brand), white 35%);
-      background:radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.3), transparent 40%), linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.25), var(--shadow);
+      background:radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.25), transparent 40%), linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.22), var(--shadow);
       display:grid;place-items:center;overflow:hidden;
     }
     .logo-wrap svg{display:block}
-    .wordmark{font-weight:900;letter-spacing:.2px}
+    .wordmark{font-weight:800;letter-spacing:.2px}
     nav a{color:var(--muted);margin:0 10px;font-weight:700}
     nav a:hover{color:var(--fg)}
 
-    /* Hero */
+    /* ====== HERO ====== */
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
     .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-weight:800;background:var(--card-2);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
     h1{font-size:clamp(28px,4.8vw,58px);line-height:1.05;margin:10px 0 6px}
     .lead{font-size:clamp(16px,2.1vw,18px);color:var(--muted);max-width:62ch}
     .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
     .btn{appearance:none;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);padding:12px 16px;border-radius:14px;color:var(--fg);cursor:pointer;font-weight:800;letter-spacing:.2px;transition:.2s transform ease,.2s background ease,.2s border-color ease, box-shadow .2s ease;backdrop-filter:saturate(120%) blur(4px);box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-1px);border-color:rgba(124,92,255,.65)}
+    .btn:hover{transform:translateY(-1px);border-color:rgba(29,136,254,.6)}
     .btn:focus-visible{box-shadow:var(--ring)}
     .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.15)}
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
     .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
-    /* Cards / sections */
+    /* ====== SECTIONS / CARDS ====== */
     .card{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:34px 0}
     h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
@@ -114,25 +132,18 @@
     .message-card{border:1px solid var(--border);border-radius:14px;padding:12px;margin:10px 0;background:var(--card-2);transition:transform .2s ease}
     .message-card:hover{transform:translateY(-1px)}
     .muted{color:var(--muted)}
-    .ok{color:var(--accent)}
+    .ok{color:var(--ok)}
     .err{color:var(--err)}
-    .skeleton{height:18px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.02), rgba(255,255,255,.06));border-radius:8px;animation:pulse 1.2s infinite linear}
-    @keyframes pulse{0%{background-position:0%}100%{background-position:100%}}
-
-    /* Ad blocks */
     .ad-card{text-align:center}
     .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
 
-    /* Footer */
-    footer{margin:44px 0 12px;color:var(--muted);font-size:14px;text-align:center}
-
-    /* Reveal animations */
-    .reveal{opacity:0;transform:translateY(8px);will-change:transform,opacity}
+    /* ====== ANIMATIONS ====== */
+    .reveal{opacity:0;transform:translateY(10px);will-change:transform,opacity}
     .reveal.show{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1)}
     .float{animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    /* Mobile */
+    /* ====== MOBILE ====== */
     @media (max-width: 860px){
       .hero{grid-template-columns:1fr}
       nav a{margin:0 6px}
@@ -161,7 +172,7 @@
 <body>
   <a class="visually-hidden" href="#main">Μετάβαση στο περιεχόμενο</a>
 
-  <!-- Consent banner (UI μόνο – μπορείς αργότερα να συνδέσεις CMP/Consent Mode v2) -->
+  <!-- Consent banner (UI – συνέδεσέ το με CMP/Consent Mode v2 όταν θες) -->
   <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:60;display:none">
     <div class="container reveal">
       <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
