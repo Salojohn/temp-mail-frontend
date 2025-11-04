@@ -53,7 +53,7 @@
   // ---------- API base URL ----------
   // Στο live domain (temp-mail.gr) μιλάμε στο api.temp-mail.gr
   // Αλλιώς, χρησιμοποιούμε το Render URL του API για δοκιμές.
-  const API = 'https://temp-mail-api-2.onrender.com';
+  const API = location.hostname.endsWith('temp-mail.gr')
   ? 'https://api.temp-mail.gr'
   : 'https://temp-mail-api-2.onrender.com';
 
@@ -166,6 +166,7 @@
 </script>
 </body>
 </html>
+
 
 
 
