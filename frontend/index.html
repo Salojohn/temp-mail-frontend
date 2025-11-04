@@ -1,67 +1,382 @@
 <!doctype html>
-<html lang="en">
+<html lang="el" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Temporary Emails</title>
+
+  <title>Temporary Email (Temp-Mail) Ελλάδα | Μιας Χρήσης Διευθύνσεις για Ασφαλή Εγγραφή</title>
+  <meta name="description" content="Δημιούργησε προσωρινό email (temp mail) με 1 κλικ. Προστάτεψε το πραγματικό σου inbox από spam & διαρροές. Δωρεάν, γρήγορο, ασφαλές, χωρίς εγγραφή." />
+  <link rel="canonical" href="https://temp-mail.gr/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+  <!-- Keywords (not critical for Google, αλλά χρήσιμο για άλλα engines) -->
+  <meta name="keywords" content="temporary email, temp mail, disposable email, προσωρινό email, email μιας χρήσης, temp-mail gr, spam protection, burn email, ανώνυμο email" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Temporary Email GR" />
+  <meta property="og:title" content="Temporary Email (Temp-Mail) Ελλάδα" />
+  <meta property="og:description" content="Φτιάξε temp mail σε δευτερόλεπτα. Ιδανικό για γρήγορες εγγραφές, δοκιμές και προστασία από spam." />
+  <meta property="og:url" content="https://temp-mail.gr/" />
+  <meta property="og:image" content="https://temp-mail.gr/og-cover.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Temporary Email (Temp-Mail) Ελλάδα" />
+  <meta name="twitter:description" content="Temp mail με 1 κλικ — ασφαλές & γρήγορο." />
+  <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
+
+  <!-- Favicons (προσαρμόσ’ τα στα δικά σου assets) -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
+
+  <!-- Color scheme -->
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Google AdSense (όπως ζήτησες) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
+
   <style>
-    :root{color-scheme:light dark}
-    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px}
-    h1{font-size:28px;margin:0 0 16px}
-    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px}
+    :root{
+      --bg: #0b0f1a;
+      --fg: #e5e7eb;
+      --muted:#94a3b8;
+      --card:#0f172a;
+      --border:#1f2937;
+      --brand:#8b5cf6;
+      --brand-2:#06b6d4;
+      --success:#10b981;
+      --error:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc; --fg:#0b1220; --muted:#475569;
+        --card:#ffffff; --border:#e5e7eb; --shadow: 0 10px 25px rgba(2,6,23,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
+                  radial-gradient(1000px 600px at 110% 20%, rgba(6,182,212,.18), transparent 55%),
+                  var(--bg);
+      color:var(--fg);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .brand .logo{
+      width:36px;height:36px; border-radius:12px;
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), var(--shadow);
+    }
+    .brand span{font-weight:700;letter-spacing:.2px}
+    nav a{color:var(--muted);text-decoration:none;margin:0 10px}
+    nav a:hover{color:var(--fg)}
+
+    .hero{
+      display:grid; gap:26px; grid-template-columns: 1.05fr .95fr; align-items:center;
+      padding:28px 0 8px;
+    }
+    .hero h1{font-size:clamp(28px,4.5vw,48px); line-height:1.05; margin:0}
+    .lead{font-size:clamp(16px,2vw,18px);color:var(--muted);max-width:58ch}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+      padding:12px 16px; border-radius:14px; color:var(--fg); cursor:pointer; font-weight:600;
+      transition:.2s transform ease, .2s background ease, .2s border-color ease;
+      backdrop-filter: saturate(120%) blur(4px);
+      box-shadow: var(--shadow);
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(139,92,246,.6)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-color: transparent;
+      color:white;
+      text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    }
+    .stats{display:flex;gap:16px;flex-wrap:wrap}
+    .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
+
+    .card{
+      border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.04), transparent);
+      border-radius: var(--radius); padding:18px; box-shadow: var(--shadow);
+    }
+    .section{margin:32px 0}
+    h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px}
+    .grid{display:grid; gap:14px}
+    @container (min-width: 800px){
+      .grid-cols-3{grid-template-columns: repeat(3, 1fr)}
+    }
+    @media (min-width: 900px){ .grid-cols-3{grid-template-columns: repeat(3, 1fr)} }
+
+    /* Inbox styles */
     .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-    button{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db;background:#f9fafb;cursor:pointer}
-    button:hover{background:#eef2ff}
-    .muted{color:#6b7280}
+    #email strong{font-size:18px}
+    .muted{color:var(--muted)}
+    .error{color:var(--error)}
+    .success{color:var(--success)}
     .msg{white-space:pre-wrap}
-    .error{color:#b91c1c}
+    .message-card{border:1px solid var(--border); border-radius:12px; padding:12px; margin:10px 0; background:rgba(255,255,255,.02)}
+    .skeleton{height:18px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.02), rgba(255,255,255,.06)); border-radius:8px; animation: pulse 1.2s infinite linear}
+    @keyframes pulse{0%{background-position:0%}100%{background-position:100%}}
+
+    /* Ad blocks */
+    .ad-card{display:block; text-align:center}
+    .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+
+    /* Footer */
+    footer{margin:40px 0 10px;color:var(--muted);font-size:14px;text-align:center}
+
+    /* Accessibility focus styles */
+    :focus{outline: 2px solid color-mix(in oklab, var(--brand), white 25%); outline-offset: 2px}
+
+    /* Motion-safe */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important; transition:none!important}
+    }
   </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Temporary Email GR",
+    "url":"https://temp-mail.gr/",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"Δημιούργησε προσωρινό email (temp mail) με 1 κλικ. Προστασία από spam χωρίς εγγραφή.",
+    "inLanguage":"el-GR",
+    "creator":{"@type":"Organization","name":"Temporary Email GR"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Τι είναι το temporary email;","acceptedAnswer":{"@type":"Answer","text":"Είναι μια διεύθυνση email μιας χρήσης για γρήγορες εγγραφές και δοκιμές, χωρίς να εκθέτεις το πραγματικό σου inbox."}},
+      {"@type":"Question","name":"Πόσο διαρκεί;","acceptedAnswer":{"@type":"Answer","text":"Η διεύθυνση λήγει αυτόματα μετά από λίγα λεπτά. Μπορείς να δημιουργήσεις ξανά νέα όποτε θέλεις."}},
+      {"@type":"Question","name":"Είναι δωρεάν;","acceptedAnswer":{"@type":"Answer","text":"Ναι, η δημιουργία προσωρινών emails είναι δωρεάν."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<h1>Temporary Email</h1>
-
-<div class="card">
-  <div class="row">
-    <button id="create">Create address</button>
-    <div id="email" class="row"></div>
-    <span id="ttl" class="muted"></span>
+  <!-- Simple GDPR/Consent banner for Ads (minimal placeholder) -->
+  <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:9999;display:none">
+    <div class="container">
+      <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+        <div>
+          <strong>Χρησιμοποιούμε cookies</strong>
+          <div class="muted" style="max-width:60ch">Για την παροχή υπηρεσίας και για διαφημίσεις Google. Μπορείς να αλλάξεις επιλογές ανά πάσα στιγμή.</div>
+        </div>
+        <div class="row">
+          <button class="btn" id="reject-consent">Απόρριψη</button>
+          <button class="btn btn-primary" id="accept-consent">Αποδοχή</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div id="status" class="muted"></div>
-</div>
 
-<div class="card" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3474217278034836" data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+  <header class="container" role="banner">
+    <a class="brand" href="#top" aria-label="Temporary Email GR">
+      <span class="logo" aria-hidden="true"></span>
+      <span>Temporary Email <span class="muted">GR</span></span>
+    </a>
+    <nav aria-label="Κύρια πλοήγηση">
+      <a href="#features">Χαρακτηριστικά</a>
+      <a href="#inbox">Inbox</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
 
-<div class="card">
-  <h3>Inbox</h3>
-  <div id="messages"></div>
-</div>
+  <main id="top" class="container" role="main">
+    <section class="hero">
+      <div>
+        <h1>Temp Mail στην Ελλάδα — <br/> δημιουργία <em>προσωρινού email</em> με 1 κλικ</h1>
+        <p class="lead">Ανώνυμο &amp; ασφαλές email μιας χρήσης για εγγραφές, δοκιμές και προσφορές — χωρίς να γεμίζει το πραγματικό σου inbox με spam.</p>
+        <div class="cta" aria-live="polite">
+          <button id="create" class="btn btn-primary">Δημιούργησε διεύθυνση</button>
+          <div id="email" class="row" aria-label="Προσωρινή διεύθυνση"></div>
+          <span id="ttl" class="muted" aria-live="polite"></span>
+        </div>
+        <div id="status" class="muted" role="status" style="margin-top:8px"></div>
+        <div class="stats" style="margin-top:14px">
+          <span class="chip">⚡ Άμεση δημιουργία</span>
+          <span class="chip">🛡️ Προστασία από spam</span>
+          <span class="chip">🔒 Χωρίς εγγραφή</span>
+        </div>
+      </div>
+      <div class="card" aria-label="Demo κάρτα inbox" style="min-height:220px">
+        <div class="muted">Ζωντανό Inbox • updates κάθε 3s</div>
+        <div class="skeleton" style="width:70%;margin:8px 0"></div>
+        <div class="skeleton" style="width:90%;margin:8px 0"></div>
+        <div class="skeleton" style="width:50%;margin:8px 0"></div>
+      </div>
+    </section>
+
+    <!-- AdSense block (responsive) -->
+    <section class="section">
+      <div class="card ad-card" aria-label="Διαφήμιση">
+        <div class="ad-label">Διαφήμιση</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3474217278034836"
+             data-ad-slot="YOUR_AD_SLOT_ID_TOP"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Χαρακτηριστικά που ξεχωρίζουν</h2>
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <h3>Ασφάλεια &amp; Ιδιωτικότητα</h3>
+          <p class="muted">Κράτα μακριά το κύριο email σου από spam, trackers και ανεπιθύμητες λίστες.</p>
+        </div>
+        <div class="card">
+          <h3>Πραγματικός Χρόνος</h3>
+          <p class="muted">Αυτόματη λήψη μηνυμάτων — άνοιγμα HTML safely σε sandboxed iframe.</p>
+        </div>
+        <div class="card">
+          <h3>SEO • Performance</h3>
+          <p class="muted">Semantic markup, πλούσια snippets, γρήγορο load, mobile-first εμπειρία.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="inbox" class="section">
+      <h2>Inbox</h2>
+      <div class="card" aria-live="polite">
+        <div id="messages" aria-label="Λίστα μηνυμάτων">
+          <div class="muted">Δημιούργησε διεύθυνση για να εμφανιστούν τα μηνύματα…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Another Ad block for better layout + revenue -->
+    <section class="section">
+      <div class="card ad-card" aria-label="Διαφήμιση">
+        <div class="ad-label">Διαφήμιση</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3474217278034836"
+             data-ad-slot="YOUR_AD_SLOT_ID_MID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>Συχνές Ερωτήσεις</h2>
+      <div class="grid">
+        <details class="card">
+          <summary><strong>Τι είναι το temporary/disposable email;</strong></summary>
+          <p class="muted">Email μιας χρήσης για γρήγορες εγγραφές, προσβάσιμο άμεσα, χωρίς στοιχεία.</p>
+        </details>
+        <details class="card">
+          <summary><strong>Πόσο διαρκεί;</strong></summary>
+          <p class="muted">Λήγει αυτόματα σε λίγα λεπτά. Θα βλέπεις μετρητή αντίστροφης μέτρησης στο UI.</p>
+        </details>
+        <details class="card">
+          <summary><strong>Είναι ασφαλές;</strong></summary>
+          <p class="muted">Τα HTML emails ανοίγουν σε sandboxed iframe, ενώ υπάρχει επιλογή για plain text.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    <section class="section">
+      <div class="card ad-card" aria-label="Διαφήμιση">
+        <div class="ad-label">Διαφήμιση</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3474217278034836"
+             data-ad-slot="YOUR_AD_SLOT_ID_BOTTOM"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Temporary Email GR — temp mail / προσωρινό email στην Ελλάδα</p>
+      <p class="muted">Για εκπαιδευτική χρήση &amp; δοκιμές. Σεβάσου τους όρους των υπηρεσιών που χρησιμοποιείς.</p>
+    </div>
+  </footer>
 
 <script>
-  // ------------ API base ------------
-  // 1) Χρησιμοποίησε το Render URL για να δουλέψει άμεσα:
-  const API = 'https://temp-mail-api-2.onrender.com/api';
+  // ---------- API base URL ----------
+  // Live στο temp-mail.gr -> api.temp-mail.gr, αλλιώς Render για δοκιμές.
+  const API = location.hostname.endsWith('temp-mail.gr')
+    ? 'https://api.temp-mail.gr'
+    : 'https://temp-mail-api-2.onrender.com';
 
-  // 2) Όταν βεβαιωθείς ότι το api.temp-mail.gr έχει CNAME & "Certificate Issued",
-  //    άλλαξε εδώ:
-  // const API = 'https://api.temp-mail.gr';
-
-  const $ = (s, e = document) => e.querySelector(s);
+  const $ = (s, e=document) => e.querySelector(s);
   let local = null, expiresAt = null, poller = null;
 
-  const setStatus = (t, isErr = false) => {
-    const el = $('#status');
-    el.textContent = t || '';
-    el.className = isErr ? 'error' : 'muted';
+  const statusEl = $('#status');
+
+  function setStatus(t, type='muted'){
+    statusEl.textContent = t || '';
+    statusEl.className = type === 'error' ? 'error' : (type==='success'?'success':'muted');
+  }
+
+  // Consent banner
+  (function consentInit(){
+    const key = 'consent-choice-v1';
+    const saved = localStorage.getItem(key);
+    if(!saved) $('#consent').style.display = 'block';
+    $('#accept-consent').onclick = () => { localStorage.setItem(key,'accepted'); $('#consent').style.display='none'; };
+    $('#reject-consent').onclick = () => { localStorage.setItem(key,'rejected'); $('#consent').style.display='none'; };
+  })();
+
+  // Footer year
+  $('#year').textContent = new Date().getFullYear();
+
+  // Copy helper
+  window.copyText = async (t) => {
+    try { await navigator.clipboard.writeText(t); toast('Αντιγράφηκε!'); }
+    catch { /* ignore */ }
   };
 
+  // Tiny toast
+  function toast(msg){
+    const t = document.createElement('div');
+    t.textContent = msg;
+    t.setAttribute('role','status');
+    Object.assign(t.style,{
+      position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',
+      padding:'10px 14px',borderRadius:'12px',background:'rgba(0,0,0,.75)',
+      color:'#fff',boxShadow:'0 6px 24px rgba(0,0,0,.35)', zIndex:9999
+    });
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(),1600);
+  }
+
+  // Create address
   $('#create').onclick = async () => {
     try {
-      setStatus('Creating address…');
-      const r = await fetch(`${API}/api/create`, { method: 'POST' });
+      setStatus('Δημιουργία διεύθυνσης…');
+      const r = await fetch(`${API}/create`, { method:'POST' });
       if (!r.ok) throw new Error(`Create failed (${r.status})`);
       const j = await r.json();
 
@@ -69,63 +384,63 @@
       expiresAt = Date.now() + (j.expires_in * 1000);
 
       $('#email').innerHTML =
-        `<strong>${j.email}</strong> <button onclick="copyText('${j.email}')">Copy</button>`;
+        `<strong>${j.email}</strong> <button class="btn" onclick="copyText('${j.email}')">Copy</button>`;
 
       tickTTL();
       if (poller) clearInterval(poller);
       poller = setInterval(loadInbox, 3000);
       await loadInbox();
 
-      setStatus('Address ready.');
+      setStatus('Η διεύθυνση είναι έτοιμη.', 'success');
     } catch (e) {
       console.error(e);
-      setStatus(`Error: ${e.message}`, true);
+      setStatus(`Σφάλμα: ${e.message}`, 'error');
       alert(`API error (create): ${e.message}`);
     }
   };
 
-  window.copyText = async (t) => {
-    try { await navigator.clipboard.writeText(t); alert('Copied!'); }
-    catch { /* ignore */ }
-  };
-
-  function tickTTL() {
+  function tickTTL(){
     const int = setInterval(() => {
       if (!expiresAt) { clearInterval(int); return; }
       const left = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
-      $('#ttl').textContent = left ? `expires in ${left}s` : 'expired';
+      $('#ttl').textContent = left ? `λήγει σε ${left}s` : 'έληξε';
       if (left === 0) { clearInterval(int); if (poller) clearInterval(poller); }
     }, 1000);
   }
 
-  async function loadInbox() {
+  async function loadInbox(){
     if (!local) return;
     try {
-      const r = await fetch(`${API}/api/inbox/${encodeURIComponent(local)}`);
+      const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
+      const box = $('#messages'); box.innerHTML = '';
       if (!r.ok) {
-        $('#messages').innerHTML = '<div class="muted">Inbox expired</div>';
+        box.innerHTML = '<div class="muted">Το inbox έληξε. Δημιούργησε νέα διεύθυνση.</div>';
         clearInterval(poller);
         return;
       }
       const j = await r.json();
-
-      const box = $('#messages'); box.innerHTML = '';
       const list = j.messages || [];
-      for (const m of list) {
-        const wrap = document.createElement('div');
-        wrap.className = 'card';
+
+      if (list.length === 0){
+        box.innerHTML = '<div class="muted">Δεν υπάρχουν μηνύματα ακόμη…</div>';
+        return;
+      }
+
+      for (const m of list){
+        const wrap = document.createElement('article');
+        wrap.className = 'message-card';
         wrap.innerHTML = `
           <div><strong class="subject"></strong> <span class="muted from"></span></div>
           <div class="muted time"></div>
           <div class="msg preview"></div>
           <details>
-            <summary>Open full message</summary>
-            <iframe class="html" sandbox="allow-same-origin"
-                    style="width:100%;height:300px;border:1px solid #e5e7eb;border-radius:8px"></iframe>
-            <pre class="plain"></pre>
+            <summary>Άνοιγμα πλήρους μηνύματος</summary>
+            <iframe class="html" title="HTML περιεχόμενο μηνύματος" sandbox="allow-same-origin"
+                    style="width:100%;height:320px;border:1px solid var(--border);border-radius:10px"></iframe>
+            <pre class="plain" style="overflow:auto"></pre>
           </details>
         `;
-        wrap.querySelector('.subject').textContent = m.subject || '(no subject)';
+        wrap.querySelector('.subject').textContent = m.subject || '(Χωρίς θέμα)';
         wrap.querySelector('.from').textContent = ' — ' + (m.from || '');
         wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
         wrap.querySelector('.preview').textContent = m.preview || '';
@@ -133,29 +448,27 @@
         wrap.querySelector('details').addEventListener('toggle', async ev => {
           if (!ev.target.open) return;
           try {
-            const rr = await fetch(`${API}/api/message/${encodeURIComponent(m.id)}`);
+            const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
             const full = await rr.json();
             const iframe = wrap.querySelector('.html');
             if (full.body_html) {
-              const blob = new Blob([full.body_html], { type: 'text/html' });
+              const blob = new Blob([full.body_html], { type:'text/html' });
               iframe.src = URL.createObjectURL(blob);
             }
             wrap.querySelector('.plain').textContent = full.body_plain || '';
           } catch (e) {
             console.error(e);
-            alert('Failed to load full message.');
+            alert('Αποτυχία φόρτωσης πλήρους μηνύματος.');
           }
-        }, { once: true });
+        }, { once:true });
 
         box.appendChild(wrap);
       }
-      if (list.length === 0) box.innerHTML = '<div class="muted">No messages yet…</div>';
     } catch (e) {
       console.error(e);
-      setStatus(`Inbox error: ${e.message}`, true);
+      setStatus(`Σφάλμα inbox: ${e.message}`, 'error');
     }
   }
 </script>
 </body>
 </html>
-
