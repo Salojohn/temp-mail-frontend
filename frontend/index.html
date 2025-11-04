@@ -4,10 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Temporary Emails</title>
-
-  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
-
   <style>
     :root{color-scheme:light dark}
     body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px}
@@ -33,14 +30,8 @@
   <div id="status" class="muted"></div>
 </div>
 
-<!-- AdSense block (responsive) -->
 <div class="card" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3474217278034836"
-       data-ad-slot="YOUR_AD_SLOT_ID"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3474217278034836" data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
@@ -50,12 +41,13 @@
 </div>
 
 <script>
-  // ---------- API base URL ----------
-  // Στο live domain (temp-mail.gr) μιλάμε στο api.temp-mail.gr
-  // Αλλιώς, χρησιμοποιούμε το Render URL του API για δοκιμές.
-  const API = location.hostname.endsWith('temp-mail.gr')
-  ? 'https://api.temp-mail.gr'
-  : 'https://temp-mail-api-2.onrender.com';
+  // ------------ API base ------------
+  // 1) Χρησιμοποίησε το Render URL για να δουλέψει άμεσα:
+  const API = 'https://temp-mail-api-2.onrender.com';
+
+  // 2) Όταν βεβαιωθείς ότι το api.temp-mail.gr έχει CNAME & "Certificate Issued",
+  //    άλλαξε εδώ:
+  // const API = 'https://api.temp-mail.gr';
 
   const $ = (s, e = document) => e.querySelector(s);
   let local = null, expiresAt = null, poller = null;
@@ -69,7 +61,7 @@
   $('#create').onclick = async () => {
     try {
       setStatus('Creating address…');
-      const r = await fetch(`${API}/create`, { method: 'POST' });
+      const r = await fetch(`${API}/api/create`, { method: 'POST' });
       if (!r.ok) throw new Error(`Create failed (${r.status})`);
       const j = await r.json();
 
@@ -109,7 +101,7 @@
   async function loadInbox() {
     if (!local) return;
     try {
-      const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
+      const r = await fetch(`${API}/api/inbox/${encodeURIComponent(local)}`);
       if (!r.ok) {
         $('#messages').innerHTML = '<div class="muted">Inbox expired</div>';
         clearInterval(poller);
@@ -141,7 +133,7 @@
         wrap.querySelector('details').addEventListener('toggle', async ev => {
           if (!ev.target.open) return;
           try {
-            const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
+            const rr = await fetch(`${API}/api/message/${encodeURIComponent(m.id)}`);
             const full = await rr.json();
             const iframe = wrap.querySelector('.html');
             if (full.body_html) {
@@ -166,7 +158,3 @@
 </script>
 </body>
 </html>
-
-
-
-
