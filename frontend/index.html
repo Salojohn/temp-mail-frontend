@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Temp Mail Ελλάδα | Προσωρινό Email (Disposable) χωρίς spam • Temp-Mail.gr</title> 
+  <title>Temp Mail Ελλάδα | Προσωρινό Email χωρίς spam • Temp-Mail.gr</title>
   <meta name="description" content="Δημιούργησε προσωρινό email (temp mail) άμεσα για ασφαλείς εγγραφές χωρίς spam. Δωρεάν, ανώνυμο, γρήγορο. Disposable email για δοκιμές & προσφορές." />
   <link rel="canonical" href="https://temp-mail.gr/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -40,77 +40,80 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
 
   <style>
-    /* ====== THEME (inspired από το reference) ====== */
+    /* ===== THEME (intelliscope-style) ===== */
     :root{
-      /* Neutral scale */
-      --neutral-900:#020202; --neutral-800:#151518; --neutral-600:#4F4F59;
-      --neutral-500:#676774; --neutral-400:#9B9BA6; --neutral-300:#BCBCBC;
-      --neutral-200:#ECECEE; --neutral-100:#FFFFFF;
+      /* Neutrals */
+      --n-950:#0A0B0E; --n-900:#0D0F13; --n-850:#111319; --n-800:#151720;
+      --n-700:#1C1F2A; --n-600:#232736; --n-400:#8D92A3; --n-300:#B7BCCB; --n-100:#FFFFFF;
 
-      /* Accents */
-      --blue-400:#086CD9; --blue-300:#1D88FE; --blue-200:#8FC3FF; --blue-100:#EAF4FF;
-      --green-400:#11845B; --green-300:#05C168; --green-200:#7FDCA4; --green-100:#DEF2E6;
-      --red-400:#DC2B2B; --red-300:#FF5A65; --red-200:#FFBEC2; --red-100:#FFEFF0;
+      /* Blues (primary accent) */
+      --b-500:#0F60FF;
+      --b-400:#1D88FE;
+      --b-300:#4EA2FF;
+      --b-200:#9AC7FF;
+
+      /* Success / Error */
+      --ok:#05C168; --err:#FF5A65;
 
       /* App tokens */
-      --bg: var(--neutral-900);
-      --bg-2:#0C0D10;
-      --fg: var(--neutral-100);
-      --muted: var(--neutral-400);
-      --border: rgba(255,255,255,.10);
+      --bg: var(--n-950);
+      --bg-2: var(--n-900);
+      --fg: var(--n-100);
+      --muted: #A4A9BA;
+      --border: rgba(255,255,255,.08);
       --card: rgba(255,255,255,.04);
       --card-2: rgba(255,255,255,.03);
-
-      --brand: var(--blue-300);
-      --brand-2: var(--blue-400);
-      --ok: var(--green-300);
-      --err: var(--red-300);
+      --brand: var(--b-400);
+      --brand-2: var(--b-500);
 
       --radius:18px; --radius-sm:14px;
-      --shadow:0 18px 48px rgba(0,0,0,.35);
-      --ring:0 0 0 2px color-mix(in oklab, var(--brand), white 25%);
+      --shadow: 0 18px 48px rgba(0,0,0,.4);
+      --ring: 0 0 0 2px color-mix(in oklab, var(--brand), white 25%);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f7f9fc; --bg-2:#ffffff; --fg:#0b1220; --muted:#566072;
-        --border:#E7E8EC; --card:#ffffff; --card-2:#ffffff; --shadow:0 16px 40px rgba(2,6,23,.08);
+        --bg:#F6F8FC; --bg-2:#FFFFFF; --fg:#0B1220; --muted:#586173;
+        --border:#E7E8EC; --card:#FFFFFF; --card-2:#FFFFFF; --shadow:0 16px 40px rgba(2,6,23,.08);
       }
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; color:var(--fg); font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0; color:var(--fg);
+      font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      /* === IntelliScope-like background (works the same on mobile/desktop) === */
       background:
-        radial-gradient(900px 520px at 8% -12%, rgba(29,136,254,.18), transparent 55%),
-        radial-gradient(900px 520px at 108% 0%, rgba(8,108,217,.20), transparent 55%),
+        radial-gradient(1000px 600px at 15% -10%, rgba(29,136,254,.20), transparent 60%),
+        radial-gradient(900px 520px at 110% 0%, rgba(15,96,255,.18), transparent 55%),
         linear-gradient(180deg, var(--bg), var(--bg-2));
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:1180px;margin:0 auto;padding:22px}
     .visually-hidden{position:absolute;left:-9999px}
 
-    /* ====== HEADER ====== */
+    /* ===== HEADER ===== */
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter:saturate(170%) blur(10px);
-      background:linear-gradient(180deg, rgba(12,13,16,.65), rgba(12,13,16,.20));
+      background:linear-gradient(180deg, rgba(13,15,19,.70), rgba(13,15,19,.24));
       border-bottom:1px solid var(--border);
     }
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo-wrap{
-      width:40px;height:40px;border-radius:12px;border:1px solid color-mix(in oklab, var(--brand), white 35%);
-      background:radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.25), transparent 40%), linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.22), var(--shadow);
+      width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
+      background:
+        radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.22), transparent 40%),
+        linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), var(--shadow);
       display:grid;place-items:center;overflow:hidden;
     }
-    .logo-wrap svg{display:block}
     .wordmark{font-weight:800;letter-spacing:.2px}
     nav a{color:var(--muted);margin:0 10px;font-weight:700}
     nav a:hover{color:var(--fg)}
 
-    /* ====== HERO ====== */
+    /* ===== HERO ===== */
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
     .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-weight:800;background:var(--card-2);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
     h1{font-size:clamp(28px,4.8vw,58px);line-height:1.05;margin:10px 0 6px}
@@ -123,7 +126,7 @@
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
     .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
-    /* ====== SECTIONS / CARDS ====== */
+    /* ===== CARDS / SECTIONS ===== */
     .card{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:34px 0}
     h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
@@ -137,17 +140,23 @@
     .ad-card{text-align:center}
     .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
 
-    /* ====== ANIMATIONS ====== */
+    /* ===== ANIMATIONS ===== */
     .reveal{opacity:0;transform:translateY(10px);will-change:transform,opacity}
     .reveal.show{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1)}
     .float{animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    /* ====== MOBILE ====== */
+    /* ===== MOBILE ===== */
     @media (max-width: 860px){
       .hero{grid-template-columns:1fr}
       nav a{margin:0 6px}
       .container{padding:18px}
+      /* ίδιο background mood και σε mobile */
+      body{background:
+        radial-gradient(750px 440px at 20% -12%, rgba(29,136,254,.22), transparent 58%),
+        radial-gradient(650px 420px at 110% 0%, rgba(15,96,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      }
     }
 
     /* Reduced motion */
@@ -157,7 +166,7 @@
     }
   </style>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Temporary Email GR","url":"https://temp-mail.gr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Προσωρινό email (temp mail) για ασφαλείς εγγραφές χωρίς spam.","inLanguage":"el-GR","creator":{"@type":"Organization","name":"Temporary Email GR"}}
   </script>
@@ -465,4 +474,3 @@
   </script>
 </body>
 </html>
-
