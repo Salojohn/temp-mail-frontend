@@ -4,11 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Temp Mail | Προσωρινό Email χωρίς spam • Temp-Mail.gr</title> 
+  <title>Temp Mail Ελλάδα | Προσωρινό Email χωρίς spam • Temp-Mail.gr</title>
   <meta name="description" content="Δημιούργησε προσωρινό email (temp mail) άμεσα για ασφαλείς εγγραφές χωρίς spam. Δωρεάν, ανώνυμο, γρήγορο. Disposable email για δοκιμές & προσφορές." />
   <link rel="canonical" href="https://temp-mail.gr/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="google-adsense-account" content="ca-pub-3474217278034836">
+  <!-- iOS/Safari UI dark chrome -->
+  <meta name="theme-color" content="#0D0F13" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0D0F13">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -26,18 +29,24 @@
   <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Temporary Email GR" />
-  <meta property="og:title" content="Temp Mail — Προσωρινό Email" />
+  <meta property="og:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
   <meta property="og:description" content="Δημιούργησε disposable email σε δευτερόλεπτα. Προστασία από spam & διαρροές." />
   <meta property="og:url" content="https://temp-mail.gr/" />
   <meta property="og:image" content="https://temp-mail.gr/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Temp Mail — Προσωρινό Email" />
+  <meta name="twitter:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
   <meta name="twitter:description" content="Disposable email με 1 κλικ — ασφαλές & γρήγορο." />
   <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
-  <meta name="color-scheme" content="light dark" />
+  <!-- default dark; έχει και light fallback στα CSS -->
+  <meta name="color-scheme" content="dark light" />
 
   <!-- Google AdSense (load ONCE) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
+
+  <!-- Critical dark background to avoid white flash on iPhone -->
+  <style>
+    html,body{background:#0D0F13}
+  </style>
 
   <style>
     /* ===== THEME (intelliscope-style) ===== */
@@ -52,7 +61,7 @@
       --b-300:#4EA2FF;
       --b-200:#9AC7FF;
 
-      /* Success / Error */
+      /* States */
       --ok:#05C168; --err:#FF5A65;
 
       /* App tokens */
@@ -82,7 +91,8 @@
     body{
       margin:0; color:var(--fg);
       font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      /* === IntelliScope-like background (works the same on mobile/desktop) === */
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      /* === IntelliScope-like bg (identical mood mobile/desktop) === */
       background:
         radial-gradient(1000px 600px at 15% -10%, rgba(29,136,254,.20), transparent 60%),
         radial-gradient(900px 520px at 110% 0%, rgba(15,96,255,.18), transparent 55%),
@@ -94,7 +104,7 @@
 
     /* ===== HEADER ===== */
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:60;
       backdrop-filter:saturate(170%) blur(10px);
       background:linear-gradient(180deg, rgba(13,15,19,.70), rgba(13,15,19,.24));
       border-bottom:1px solid var(--border);
@@ -110,8 +120,41 @@
       display:grid;place-items:center;overflow:hidden;
     }
     .wordmark{font-weight:800;letter-spacing:.2px}
-    nav a{color:var(--muted);margin:0 10px;font-weight:700}
-    nav a:hover{color:var(--fg)}
+
+    /* Desktop nav */
+    nav.primary a{color:var(--muted);margin:0 10px;font-weight:700}
+    nav.primary a:hover{color:var(--fg)}
+
+    /* Mobile: hamburger + drawer */
+    .menu-toggle{
+      display:none; border:1px solid var(--border); background:var(--card-2);
+      padding:10px 12px; border-radius:12px; cursor:pointer;
+      transition:transform .2s ease, border-color .2s ease; color:var(--fg)
+    }
+    .menu-toggle:hover{transform:translateY(-1px); border-color: rgba(29,136,254,.5)}
+    .menu-toggle svg{display:block}
+
+    .scrim{
+      position:fixed; inset:0; background:rgba(2,6,23,.45); backdrop-filter: blur(2px);
+      opacity:0; pointer-events:none; transition:opacity .28s ease; z-index:58;
+    }
+    .scrim.show{opacity:1; pointer-events:auto}
+
+    .drawer{
+      position:fixed; top:0; right:0; height:100dvh; width:min(86vw,380px);
+      background:linear-gradient(180deg, rgba(18,21,31,.92), rgba(18,21,31,.88));
+      border-left:1px solid var(--border);
+      box-shadow: -20px 0 60px rgba(0,0,0,.45);
+      transform:translateX(100%); transition: transform .32s cubic-bezier(.2,.7,.3,1);
+      z-index:59; display:flex; flex-direction:column; padding:18px;
+    }
+    .drawer.show{ transform:translateX(0) }
+    .drawer a{padding:14px 10px; border-radius:12px; color:var(--fg); font-weight:700}
+    .drawer a:hover{ background:var(--card); }
+    .drawer .close{
+      align-self:flex-end; border:1px solid var(--border); background:var(--card-2);
+      border-radius:10px; padding:8px 10px; cursor:pointer; color:var(--fg)
+    }
 
     /* ===== HERO ===== */
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
@@ -147,11 +190,13 @@
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
     /* ===== MOBILE ===== */
-    @media (max-width: 860px){
+    @media (max-width: 960px){
+      /* show hamburger, hide desktop nav */
+      nav.primary{display:none}
+      .menu-toggle{display:inline-flex;align-items:center;gap:8px}
       .hero{grid-template-columns:1fr}
-      nav a{margin:0 6px}
       .container{padding:18px}
-      /* ίδιο background mood και σε mobile */
+      /* ίδιο mood και σε mobile (λίγο μικρότερα glows) */
       body{background:
         radial-gradient(750px 440px at 20% -12%, rgba(29,136,254,.22), transparent 58%),
         radial-gradient(650px 420px at 110% 0%, rgba(15,96,255,.18), transparent 55%),
@@ -182,7 +227,7 @@
   <a class="visually-hidden" href="#main">Μετάβαση στο περιεχόμενο</a>
 
   <!-- Consent banner (UI – συνέδεσέ το με CMP/Consent Mode v2 όταν θες) -->
-  <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:60;display:none">
+  <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:70;display:none">
     <div class="container reveal">
       <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
         <div>
@@ -219,19 +264,40 @@
         </span>
         <span class="wordmark">Temporary Email <span class="muted">GR</span></span>
       </a>
-      <nav aria-label="Κύρια πλοήγηση">
+
+      <!-- Desktop nav -->
+      <nav class="primary" aria-label="Κύρια πλοήγηση">
         <a href="#features">Χαρακτηριστικά</a>
         <a href="#inbox">Inbox</a>
         <a href="#faq">FAQ</a>
       </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-controls="mobileDrawer" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </header>
+
+  <!-- Off-canvas mobile menu -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="mobileDrawer" aria-hidden="true">
+    <button class="close" id="menuClose" aria-label="Κλείσιμο μενού">✕</button>
+    <nav aria-label="Μενού κινητού" style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
+      <a href="#features">Χαρακτηριστικά</a>
+      <a href="#inbox">Inbox</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div style="margin-top:auto;opacity:.9;font-size:13px" class="muted">© <span id="year-mini"></span> Temp-Mail.gr</div>
+  </aside>
 
   <main id="main" class="container" role="main">
     <section class="hero reveal">
       <div>
         <span class="eyebrow">⚡ Disposable / Temporary Email</span>
-        <h1>Temp Mail — <em>προσωρινό email</em> με 1 κλικ</h1>
+        <h1>Temp Mail στην Ελλάδα — <em>προσωρινό email</em> με 1 κλικ</h1>
         <p class="lead">Ανώνυμο &amp; ασφαλές email μιας χρήσης για εγγραφές, δοκιμές και προσφορές — χωρίς να γεμίζει το πραγματικό σου inbox με spam.</p>
         <div class="cta" aria-live="polite">
           <button id="create" class="btn btn-primary">Δημιούργησε διεύθυνση</button>
@@ -290,7 +356,7 @@
       <h2>Inbox</h2>
       <div class="card" aria-live="polite">
         <div id="messages" aria-label="Λίστα μηνυμάτων">
-          <div class="muted">Δημιούργησε διεύθυνση για να εμφανιστούν τα μηνύματα…</div>
+          <div class="muted">Δεν υπάρχουν μηνύματα ακόμη…</div>
         </div>
       </div>
     </section>
@@ -343,6 +409,7 @@
 
     // Footer year
     $('#year').textContent = new Date().getFullYear();
+    $('#year-mini').textContent = new Date().getFullYear();
 
     // Copy helper
     window.copyText = async (t) => {
@@ -471,8 +538,34 @@
         setStatus(`Σφάλμα inbox: ${e.message}`, 'err');
       }
     }
+
+    // ===== Mobile drawer logic =====
+    const menuToggle = $('#menuToggle');
+    const menuClose  = $('#menuClose');
+    const drawer     = $('#mobileDrawer');
+    const scrim      = $('#scrim');
+
+    function openMenu(){
+      drawer.classList.add('show');
+      drawer.setAttribute('aria-hidden','false');
+      scrim.hidden = false;
+      requestAnimationFrame(()=> scrim.classList.add('show'));
+      menuToggle.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      drawer.classList.remove('show');
+      drawer.setAttribute('aria-hidden','true');
+      scrim.classList.remove('show');
+      menuToggle.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+      setTimeout(()=> scrim.hidden = true, 280);
+    }
+
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    scrim?.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && drawer.classList.contains('show')) closeMenu(); });
   </script>
 </body>
 </html>
-
-
