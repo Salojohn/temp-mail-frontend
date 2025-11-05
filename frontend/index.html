@@ -12,20 +12,14 @@
   <meta name="theme-color" content="#0D0F13" />
   <meta name="color-scheme" content="dark light" />
 
-  <!-- Font (fast + swap) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Preconnects -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
   <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
-
-  <!-- Icons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Temporary Email GR" />
   <meta property="og:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
@@ -37,25 +31,19 @@
   <meta name="twitter:description" content="Disposable email με 1 κλικ — ασφαλές & γρήγορο." />
   <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
 
-  <!-- AdSense (load ONCE) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
-
-  <!-- Critical to avoid white flash on iPhone -->
   <style>html,body{background:#0D0F13}</style>
 
   <style>
-    /* ===== THEME (dark premium, minimal) ===== */
     :root{
       --n-950:#0A0B0E; --n-900:#0D0F13; --n-850:#111319; --n-800:#151720;
       --n-600:#232736; --n-400:#8D92A3; --n-100:#FFFFFF;
       --b-500:#0F60FF; --b-400:#1D88FE;
-
       --bg:var(--n-950); --bg-2:var(--n-900); --fg:var(--n-100);
       --muted:#A4A9BA; --border:rgba(255,255,255,.09);
       --card:rgba(255,255,255,.04); --card-2:rgba(255,255,255,.03);
       --brand:var(--b-400); --brand-2:var(--b-500);
       --ok:#05C168; --err:#FF5A65;
-
       --radius:18px; --radius-sm:14px;
       --shadow:0 18px 48px rgba(0,0,0,.40);
       --ring:0 0 0 2px color-mix(in oklab, var(--brand), white 25%);
@@ -65,7 +53,6 @@
     @media (prefers-color-scheme: light){
       :root{ --bg:#F6F8FC; --bg-2:#FFFFFF; --fg:#0B1220; --muted:#586173; --border:#E7E8EC; --card:#fff; --card-2:#fff; --shadow:0 16px 40px rgba(2,6,23,.08); }
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -81,8 +68,6 @@
     .container{max-width:var(--container);margin:0 auto;padding:var(--pad)}
     .visually-hidden{position:absolute;left:-9999px}
     :focus-visible{outline:none; box-shadow:var(--ring)}
-
-    /* ===== Header (glassy) ===== */
     header{
       position:sticky; top:0; z-index:80;
       backdrop-filter:saturate(170%) blur(10px);
@@ -102,8 +87,6 @@
     .wordmark{font-weight:800;letter-spacing:.2px}
     nav.primary a{color:var(--muted);margin:0 10px;font-weight:700}
     nav.primary a:hover{color:var(--fg)}
-
-    /* ===== Mobile drawer ===== */
     .menu-toggle{display:none;border:1px solid var(--border);background:var(--card-2);padding:10px 12px;border-radius:12px;cursor:pointer;color:var(--fg);transition:.2s transform ease,.2s border-color ease}
     .menu-toggle:hover{transform:translateY(-1px);border-color:rgba(29,136,254,.5)}
     .scrim{position:fixed;inset:0;background:rgba(2,6,23,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:78}
@@ -113,8 +96,6 @@
     .drawer a{padding:14px 10px;border-radius:12px;color:var(--fg);font-weight:700}
     .drawer a:hover{background:var(--card)}
     .drawer .close{align-self:flex-end;border:1px solid var(--border);background:var(--card-2);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--fg)}
-
-    /* ===== Hero ===== */
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
     .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-weight:800;background:var(--card-2);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
     h1{font-size:clamp(28px,4.8vw,58px);line-height:1.05;margin:10px 0 6px}
@@ -126,8 +107,6 @@
     .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.15)}
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
     .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-
-    /* ===== Sections / Cards ===== */
     .card{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:34px 0}
     h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
@@ -138,26 +117,14 @@
     .muted{color:var(--muted)}
     .ok{color:var(--ok)}
     .err{color:var(--err)}
-
-    /* ===== Live panel (hero right) ===== */
-    .live-list{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-direction:column;gap:8px}
-    .live-item{display:flex;gap:8px;align-items:center}
-    .live-time{font-size:12px;color:var(--muted)}
-    .live-subject{font-size:14px;font-weight:700}
-
-    /* ===== Ads (CLS-safe placeholders) ===== */
     .ad-card{text-align:center}
     .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
     .ad-top-placeholder{min-height:120px; display:block}
     .ad-bottom-placeholder{min-height:220px; display:block}
-
-    /* ===== Animations ===== */
     .reveal{opacity:0;transform:translateY(10px);will-change:transform,opacity}
     .reveal.show{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1)}
     .float{animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-
-    /* ===== Mobile ===== */
     @media (max-width: 960px){
       nav.primary{display:none}
       .menu-toggle{display:inline-flex;align-items:center;gap:8px}
@@ -169,11 +136,29 @@
         linear-gradient(180deg, var(--bg), var(--bg-2));
       }
     }
-
     @media (prefers-reduced-motion: reduce){
       *{animation:none!important;transition:none!important}
       .reveal{opacity:1;transform:none}
     }
+
+    /* --- Attachments / toolbar / meta --- */
+    .attach-list{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+    .attach-chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--border);
+      border-radius:10px;background:var(--card-2);
+      font-size:13px
+    }
+    .attach-chip:hover{transform:translateY(-1px)}
+    .attach-chip .size{color:var(--muted);font-size:12px}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .toolbar .btn{padding:8px 12px;border-radius:10px;font-weight:700}
+    .meta-grid{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;margin:10px 0}
+    .meta-grid .label{color:var(--muted)}
+    /* live panel */
+    .live-list{list-style:none;margin:6px 0 0;padding:0}
+    .live-item{display:flex;gap:8px;align-items:center;border-bottom:1px dashed var(--border);padding:6px 0}
+    .live-time{color:var(--muted);font-variant-numeric:tabular-nums}
   </style>
 
   <!-- JSON-LD -->
@@ -191,7 +176,6 @@
 <body>
   <a class="visually-hidden" href="#main">Μετάβαση στο περιεχόμενο</a>
 
-  <!-- Consent -->
   <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:90;display:none">
     <div class="container reveal">
       <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
@@ -238,7 +222,6 @@
     </div>
   </header>
 
-  <!-- Mobile menu -->
   <div class="scrim" id="scrim" hidden></div>
   <aside class="drawer" id="mobileDrawer" aria-hidden="true">
     <button class="close" id="menuClose" aria-label="Κλείσιμο μενού">✕</button>
@@ -269,14 +252,15 @@
         </div>
       </div>
 
-      <!-- LIVE PANEL (δεξιά) -->
-      <div class="card float" aria-label="Live inbox" style="min-height:240px">
+      <!-- Live panel -->
+      <div class="card float" aria-label="Demo κάρτα inbox" style="min-height:240px">
         <div class="muted">Ζωντανό Inbox • updates κάθε 3s</div>
-        <ul id="live" class="live-list"><!-- γεμίζει αυτόματα --></ul>
+        <ul id="live" class="live-list" aria-live="polite" aria-relevant="additions">
+          <!-- θα μπαίνουν items -->
+        </ul>
       </div>
     </section>
 
-    <!-- TOP: Display -->
     <section class="section reveal" aria-labelledby="ad-top-title">
       <h2 id="ad-top-title" class="visually-hidden">Διαφήμιση κορυφής</h2>
       <div class="card ad-card">
@@ -303,7 +287,7 @@
         </article>
         <article class="card reveal">
           <h3>Ταχύτητα &amp; SEO</h3>
-          <p class="muted">Semantic markup, structured data (WebApplication + FAQ), responsive design & γρήγορο load για υψηλή κατάταξη.</p>
+          <p class="muted">Semantic markup, structured data (WebApplication + FAQ), responsive design & γρήγορο load.</p>
         </article>
       </div>
     </section>
@@ -317,7 +301,6 @@
       </div>
     </section>
 
-    <!-- BOTTOM: Multiplex -->
     <section class="section reveal" aria-labelledby="ad-bottom-title">
       <h2 id="ad-bottom-title" class="visually-hidden">Διαφήμιση κάτω</h2>
       <div class="card ad-card">
@@ -347,13 +330,14 @@
     const $ = (s, e=document) => e.querySelector(s);
     let local = null, expiresAt = null, poller = null;
     const statusEl = $('#status');
+    const seenIds = new Set(); // για live panel & de-dup
 
     function setStatus(t, type='muted'){
       statusEl.textContent = t || '';
       statusEl.className = type === 'err' ? 'err' : (type === 'ok' ? 'ok' : 'muted');
     }
 
-    // Consent
+    // Consent banner (UI μόνο)
     (function consentInit(){
       const key = 'consent-choice-v1';
       const saved = localStorage.getItem(key);
@@ -362,17 +346,14 @@
       $('#reject-consent').onclick  = () => { localStorage.setItem(key,'rejected'); $('#consent').style.display='none'; };
     })();
 
-    // Footer year
     $('#year').textContent = new Date().getFullYear();
     $('#year-mini').textContent = new Date().getFullYear();
 
-    // Copy
     window.copyText = async (t) => {
       try { await navigator.clipboard.writeText(t); toast('Αντιγράφηκε!'); }
-      catch { /* ignore */ }
+      catch {}
     };
 
-    // Tiny toast
     function toast(msg){
       const t = document.createElement('div');
       t.textContent = msg;
@@ -386,32 +367,10 @@
       setTimeout(()=>t.remove(),1600);
     }
 
-    // Reveal-on-scroll
     const io = ('IntersectionObserver' in window) ? new IntersectionObserver((ents)=>{
-      ents.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
-      })
+      ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } })
     }, {rootMargin:'-10% 0px -10% 0px'}) : null;
     document.querySelectorAll('.reveal').forEach(el => io && io.observe(el));
-
-    // ===== LIVE PANEL helpers =====
-    const seenIds = new Set();
-    function renderLive(newMsgs){
-      const live = $('#live'); if(!live) return;
-      for(const m of newMsgs){
-        if(seenIds.has(m.id)) continue;
-        seenIds.add(m.id);
-        const li = document.createElement('li');
-        li.className = 'live-item';
-        li.innerHTML = `
-          <span class="live-time">${new Date(m.received_at).toLocaleTimeString()}</span>
-          <span class="live-subject">${m.subject || '(χωρίς θέμα)'}</span>
-          <span class="muted">— ${m.from || ''}</span>
-        `;
-        live.prepend(li);
-        while (live.children.length > 6) live.removeChild(live.lastChild);
-      }
-    }
 
     // Create address
     $('#create').onclick = async () => {
@@ -427,6 +386,11 @@
         $('#email').innerHTML =
           `<strong style="font-size:18px">${j.email}</strong>
            <button class="btn" onclick="copyText('${j.email}')">Copy</button>`;
+
+        // καθάρισε live + inbox
+        seenIds.clear();
+        $('#live').innerHTML = '';
+        $('#messages').innerHTML = '<div class="muted">Αναμονή μηνυμάτων…</div>';
 
         tickTTL();
         if (poller) clearInterval(poller);
@@ -450,11 +414,30 @@
       }, 1000);
     }
 
+    function maskEmail(x){ return (x||'').toString(); }
+
+    function renderLive(newMsgs){
+      const live = $('#live'); if(!live) return;
+      for(const m of newMsgs){
+        if(seenIds.has(m.id)) continue;
+        seenIds.add(m.id);
+        const li = document.createElement('li');
+        li.className = 'live-item';
+        li.innerHTML = `
+          <span class="live-time">${new Date(m.received_at).toLocaleTimeString()}</span>
+          <span class="live-subject">${m.subject || '(χωρίς θέμα)'}</span>
+          <span class="muted">— ${maskEmail(m.from || '')}</span>
+        `;
+        live.prepend(li);
+        while (live.children.length > 6) live.removeChild(live.lastChild);
+      }
+    }
+
     async function loadInbox(){
       if (!local) return;
       try {
         const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
-        const box = $('#messages'); box.innerHTML = '';
+        const box = $('#messages');
         if (!r.ok) {
           box.innerHTML = '<div class="muted">Το inbox έληξε. Δημιούργησε νέα διεύθυνση.</div>';
           clearInterval(poller);
@@ -463,9 +446,12 @@
         const j = await r.json();
         const list = j.messages || [];
 
-        // >>> ενημέρωση live panel με τα πιο πρόσφατα
-        renderLive(list.slice(0,3));
+        // live panel: βρες only-new
+        const newOnes = list.filter(m => !seenIds.has(m.id));
+        if (newOnes.length) renderLive(newOnes);
 
+        // render πλήρη λίστα
+        box.innerHTML = '';
         if (list.length === 0){
           box.innerHTML = '<div class="muted">Δεν υπάρχουν μηνύματα ακόμη…</div>';
           return;
@@ -475,32 +461,111 @@
           const wrap = document.createElement('article');
           wrap.className = 'message-card reveal';
           wrap.innerHTML = `
-            <div><strong class="subject"></strong> <span class="muted from"></span></div>
-            <div class="muted time"></div>
-            <div class="msg preview"></div>
-            <details>
-              <summary>Άνοιγμα πλήρους μηνύματος</summary>
-              <iframe class="html" title="HTML περιεχόμενο μηνύματος" sandbox="allow-same-origin"
-                      style="width:100%;height:320px;border:1px solid var(--border);border-radius:12px"></iframe>
-              <pre class="plain" style="overflow:auto"></pre>
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+              <div>
+                <strong class="subject"></strong>
+                <span class="muted from"></span>
+              </div>
+              <div class="muted time"></div>
+            </div>
+
+            <div class="preview muted" style="margin-top:6px"></div>
+
+            <details style="margin-top:10px">
+              <summary>Προβολή πλήρους μηνύματος</summary>
+
+              <div class="meta-grid">
+                <div class="label">Από</div> <div class="meta-from"></div>
+                <div class="label">Προς</div> <div class="meta-to"></div>
+                <div class="label">Θέμα</div> <div class="meta-subject"></div>
+                <div class="label">Ημ/νία</div> <div class="meta-date"></div>
+              </div>
+
+              <div class="toolbar">
+                <button type="button" class="btn" data-view="html">Άνοιγμα HTML</button>
+                <button type="button" class="btn" data-view="text">Plain Text</button>
+                <a class="btn" target="_blank" rel="noopener" style="display:none" data-raw>Λήψη .eml</a>
+              </div>
+
+              <iframe class="html" title="HTML περιεχόμενο" sandbox="allow-same-origin"
+                      style="width:100%;height:360px;border:1px solid var(--border);border-radius:12px;display:none"></iframe>
+              <pre class="plain" style="overflow:auto;display:none"></pre>
+
+              <div class="attach" style="margin-top:12px;display:none">
+                <div class="label" style="margin-bottom:6px">Συνημμένα</div>
+                <div class="attach-list"></div>
+              </div>
             </details>
           `;
+
           wrap.querySelector('.subject').textContent = m.subject || '(Χωρίς θέμα)';
           wrap.querySelector('.from').textContent = ' — ' + (m.from || '');
           wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
           wrap.querySelector('.preview').textContent = m.preview || '';
 
-          wrap.querySelector('details').addEventListener('toggle', async ev => {
-            if (!ev.target.open) return;
+          const detailsEl = wrap.querySelector('details');
+          const iframeEl  = wrap.querySelector('.html');
+          const plainEl   = wrap.querySelector('.plain');
+          const rawBtn    = wrap.querySelector('[data-raw]');
+          const attachBox = wrap.querySelector('.attach');
+          const attachList= wrap.querySelector('.attach-list');
+
+          let loaded = false;
+          detailsEl.addEventListener('toggle', async ev => {
+            if (!ev.target.open || loaded) return;
+            loaded = true;
             try {
               const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
+              if(!rr.ok) throw new Error(`HTTP ${rr.status}`);
               const full = await rr.json();
-              const iframe = wrap.querySelector('.html');
+
+              wrap.querySelector('.meta-from').textContent    = full.from || m.from || '';
+              wrap.querySelector('.meta-to').textContent      = (full.to && full.to.join?.(', ')) || full.to || '';
+              wrap.querySelector('.meta-subject').textContent = full.subject || m.subject || '';
+              wrap.querySelector('.meta-date').textContent    = new Date(full.received_at || m.received_at).toLocaleString();
+
               if (full.body_html) {
                 const blob = new Blob([full.body_html], { type:'text/html' });
-                iframe.src = URL.createObjectURL(blob);
+                iframeEl.src = URL.createObjectURL(blob);
               }
-              wrap.querySelector('.plain').textContent = full.body_plain || '';
+              if (full.body_plain) {
+                plainEl.textContent = full.body_plain;
+              }
+
+              const showHtml = () => {
+                if (iframeEl.src) { iframeEl.style.display='block'; plainEl.style.display='none'; }
+                else { iframeEl.style.display='none'; plainEl.style.display='block'; }
+              };
+              const showText = () => { iframeEl.style.display='none'; plainEl.style.display='block'; };
+
+              wrap.querySelector('[data-view="html"]').onclick = showHtml;
+              wrap.querySelector('[data-view="text"]').onclick = showText;
+              (full.body_html ? showHtml : showText)();
+
+              if (Array.isArray(full.attachments) && full.attachments.length){
+                attachBox.style.display = 'block';
+                for (const a of full.attachments){
+                  const aName = a.filename || a.name || 'attachment';
+                  const aSize = a.size ? ` (${Math.round(a.size/1024)}KB)` : '';
+                  let href = a.url;
+                  if (!href && a.partId) href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${encodeURIComponent(a.partId)}`;
+                  if (!href && typeof a.index === 'number') href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${a.index}`;
+                  const chip = document.createElement('a');
+                  chip.className = 'attach-chip';
+                  if (href) { chip.href = href; chip.target = '_blank'; chip.rel = 'noopener'; }
+                  chip.innerHTML = `📎 <span>${aName}</span> <span class="size">${aSize}</span>`;
+                  attachList.appendChild(chip);
+                }
+              }
+
+              if (full.raw_url) {
+                rawBtn.style.display = 'inline-flex';
+                rawBtn.href = full.raw_url;
+              } else {
+                const guess = `${API}/message/${encodeURIComponent(m.id)}/raw`;
+                rawBtn.style.display = 'inline-flex';
+                rawBtn.href = guess;
+              }
             } catch (e) {
               console.error(e);
               alert('Αποτυχία φόρτωσης πλήρους μηνύματος.');
@@ -538,7 +603,6 @@
       document.body.style.overflow = '';
       setTimeout(()=> scrim.hidden = true, 280);
     }
-
     menuToggle?.addEventListener('click', openMenu);
     menuClose?.addEventListener('click', closeMenu);
     scrim?.addEventListener('click', closeMenu);
