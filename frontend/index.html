@@ -3,38 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
   <title>Temp Mail Ελλάδα | Προσωρινό Email χωρίς spam • Temp-Mail.gr</title>
   <meta name="description" content="Δημιούργησε προσωρινό email (temp mail) άμεσα για ασφαλείς εγγραφές χωρίς spam. Δωρεάν, ανώνυμο, γρήγορο. Disposable email για δοκιμές & προσφορές." />
   <link rel="canonical" href="https://temp-mail.gr/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <meta name="google-adsense-account" content="ca-pub-3474217278034836">
   <meta name="theme-color" content="#0D0F13" />
   <meta name="color-scheme" content="dark light" />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
-  <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Temporary Email GR" />
-  <meta property="og:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
-  <meta property="og:description" content="Δημιούργησε disposable email σε δευτερόλεπτα. Προστασία από spam & διαρροές." />
-  <meta property="og:url" content="https://temp-mail.gr/" />
-  <meta property="og:image" content="https://temp-mail.gr/og-cover.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
-  <meta name="twitter:description" content="Disposable email με 1 κλικ — ασφαλές & γρήγορο." />
-  <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
   <style>html,body{background:#0D0F13}</style>
 
   <style>
+    /* ===== THEME / LAYOUT (όπως στο δικό σου) ===== */
     :root{
       --n-950:#0A0B0E; --n-900:#0D0F13; --n-850:#111319; --n-800:#151720;
       --n-600:#232736; --n-400:#8D92A3; --n-100:#FFFFFF;
@@ -54,7 +35,6 @@
       :root{ --bg:#F6F8FC; --bg-2:#FFFFFF; --fg:#0B1220; --muted:#586173; --border:#E7E8EC; --card:#fff; --card-2:#fff; --shadow:0 16px 40px rgba(2,6,23,.08); }
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0; color:var(--fg);
       font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -66,131 +46,52 @@
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--container);margin:0 auto;padding:var(--pad)}
-    .visually-hidden{position:absolute;left:-9999px}
+    .muted{color:var(--muted)}
+    .ok{color:var(--ok)} .err{color:var(--err)}
     :focus-visible{outline:none; box-shadow:var(--ring)}
-    header{
-      position:sticky; top:0; z-index:80;
-      backdrop-filter:saturate(170%) blur(10px);
-      background:linear-gradient(180deg, rgba(13,15,19,.70), rgba(13,15,19,.24));
-      border-bottom:1px solid var(--border);
-    }
+
+    header{position:sticky; top:0; z-index:80; backdrop-filter:saturate(170%) blur(10px);
+      background:linear-gradient(180deg, rgba(13,15,19,.70), rgba(13,15,19,.24)); border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo-wrap{
-      width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
-      background:
-        radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.22), transparent 40%),
-        linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), var(--shadow);
-      display:grid;place-items:center;overflow:hidden;
-    }
+    .logo-wrap{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
+      background:radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,.22), transparent 40%),
+      linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), var(--shadow);
+      display:grid;place-items:center;overflow:hidden}
     .wordmark{font-weight:800;letter-spacing:.2px}
     nav.primary a{color:var(--muted);margin:0 10px;font-weight:700}
     nav.primary a:hover{color:var(--fg)}
-    .menu-toggle{display:none;border:1px solid var(--border);background:var(--card-2);padding:10px 12px;border-radius:12px;cursor:pointer;color:var(--fg);transition:.2s transform ease,.2s border-color ease}
-    .menu-toggle:hover{transform:translateY(-1px);border-color:rgba(29,136,254,.5)}
-    .scrim{position:fixed;inset:0;background:rgba(2,6,23,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:78}
-    .scrim.show{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;right:0;height:100dvh;width:min(86vw,380px);background:linear-gradient(180deg, rgba(18,21,31,.92), rgba(18,21,31,.88));border-left:1px solid var(--border);box-shadow:-20px 0 60px rgba(0,0,0,.45);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.3,1);z-index:79;display:flex;flex-direction:column;padding:18px}
-    .drawer.show{transform:translateX(0)}
-    .drawer a{padding:14px 10px;border-radius:12px;color:var(--fg);font-weight:700}
-    .drawer a:hover{background:var(--card)}
-    .drawer .close{align-self:flex-end;border:1px solid var(--border);background:var(--card-2);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--fg)}
+
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
     .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-weight:800;background:var(--card-2);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
     h1{font-size:clamp(28px,4.8vw,58px);line-height:1.05;margin:10px 0 6px}
     .lead{font-size:clamp(16px,2.1vw,18px);color:var(--muted);max-width:62ch}
     .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
-    .btn{appearance:none;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);padding:12px 16px;border-radius:14px;color:var(--fg);cursor:pointer;font-weight:800;letter-spacing:.2px;transition:.2s transform ease,.2s background ease,.2s border-color ease, box-shadow .2s ease;backdrop-filter:saturate(120%) blur(4px);box-shadow:var(--shadow)}
+    .btn{appearance:none;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);padding:12px 16px;border-radius:14px;color:var(--fg);cursor:pointer;font-weight:800;letter-spacing:.2px;transition:.2s transform ease,.2s background ease,.2s border-color ease;backdrop-filter:saturate(120%) blur(4px);box-shadow:var(--shadow)}
     .btn:hover{transform:translateY(-1px);border-color:rgba(29,136,254,.6)}
-    .btn:focus-visible{box-shadow:var(--ring)}
     .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.15)}
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
     .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
     .card{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:34px 0}
-    h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:14px}
-    @media (min-width: 900px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
     .message-card{border:1px solid var(--border);border-radius:14px;padding:12px;margin:10px 0;background:var(--card-2);transition:transform .2s ease}
     .message-card:hover{transform:translateY(-1px)}
-    .muted{color:var(--muted)}
-    .ok{color:var(--ok)}
-    .err{color:var(--err)}
-    .ad-card{text-align:center}
-    .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-    .ad-top-placeholder{min-height:120px; display:block}
-    .ad-bottom-placeholder{min-height:220px; display:block}
-    .reveal{opacity:0;transform:translateY(10px);will-change:transform,opacity}
-    .reveal.show{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1)}
     .float{animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-    @media (max-width: 960px){
-      nav.primary{display:none}
-      .menu-toggle{display:inline-flex;align-items:center;gap:8px}
-      .hero{grid-template-columns:1fr}
-      .container{padding:16px 18px calc(18px + env(safe-area-inset-bottom))}
-      body{background:
-        radial-gradient(750px 440px at 20% -12%, rgba(29,136,254,.22), transparent 58%),
-        radial-gradient(650px 420px at 110% 0%, rgba(15,96,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
-      }
-    }
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important;transition:none!important}
-      .reveal{opacity:1;transform:none}
-    }
 
-    /* --- Attachments / toolbar / meta --- */
-    .attach-list{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-    .attach-chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border:1px solid var(--border);
-      border-radius:10px;background:var(--card-2);
-      font-size:13px
-    }
-    .attach-chip:hover{transform:translateY(-1px)}
-    .attach-chip .size{color:var(--muted);font-size:12px}
-    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-    .toolbar .btn{padding:8px 12px;border-radius:10px;font-weight:700}
-    .meta-grid{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;margin:10px 0}
+    /* meta grid + attachments */
+    .meta-grid{display:grid;grid-template-columns:100px 1fr;gap:6px 12px;margin:12px 0}
     .meta-grid .label{color:var(--muted)}
-    /* live panel */
-    .live-list{list-style:none;margin:6px 0 0;padding:0}
-    .live-item{display:flex;gap:8px;align-items:center;border-bottom:1px dashed var(--border);padding:6px 0}
-    .live-time{color:var(--muted);font-variant-numeric:tabular-nums}
-  </style>
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .attach-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--card);margin:4px 6px 0 0}
+    .attach-chip .size{opacity:.7;font-size:12px}
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Temporary Email GR","url":"https://temp-mail.gr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Προσωρινό email (temp mail) για ασφαλείς εγγραφές χωρίς spam.","inLanguage":"el-GR","creator":{"@type":"Organization","name":"Temporary Email GR"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Τι είναι το temporary email;","acceptedAnswer":{"@type":"Answer","text":"Είναι μια διεύθυνση email μιας χρήσης για γρήγορες εγγραφές και δοκιμές, χωρίς να εκθέτεις το πραγματικό σου inbox."}},
-    {"@type":"Question","name":"Είναι ασφαλές;","acceptedAnswer":{"@type":"Answer","text":"Ναι. Τα HTML emails ανοίγουν σε sandboxed iframe, ενώ μπορείς να δεις και plain text."}},
-    {"@type":"Question","name":"Κοστίζει;","acceptedAnswer":{"@type":"Answer","text":"Η δημιουργία προσωρινών emails είναι δωρεάν."}}
-  ]}
-  </script>
+    @media (max-width: 960px){ nav.primary{display:none} .hero{grid-template-columns:1fr} .container{padding:16px 18px calc(18px + env(safe-area-inset-bottom))} }
+  </style>
 </head>
 <body>
-  <a class="visually-hidden" href="#main">Μετάβαση στο περιεχόμενο</a>
-
-  <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:90;display:none">
-    <div class="container reveal">
-      <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
-        <div>
-          <strong>Χρησιμοποιούμε cookies</strong>
-          <div class="muted" style="max-width:60ch">Για παροχή υπηρεσίας & διαφημίσεις Google. Μπορείς να αλλάξεις επιλογές οποτεδήποτε.</div>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn" id="reject-consent">Απόρριψη</button>
-          <button class="btn btn-primary" id="accept-consent">Αποδοχή</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <header>
     <div class="container nav">
       <a class="brand" href="/" aria-label="Temporary Email GR">
@@ -199,46 +100,20 @@
             <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="white" stop-opacity=".65"/></linearGradient></defs>
             <path d="M3 7.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="url(#g)" stroke-width="1.5"/>
             <path d="M4 8l8 5 8-5" fill="none" stroke="url(#g)" stroke-width="1.5"/>
-            <circle cx="19.5" cy="4.8" r="1.6" fill="white">
-              <animate attributeName="r" values="1;1.8;1" dur="2.8s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite"/>
-            </circle>
           </svg>
         </span>
         <span class="wordmark">Temporary Email <span class="muted">GR</span></span>
       </a>
-
-      <nav class="primary" aria-label="Κύρια πλοήγηση">
-        <a href="#features">Χαρακτηριστικά</a>
-        <a href="#inbox">Inbox</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-controls="mobileDrawer" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </button>
+      <nav class="primary"><a href="#features">Χαρακτηριστικά</a><a href="#inbox">Inbox</a><a href="#faq">FAQ</a></nav>
     </div>
   </header>
 
-  <div class="scrim" id="scrim" hidden></div>
-  <aside class="drawer" id="mobileDrawer" aria-hidden="true">
-    <button class="close" id="menuClose" aria-label="Κλείσιμο μενού">✕</button>
-    <nav aria-label="Μενού κινητού" style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
-      <a href="#features">Χαρακτηριστικά</a>
-      <a href="#inbox">Inbox</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div style="margin-top:auto;opacity:.9;font-size:13px" class="muted">© <span id="year-mini"></span> Temp-Mail.gr</div>
-  </aside>
-
   <main id="main" class="container" role="main">
-    <section class="hero reveal">
+    <section class="hero">
       <div>
         <span class="eyebrow">⚡ Disposable / Temporary Email</span>
         <h1>Temp Mail στην Ελλάδα — <em>προσωρινό email</em> με 1 κλικ</h1>
-        <p class="lead">Ανώνυμο &amp; ασφαλές email μιας χρήσης για εγγραφές, δοκιμές και προσφορές — χωρίς να γεμίζει το πραγματικό σου inbox με spam.</p>
+        <p class="lead">Ανώνυμο & ασφαλές email μιας χρήσης για εγγραφές, δοκιμές και προσφορές.</p>
         <div class="cta" aria-live="polite">
           <button id="create" class="btn btn-primary">Δημιούργησε διεύθυνση</button>
           <div id="email" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap" aria-label="Προσωρινή διεύθυνση"></div>
@@ -248,247 +123,178 @@
         <div class="stats">
           <span class="chip">🛡️ Προστασία από spam</span>
           <span class="chip">🔒 Χωρίς εγγραφή</span>
-          <span class="chip">⚙️ Sandbox άνοιγμα HTML</span>
+          <span class="chip">⚙️ Sandbox HTML</span>
         </div>
       </div>
 
-      <!-- Live panel -->
-      <div class="card float" aria-label="Demo κάρτα inbox" style="min-height:240px">
+      <div class="card float">
         <div class="muted">Ζωντανό Inbox • updates κάθε 3s</div>
-        <ul id="live" class="live-list" aria-live="polite" aria-relevant="additions">
-          <!-- θα μπαίνουν items -->
-        </ul>
+        <div id="live" class="muted" style="margin-top:8px;min-height:22px"></div>
       </div>
     </section>
 
-    <section class="section reveal" aria-labelledby="ad-top-title">
-      <h2 id="ad-top-title" class="visually-hidden">Διαφήμιση κορυφής</h2>
-      <div class="card ad-card">
-        <div class="ad-label">Διαφήμιση</div>
-        <ins class="adsbygoogle ad-top-placeholder"
-             data-ad-client="ca-pub-3474217278034836"
-             data-ad-slot="PUT_TOP_DISPLAY_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-    </section>
-
-    <section id="features" class="section reveal">
-      <h2>Χαρακτηριστικά που ξεχωρίζουν</h2>
-      <div class="grid grid-3">
-        <article class="card reveal">
-          <h3>Ασφάλεια &amp; Ιδιωτικότητα</h3>
-          <p class="muted">Κράτα το κύριο email σου μακριά από spam, trackers και διαρροές. Disposable email για εγγραφές χωρίς να εκθέτεις προσωπικά δεδομένα.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Πραγματικός Χρόνος</h3>
-          <p class="muted">Αυτόματη λήψη μηνυμάτων. Άνοιγμα HTML σε sandboxed iframe, με επιλογή προβολής plain text.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Ταχύτητα &amp; SEO</h3>
-          <p class="muted">Semantic markup, structured data (WebApplication + FAQ), responsive design & γρήγορο load.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="inbox" class="section reveal">
+    <section id="inbox" class="section">
       <h2>Inbox</h2>
       <div class="card" aria-live="polite">
-        <div id="messages" aria-label="Λίστα μηνυμάτων">
-          <div class="muted">Δημιούργησε διεύθυνση για να εμφανιστούν τα μηνύματα…</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="ad-bottom-title">
-      <h2 id="ad-bottom-title" class="visually-hidden">Διαφήμιση κάτω</h2>
-      <div class="card ad-card">
-        <div class="ad-label">Διαφήμιση</div>
-        <ins class="adsbygoogle ad-bottom-placeholder"
-             data-ad-client="ca-pub-3474217278034836"
-             data-ad-slot="7791165611"
-             data-ad-format="autorelaxed"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <div id="messages"><div class="muted">Δημιούργησε διεύθυνση για να εμφανιστούν τα μηνύματα…</div></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Temporary Email GR — temp mail / disposable email στην Ελλάδα</p>
-      <p class="muted">Για εκπαιδευτική χρήση &amp; δοκιμές. Σεβάσου τους όρους των υπηρεσιών που χρησιμοποιείς.</p>
-    </div>
+  <footer class="container" style="opacity:.8;margin-bottom:30px">
+    © <span id="year"></span> Temporary Email GR
   </footer>
 
   <script>
-    // ---------- API base URL ----------
-    const API = location.hostname.endsWith('temp-mail.gr')
+    // ====== API base (override μέσω ?api= ή localStorage) ======
+    const override = new URLSearchParams(location.search).get('api') || localStorage.getItem('api_override');
+    if (override) localStorage.setItem('api_override', override);
+    const API = override || (location.hostname.endsWith('temp-mail.gr')
       ? 'https://api.temp-mail.gr'
-      : 'https://temp-mail-api-2.onrender.com';
+      : 'https://temp-mail-api-2.onrender.com');
 
     const $ = (s, e=document) => e.querySelector(s);
-    let local = null, expiresAt = null, poller = null;
-    const statusEl = $('#status');
-    const seenIds = new Set(); // για live panel & de-dup
-
-    function setStatus(t, type='muted'){
-      statusEl.textContent = t || '';
-      statusEl.className = type === 'err' ? 'err' : (type === 'ok' ? 'ok' : 'muted');
-    }
-
-    // Consent banner (UI μόνο)
-    (function consentInit(){
-      const key = 'consent-choice-v1';
-      const saved = localStorage.getItem(key);
-      if(!saved) $('#consent').style.display = 'block';
-      $('#accept-consent').onclick = () => { localStorage.setItem(key,'accepted'); $('#consent').style.display='none'; };
-      $('#reject-consent').onclick  = () => { localStorage.setItem(key,'rejected'); $('#consent').style.display='none'; };
-    })();
-
     $('#year').textContent = new Date().getFullYear();
-    $('#year-mini').textContent = new Date().getFullYear();
 
-    window.copyText = async (t) => {
-      try { await navigator.clipboard.writeText(t); toast('Αντιγράφηκε!'); }
-      catch {}
-    };
+    let local = null, expiresAt = null, poller = null;
+    const seenIds = new Set();
+    const statusEl = $('#status');
 
-    function toast(msg){
-      const t = document.createElement('div');
-      t.textContent = msg;
-      t.setAttribute('role','status');
-      Object.assign(t.style,{
-        position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',
-        padding:'10px 14px',borderRadius:'12px',background:'rgba(0,0,0,.75)',
-        color:'#fff',boxShadow:'0 6px 24px rgba(0,0,0,.35)', zIndex:9999
-      });
-      document.body.appendChild(t);
-      setTimeout(()=>t.remove(),1600);
+    function setStatus(t, type='muted'){ statusEl.textContent=t||''; statusEl.className = type==='err'?'err':(type==='ok'?'ok':'muted'); }
+    function formatDate(v){ try{return new Date(v).toLocaleString()}catch{return v||''} }
+    function debugBox(msg){
+      const box = $('#messages'); if(!box) return;
+      const pre = document.createElement('pre'); pre.style.whiteSpace='pre-wrap'; pre.style.fontSize='12px'; pre.style.opacity='0.8';
+      pre.textContent = `[debug] ${msg}`; box.prepend(pre);
     }
+    async function copyText(t){ try{await navigator.clipboard.writeText(t);}catch{} }
 
-    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((ents)=>{
-      ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } })
-    }, {rootMargin:'-10% 0px -10% 0px'}) : null;
-    document.querySelectorAll('.reveal').forEach(el => io && io.observe(el));
-
-    // Create address
+    // Δημιουργία διεύθυνσης
     $('#create').onclick = async () => {
       try {
         setStatus('Δημιουργία διεύθυνσης…');
         const r = await fetch(`${API}/create`, { method:'POST' });
         if (!r.ok) throw new Error(`Create failed (${r.status})`);
         const j = await r.json();
+        local = j.local; expiresAt = Date.now() + (j.expires_in*1000);
 
-        local = j.local;
-        expiresAt = Date.now() + (j.expires_in * 1000);
+        $('#email').innerHTML = `<strong style="font-size:18px">${j.email}</strong>
+          <button class="btn" onclick="copyText('${j.email}')">Copy</button>`;
 
-        $('#email').innerHTML =
-          `<strong style="font-size:18px">${j.email}</strong>
-           <button class="btn" onclick="copyText('${j.email}')">Copy</button>`;
-
-        // καθάρισε live + inbox
-        seenIds.clear();
-        $('#live').innerHTML = '';
-        $('#messages').innerHTML = '<div class="muted">Αναμονή μηνυμάτων…</div>';
-
-        tickTTL();
+        startTTL();
         if (poller) clearInterval(poller);
         poller = setInterval(loadInbox, 3000);
         await loadInbox();
 
         setStatus('Η διεύθυνση είναι έτοιμη.', 'ok');
-      } catch (e) {
-        console.error(e);
-        setStatus(`Σφάλμα: ${e.message}`, 'err');
-        alert(`API error (create): ${e.message}`);
-      }
+      } catch (e) { console.error(e); setStatus(`Σφάλμα: ${e.message}`,'err'); alert(`API error (create): ${e.message}`); }
     };
 
-    function tickTTL(){
-      const int = setInterval(() => {
-        if (!expiresAt) { clearInterval(int); return; }
-        const left = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
-        $('#ttl').textContent = left ? `λήγει σε ${left}s` : 'έληξε';
-        if (left === 0) { clearInterval(int); if (poller) clearInterval(poller); }
+    function startTTL(){
+      const t = setInterval(()=>{
+        if(!expiresAt){ clearInterval(t); return; }
+        const s = Math.max(0, Math.floor((expiresAt-Date.now())/1000));
+        $('#ttl').textContent = s ? `λήγει σε ${s}s` : 'έληξε';
+        if(!s){ clearInterval(t); if(poller) clearInterval(poller); }
       }, 1000);
     }
 
-    function maskEmail(x){ return (x||'').toString(); }
-
-    function renderLive(newMsgs){
-      const live = $('#live'); if(!live) return;
-      for(const m of newMsgs){
-        if(seenIds.has(m.id)) continue;
-        seenIds.add(m.id);
-        const li = document.createElement('li');
-        li.className = 'live-item';
-        li.innerHTML = `
-          <span class="live-time">${new Date(m.received_at).toLocaleTimeString()}</span>
-          <span class="live-subject">${m.subject || '(χωρίς θέμα)'}</span>
-          <span class="muted">— ${maskEmail(m.from || '')}</span>
-        `;
-        live.prepend(li);
-        while (live.children.length > 6) live.removeChild(live.lastChild);
-      }
+    // ---------- Ομογενοποίηση δεδομένων ----------
+    function normalizeId(m){ return m?.id || m?.messageId || m?.message_id || m?.MessageId || ''; }
+    function normalizeMessage(m){
+      const id = normalizeId(m);
+      const subject = m.subject || m.headers?.subject || m.envelope?.subject || '';
+      const from    = m.from?.address || m.from?.email || m.from || m.headers?.from || '';
+      const preview = m.preview || m.snippet || '';
+      const date    = m.received_at || m.date || m.internalDate || m.created_at || m.timestamp;
+      return { id, subject, from, preview, received_at: date };
+    }
+    function normalizeFullMessage(full, fallback){
+      const from    = full.from?.address || full.from || fallback.from || '';
+      const to      = Array.isArray(full.to) ? full.to.join(', ') : (full.to || '');
+      const subject = full.subject || fallback.subject || '';
+      const rc      = full.received_at || full.date || fallback.received_at;
+      const body_html  = full.body_html || full.html || '';
+      const body_plain = full.body_plain || full.text || '';
+      const attachments = full.attachments || full.parts?.filter(p=>p.disposition==='attachment') || [];
+      const raw_url = full.raw_url || null;
+      return { from, to, subject, received_at: rc, body_html, body_plain, attachments, raw_url };
     }
 
+    // Live μικρό panel
+    function renderLive(arr){
+      const live = $('#live');
+      const rows = arr.slice(0,3).map(m => `${formatDate(m.received_at)}  —  ${m.subject}  —  ${m.from}`);
+      live.textContent = rows.join('\n');
+    }
+
+    // Φόρτωση inbox
     async function loadInbox(){
       if (!local) return;
+      const box = $('#messages');
+
       try {
         const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
-        const box = $('#messages');
         if (!r.ok) {
-          box.innerHTML = '<div class="muted">Το inbox έληξε. Δημιούργησε νέα διεύθυνση.</div>';
+          const txt = await r.text().catch(()=> '');
+          box.innerHTML = `<div class="err">API error ${r.status}</div>`;
+          debugBox(`GET /inbox failed: ${r.status} ${txt?.slice(0,300)}`);
           clearInterval(poller);
           return;
         }
-        const j = await r.json();
-        const list = j.messages || [];
 
-        // live panel: βρες only-new
-        const newOnes = list.filter(m => !seenIds.has(m.id));
-        if (newOnes.length) renderLive(newOnes);
+        let j = await r.json();
+        let msgs = [];
+        if (Array.isArray(j)) msgs = j;
+        else if (Array.isArray(j.messages)) msgs = j.messages;
+        else if (j.data && Array.isArray(j.data.messages)) msgs = j.data.messages;
+        else if (Array.isArray(j.items)) msgs = j.items;
+        else if (j.result && Array.isArray(j.result)) msgs = j.result;
 
-        // render πλήρη λίστα
+        if (!Array.isArray(msgs)) {
+          box.innerHTML = `<div class="err">Άγνωστο σχήμα inbox</div>`;
+          debugBox(`unknown shape: ${JSON.stringify(j).slice(0,400)}…`);
+          return;
+        }
+
+        // live panel
+        const fresh = msgs.filter(m => !seenIds.has(normalizeId(m)));
+        if (fresh.length) renderLive(fresh.map(normalizeMessage));
+
+        // full render
         box.innerHTML = '';
-        if (list.length === 0){
+        if (msgs.length===0){
           box.innerHTML = '<div class="muted">Δεν υπάρχουν μηνύματα ακόμη…</div>';
           return;
         }
 
-        for (const m of list){
+        for (const raw of msgs){
+          const m = normalizeMessage(raw);
+          if (m.id) seenIds.add(m.id);
+
           const wrap = document.createElement('article');
-          wrap.className = 'message-card reveal';
+          wrap.className = 'message-card';
           wrap.innerHTML = `
             <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
-              <div>
-                <strong class="subject"></strong>
-                <span class="muted from"></span>
-              </div>
+              <div><strong class="subject"></strong> <span class="muted from"></span></div>
               <div class="muted time"></div>
             </div>
-
             <div class="preview muted" style="margin-top:6px"></div>
-
             <details style="margin-top:10px">
               <summary>Προβολή πλήρους μηνύματος</summary>
-
               <div class="meta-grid">
                 <div class="label">Από</div> <div class="meta-from"></div>
                 <div class="label">Προς</div> <div class="meta-to"></div>
                 <div class="label">Θέμα</div> <div class="meta-subject"></div>
                 <div class="label">Ημ/νία</div> <div class="meta-date"></div>
               </div>
-
               <div class="toolbar">
                 <button type="button" class="btn" data-view="html">Άνοιγμα HTML</button>
                 <button type="button" class="btn" data-view="text">Plain Text</button>
                 <a class="btn" target="_blank" rel="noopener" style="display:none" data-raw>Λήψη .eml</a>
               </div>
-
-              <iframe class="html" title="HTML περιεχόμενο" sandbox="allow-same-origin"
-                      style="width:100%;height:360px;border:1px solid var(--border);border-radius:12px;display:none"></iframe>
+              <iframe class="html" title="HTML" sandbox="allow-same-origin"
+                style="width:100%;height:360px;border:1px solid var(--border);border-radius:12px;display:none"></iframe>
               <pre class="plain" style="overflow:auto;display:none"></pre>
 
               <div class="attach" style="margin-top:12px;display:none">
@@ -497,10 +303,9 @@
               </div>
             </details>
           `;
-
           wrap.querySelector('.subject').textContent = m.subject || '(Χωρίς θέμα)';
-          wrap.querySelector('.from').textContent = ' — ' + (m.from || '');
-          wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
+          wrap.querySelector('.from').textContent    = ' — ' + (m.from || '');
+          wrap.querySelector('.time').textContent    = formatDate(m.received_at);
           wrap.querySelector('.preview').textContent = m.preview || '';
 
           const detailsEl = wrap.querySelector('details');
@@ -514,99 +319,62 @@
           detailsEl.addEventListener('toggle', async ev => {
             if (!ev.target.open || loaded) return;
             loaded = true;
-            try {
+
+            try{
               const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
-              if(!rr.ok) throw new Error(`HTTP ${rr.status}`);
+              if (!rr.ok) throw new Error(`HTTP ${rr.status}`);
               const full = await rr.json();
+              const F = normalizeFullMessage(full, m);
 
-              wrap.querySelector('.meta-from').textContent    = full.from || m.from || '';
-              wrap.querySelector('.meta-to').textContent      = (full.to && full.to.join?.(', ')) || full.to || '';
-              wrap.querySelector('.meta-subject').textContent = full.subject || m.subject || '';
-              wrap.querySelector('.meta-date').textContent    = new Date(full.received_at || m.received_at).toLocaleString();
+              wrap.querySelector('.meta-from').textContent    = F.from || '';
+              wrap.querySelector('.meta-to').textContent      = F.to || '';
+              wrap.querySelector('.meta-subject').textContent = F.subject || '';
+              wrap.querySelector('.meta-date').textContent    = formatDate(F.received_at);
 
-              if (full.body_html) {
-                const blob = new Blob([full.body_html], { type:'text/html' });
+              if (F.body_html){
+                const blob = new Blob([F.body_html], {type:'text/html'});
                 iframeEl.src = URL.createObjectURL(blob);
               }
-              if (full.body_plain) {
-                plainEl.textContent = full.body_plain;
-              }
+              if (F.body_plain) plainEl.textContent = F.body_plain;
 
-              const showHtml = () => {
-                if (iframeEl.src) { iframeEl.style.display='block'; plainEl.style.display='none'; }
-                else { iframeEl.style.display='none'; plainEl.style.display='block'; }
-              };
+              const showHtml = () => { if(iframeEl.src){ iframeEl.style.display='block'; plainEl.style.display='none'; } else { showText(); } };
               const showText = () => { iframeEl.style.display='none'; plainEl.style.display='block'; };
 
               wrap.querySelector('[data-view="html"]').onclick = showHtml;
               wrap.querySelector('[data-view="text"]').onclick = showText;
-              (full.body_html ? showHtml : showText)();
+              (F.body_html ? showHtml : showText)();
 
-              if (Array.isArray(full.attachments) && full.attachments.length){
+              // attachments
+              if (Array.isArray(F.attachments) && F.attachments.length){
                 attachBox.style.display = 'block';
-                for (const a of full.attachments){
+                for (const a of F.attachments){
                   const aName = a.filename || a.name || 'attachment';
                   const aSize = a.size ? ` (${Math.round(a.size/1024)}KB)` : '';
                   let href = a.url;
-                  if (!href && a.partId) href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${encodeURIComponent(a.partId)}`;
-                  if (!href && typeof a.index === 'number') href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${a.index}`;
+                  if (!href && a.partId)  href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${encodeURIComponent(a.partId)}`;
+                  if (!href && a.index!=null) href = `${API}/message/${encodeURIComponent(m.id)}/attachment/${a.index}`;
                   const chip = document.createElement('a');
                   chip.className = 'attach-chip';
-                  if (href) { chip.href = href; chip.target = '_blank'; chip.rel = 'noopener'; }
+                  if (href){ chip.href = href; chip.target = '_blank'; chip.rel='noopener'; }
                   chip.innerHTML = `📎 <span>${aName}</span> <span class="size">${aSize}</span>`;
                   attachList.appendChild(chip);
                 }
               }
 
-              if (full.raw_url) {
-                rawBtn.style.display = 'inline-flex';
-                rawBtn.href = full.raw_url;
-              } else {
-                const guess = `${API}/message/${encodeURIComponent(m.id)}/raw`;
-                rawBtn.style.display = 'inline-flex';
-                rawBtn.href = guess;
-              }
-            } catch (e) {
-              console.error(e);
-              alert('Αποτυχία φόρτωσης πλήρους μηνύματος.');
-            }
+              // raw .eml
+              if (F.raw_url){ rawBtn.style.display='inline-flex'; rawBtn.href = F.raw_url; }
+              else { rawBtn.style.display='inline-flex'; rawBtn.href = `${API}/message/${encodeURIComponent(m.id)}/raw`; }
+            }catch(e){ console.error(e); debugBox(`message fetch failed for ${m.id}: ${e.message}`); alert('Αποτυχία φόρτωσης πλήρους μηνύματος.'); }
           }, { once:true });
 
           box.appendChild(wrap);
-          io && io.observe(wrap);
         }
       } catch (e) {
         console.error(e);
-        setStatus(`Σφάλμα inbox: ${e.message}`, 'err');
+        debugBox(`inbox error: ${e.message}`);
+        setStatus(`Σφάλμα inbox: ${e.message}`,'err');
       }
     }
-
-    // Mobile drawer
-    const menuToggle = $('#menuToggle');
-    const menuClose  = $('#menuClose');
-    const drawer     = $('#mobileDrawer');
-    const scrim      = $('#scrim');
-
-    function openMenu(){
-      drawer.classList.add('show');
-      drawer.setAttribute('aria-hidden','false');
-      scrim.hidden = false;
-      requestAnimationFrame(()=> scrim.classList.add('show'));
-      menuToggle.setAttribute('aria-expanded','true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu(){
-      drawer.classList.remove('show');
-      drawer.setAttribute('aria-hidden','true');
-      scrim.classList.remove('show');
-      menuToggle.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
-      setTimeout(()=> scrim.hidden = true, 280);
-    }
-    menuToggle?.addEventListener('click', openMenu);
-    menuClose?.addEventListener('click', closeMenu);
-    scrim?.addEventListener('click', closeMenu);
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && drawer.classList.contains('show')) closeMenu(); });
   </script>
 </body>
 </html>
