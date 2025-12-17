@@ -566,6 +566,28 @@
             }
           });
 
+            // ===== Attachments =====
+            if (Array.isArray(full.attachments) && full.attachments.length) {
+              const attBox = document.createElement("div");
+              attBox.style.marginTop = "12px";
+            
+              attBox.innerHTML = `<strong>Συνημμένα:</strong>`;
+            
+              full.attachments.forEach(a => {
+                const link = document.createElement("a");
+                link.href = `${API}/attachment/${encodeURIComponent(full.id)}/${a.idx}`;
+                link.textContent = `📎 ${a.filename} (${Math.round(a.size/1024)} KB)`;
+                link.target = "_blank";
+                link.style.display = "block";
+                link.style.marginTop = "6px";
+            
+                attBox.appendChild(link);
+              });
+            
+              wrap.querySelector("details").appendChild(attBox);
+            }
+
+          
           // optional: αν πριν είχες ανοιχτό το ίδιο id, το ξανανοίγουμε
           if (openMessageId && openMessageId === m.id) {
             details.open = true;
@@ -610,4 +632,5 @@
   </script>
 </body>
 </html>
+
 
