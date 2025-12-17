@@ -364,7 +364,32 @@
       document.body.appendChild(t);
       setTimeout(()=>t.remove(),1600);
     }
+    function renderLiveInbox(list){
+  const el = document.getElementById('liveInbox');
+  if (!el) return;
 
+  if (!list || list.length === 0){
+    el.innerHTML = '<div class="muted">Δεν υπάρχουν μηνύματα ακόμη…</div>';
+    return;
+  }
+
+  const top = list.slice(0, 3);
+  el.innerHTML = top.map(m => `
+    <div style="padding:8px 10px;border:1px solid var(--border);border-radius:12px;background:var(--card-2);margin-top:8px">
+      <div style="font-weight:800">${escapeHtml(m.subject || '(Χωρίς θέμα)')}</div>
+      <div class="muted" style="font-size:13px;margin-top:2px">${escapeHtml(m.from || '')}</div>
+    </div>
+  `).join('');
+}
+
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+
+    
     // Reveal-on-scroll
     const io = ('IntersectionObserver' in window) ? new IntersectionObserver((ents)=>{
       ents.forEach(e=>{
@@ -537,3 +562,4 @@
   </script>
 </body>
 </html>
+
