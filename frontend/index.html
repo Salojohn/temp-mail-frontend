@@ -12,20 +12,16 @@
   <meta name="theme-color" content="#0D0F13" />
   <meta name="color-scheme" content="dark light" />
 
-  <!-- Font (fast + swap) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Preconnects -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
   <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
 
-  <!-- Icons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Temporary Email GR" />
   <meta property="og:title" content="Temp Mail Ελλάδα — Προσωρινό Email" />
@@ -37,14 +33,11 @@
   <meta name="twitter:description" content="Disposable email με 1 κλικ — ασφαλές & γρήγορο." />
   <meta name="twitter:image" content="https://temp-mail.gr/og-cover.jpg" />
 
-  <!-- AdSense (load ONCE) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3474217278034836" crossorigin="anonymous"></script>
 
-  <!-- Critical to avoid white flash on iPhone -->
   <style>html,body{background:#0D0F13}</style>
 
   <style>
-    /* ===== THEME (dark premium, minimal) ===== */
     :root{
       --n-950:#0A0B0E; --n-900:#0D0F13; --n-850:#111319; --n-800:#151720;
       --n-600:#232736; --n-400:#8D92A3; --n-100:#FFFFFF;
@@ -82,7 +75,6 @@
     .visually-hidden{position:absolute;left:-9999px}
     :focus-visible{outline:none; box-shadow:var(--ring)}
 
-    /* ===== Header (glassy) ===== */
     header{
       position:sticky; top:0; z-index:80;
       backdrop-filter:saturate(170%) blur(10px);
@@ -103,7 +95,6 @@
     nav.primary a{color:var(--muted);margin:0 10px;font-weight:700}
     nav.primary a:hover{color:var(--fg)}
 
-    /* ===== Mobile drawer ===== */
     .menu-toggle{display:none;border:1px solid var(--border);background:var(--card-2);padding:10px 12px;border-radius:12px;cursor:pointer;color:var(--fg);transition:.2s transform ease,.2s border-color ease}
     .menu-toggle:hover{transform:translateY(-1px);border-color:rgba(29,136,254,.5)}
     .scrim{position:fixed;inset:0;background:rgba(2,6,23,.45);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:78}
@@ -114,7 +105,6 @@
     .drawer a:hover{background:var(--card)}
     .drawer .close{align-self:flex-end;border:1px solid var(--border);background:var(--card-2);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--fg)}
 
-    /* ===== Hero ===== */
     .hero{display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center;padding:28px 0 6px}
     .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-weight:800;background:var(--card-2);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
     h1{font-size:clamp(28px,4.8vw,58px);line-height:1.05;margin:10px 0 6px}
@@ -127,7 +117,6 @@
     .chip{border:1px dashed var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:14px}
     .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
-    /* ===== Sections / Cards ===== */
     .card{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .section{margin:34px 0}
     h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
@@ -139,20 +128,16 @@
     .ok{color:var(--ok)}
     .err{color:var(--err)}
 
-    /* ===== Ads (CLS-safe placeholders) ===== */
     .ad-card{text-align:center}
     .ad-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-    /* Reserve space to avoid layout shift (tweak if θέλεις) */
     .ad-top-placeholder{min-height:120px; display:block}
     .ad-bottom-placeholder{min-height:220px; display:block}
 
-    /* ===== Animations ===== */
     .reveal{opacity:0;transform:translateY(10px);will-change:transform,opacity}
     .reveal.show{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1)}
     .float{animation:float 5.5s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    /* ===== Mobile ===== */
     @media (max-width: 960px){
       nav.primary{display:none}
       .menu-toggle{display:inline-flex;align-items:center;gap:8px}
@@ -165,14 +150,12 @@
       }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       *{animation:none!important;transition:none!important}
       .reveal{opacity:1;transform:none}
     }
   </style>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Temporary Email GR","url":"https://temp-mail.gr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Προσωρινό email (temp mail) για ασφαλείς εγγραφές χωρίς spam.","inLanguage":"el-GR","creator":{"@type":"Organization","name":"Temporary Email GR"}}
   </script>
@@ -184,10 +167,10 @@
   ]}
   </script>
 </head>
+
 <body>
   <a class="visually-hidden" href="#main">Μετάβαση στο περιεχόμενο</a>
 
-  <!-- Consent banner (UI – έτοιμο για μελλοντικό Consent Mode) -->
   <div id="consent" role="dialog" aria-live="polite" aria-label="Συναίνεση cookies" style="position:sticky;top:0;z-index:90;display:none">
     <div class="container reveal">
       <div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
@@ -207,7 +190,6 @@
     <div class="container nav">
       <a class="brand" href="/" aria-label="Temporary Email GR">
         <span class="logo-wrap" aria-hidden="true">
-          <!-- Animated logo -->
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
             <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="white" stop-opacity=".65"/></linearGradient></defs>
             <path d="M3 7.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="url(#g)" stroke-width="1.5"/>
@@ -221,14 +203,12 @@
         <span class="wordmark">Temporary Email <span class="muted">GR</span></span>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="primary" aria-label="Κύρια πλοήγηση">
         <a href="#features">Χαρακτηριστικά</a>
         <a href="#inbox">Inbox</a>
         <a href="#faq">FAQ</a>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-controls="mobileDrawer" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -237,7 +217,6 @@
     </div>
   </header>
 
-  <!-- Off-canvas mobile menu -->
   <div class="scrim" id="scrim" hidden></div>
   <aside class="drawer" id="mobileDrawer" aria-hidden="true">
     <button class="close" id="menuClose" aria-label="Κλείσιμο μενού">✕</button>
@@ -275,7 +254,6 @@
       </div>
     </section>
 
-    <!-- TOP: Display (CLS-safe) -->
     <section class="section reveal" aria-labelledby="ad-top-title">
       <h2 id="ad-top-title" class="visually-hidden">Διαφήμιση κορυφής</h2>
       <div class="card ad-card">
@@ -316,7 +294,6 @@
       </div>
     </section>
 
-    <!-- BOTTOM: Multiplex (CLS-safe) -->
     <section class="section reveal" aria-labelledby="ad-bottom-title">
       <h2 id="ad-bottom-title" class="visually-hidden">Διαφήμιση κάτω</h2>
       <div class="card ad-card">
@@ -347,12 +324,15 @@
     let local = null, expiresAt = null, poller = null;
     const statusEl = $('#status');
 
+    // ✅ NEW: κρατάμε ποιο message είναι ανοιχτό (ώστε να μην το σκοτώνει το polling)
+    let openMessageId = null;
+
     function setStatus(t, type='muted'){
       statusEl.textContent = t || '';
       statusEl.className = type === 'err' ? 'err' : (type === 'ok' ? 'ok' : 'muted');
     }
 
-    // Consent banner (UI only – έτοιμο για CMP/Consent Mode v2)
+    // Consent banner (UI only)
     (function consentInit(){
       const key = 'consent-choice-v1';
       const saved = localStorage.getItem(key);
@@ -403,16 +383,18 @@
 
         local = j.local;
         expiresAt = Date.now() + (j.expires_in * 1000);
+        openMessageId = null;
 
         $('#email').innerHTML =
           `<strong style="font-size:18px">${j.email}</strong>
            <button class="btn" onclick="copyText('${j.email}')">Copy</button>`;
 
         tickTTL();
+
         if (poller) clearInterval(poller);
         poller = setInterval(loadInbox, 3000);
-        await loadInbox();
 
+        await loadInbox();
         setStatus('Η διεύθυνση είναι έτοιμη.', 'ok');
       } catch (e) {
         console.error(e);
@@ -432,14 +414,22 @@
 
     async function loadInbox(){
       if (!local) return;
+
+      // ✅ NEW: Αν ο χρήστης έχει ανοιχτό μήνυμα, μην κάνεις refresh (αλλιώς κλείνει μόνο του)
+      const openDetails = document.querySelector('#messages details[open]');
+      if (openDetails) return;
+
       try {
         const r = await fetch(`${API}/inbox/${encodeURIComponent(local)}`);
-        const box = $('#messages'); box.innerHTML = '';
+        const box = $('#messages');
+        box.innerHTML = '';
+
         if (!r.ok) {
           box.innerHTML = '<div class="muted">Το inbox έληξε. Δημιούργησε νέα διεύθυνση.</div>';
           clearInterval(poller);
           return;
         }
+
         const j = await r.json();
         const list = j.messages || [];
 
@@ -451,6 +441,8 @@
         for (const m of list){
           const wrap = document.createElement('article');
           wrap.className = 'message-card reveal';
+          wrap.dataset.id = m.id;
+
           wrap.innerHTML = `
             <div><strong class="subject"></strong> <span class="muted from"></span></div>
             <div class="muted time"></div>
@@ -462,27 +454,49 @@
               <pre class="plain" style="overflow:auto"></pre>
             </details>
           `;
+
           wrap.querySelector('.subject').textContent = m.subject || '(Χωρίς θέμα)';
           wrap.querySelector('.from').textContent = ' — ' + (m.from || '');
           wrap.querySelector('.time').textContent = new Date(m.received_at).toLocaleString();
           wrap.querySelector('.preview').textContent = m.preview || '';
 
-          wrap.querySelector('details').addEventListener('toggle', async ev => {
-            if (!ev.target.open) return;
-            try {
-              const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
-              const full = await rr.json();
-              const iframe = wrap.querySelector('.html');
-              if (full.body_html) {
-                const blob = new Blob([full.body_html], { type:'text/html' });
-                iframe.src = URL.createObjectURL(blob);
+          const details = wrap.querySelector('details');
+
+          // ✅ NEW: χωρίς { once:true } — φορτώνει μία φορά με dataset flag
+          details.addEventListener('toggle', async () => {
+            if (details.open) {
+              openMessageId = m.id;
+              if (details.dataset.loaded === '1') return;
+              details.dataset.loaded = '1';
+
+              try {
+                const rr = await fetch(`${API}/message/${encodeURIComponent(m.id)}`);
+                if (!rr.ok) throw new Error(`message_failed_${rr.status}`);
+                const full = await rr.json();
+
+                const iframe = wrap.querySelector('.html');
+                if (full.body_html) {
+                  const blob = new Blob([full.body_html], { type:'text/html' });
+                  iframe.src = URL.createObjectURL(blob);
+                } else {
+                  iframe.removeAttribute('src');
+                }
+
+                wrap.querySelector('.plain').textContent = full.body_plain || '';
+              } catch (e) {
+                console.error(e);
+                details.dataset.loaded = '0';
+                alert('Αποτυχία φόρτωσης πλήρους μηνύματος.');
               }
-              wrap.querySelector('.plain').textContent = full.body_plain || '';
-            } catch (e) {
-              console.error(e);
-              alert('Αποτυχία φόρτωσης πλήρους μηνύματος.');
+            } else {
+              openMessageId = null;
             }
-          }, { once:true });
+          });
+
+          // ✅ NEW: αν πριν είχες ανοιχτό το ίδιο id, το ξανανοίγουμε (optional)
+          if (openMessageId && openMessageId === m.id) {
+            details.open = true;
+          }
 
           box.appendChild(wrap);
           io && io.observe(wrap);
@@ -523,7 +537,3 @@
   </script>
 </body>
 </html>
-
-
-
-
