@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_debug/
+
+Sitemap: https://temp-mail.gr/sitemap.xml
