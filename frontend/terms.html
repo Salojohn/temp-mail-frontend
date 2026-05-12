@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Όροι Χρήσης — Temp-Mail.gr</title>
+<meta name="description" content="Διαβάστε τους Όρους Χρήσης της υπηρεσίας προσωρινού email Temp-Mail.gr. Ενημερωθείτε για τα δικαιώματα, τις υποχρεώσεις και τους περιορισμούς χρήσης."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://temp-mail.gr/terms.html"/>
+<meta property="og:title" content="Όροι Χρήσης — Temp-Mail.gr"/>
+<meta property="og:description" content="Όροι Χρήσης της υπηρεσίας δωρεάν προσωρινού email Temp-Mail.gr"/>
+<meta property="og:url" content="https://temp-mail.gr/terms.html"/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0D0F13"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0D0F13;
+    --bg2: #13161C;
+    --bg3: #1A1E27;
+    --border: rgba(255,255,255,0.07);
+    --text: #E8EAF0;
+    --muted: #8891A4;
+    --accent: #4AFFA3;
+    --accent2: #3DE090;
+    --heading: #FFFFFF;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,15,19,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 18px;
+    color: var(--heading);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo span { color: var(--accent); }
+  nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color .2s;
+    margin-left: 24px;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* HERO */
+  .page-hero {
+    padding: 72px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(74,255,163,0.04) 0%, transparent 100%);
+  }
+  .page-hero .badge {
+    display: inline-block;
+    background: rgba(74,255,163,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(74,255,163,0.2);
+    border-radius: 100px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 14px; margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800; color: var(--heading);
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .page-hero p {
+    color: var(--muted); font-size: 16px; max-width: 520px; margin: 0 auto 24px;
+  }
+  .update-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 16px;
+    font-size: 13px; color: var(--muted);
+  }
+  .update-badge strong { color: var(--text); }
+
+  /* LAYOUT */
+  .container {
+    max-width: 860px; margin: 0 auto; padding: 60px 24px 100px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+  .toc h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 10px; padding: 5px 0; }
+  .toc ol li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    min-width: 22px;
+  }
+  .toc a { color: var(--text); text-decoration: none; font-size: 14px; transition: color .2s; }
+  .toc a:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  .section { margin-bottom: 52px; scroll-margin-top: 80px; }
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(74,255,163,0.1);
+    border: 1px solid rgba(74,255,163,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    flex-shrink: 0;
+  }
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--heading);
+  }
+  .section p { color: var(--text); margin-bottom: 14px; font-size: 15px; }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul, .section ol {
+    margin: 12px 0 16px 0; padding-left: 0;
+    list-style: none;
+  }
+  .section ul li, .section ol li {
+    position: relative; padding-left: 20px;
+    color: var(--text); font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .section ul li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent); font-size: 12px; top: 3px;
+  }
+  .section ol { counter-reset: ol; }
+  .section ol li { counter-increment: ol; }
+  .section ol li::before {
+    content: counter(ol) '.'; position: absolute; left: 0;
+    color: var(--accent); font-size: 13px; font-weight: 700;
+  }
+
+  .highlight-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .highlight-box.warn {
+    border-left: 3px solid #FFB547;
+  }
+  .highlight-box.info {
+    border-left: 3px solid var(--accent);
+  }
+  .highlight-box p { margin: 0; font-size: 14px; color: var(--muted); }
+  .highlight-box strong { color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color .2s; }
+  .footer-links a:hover { color: var(--accent); }
+  footer p { color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://temp-mail.gr/" class="logo">Temp<span>Mail</span>.gr</a>
+  <nav>
+    <a href="https://temp-mail.gr/#features">Χαρακτηριστικά</a>
+    <a href="https://temp-mail.gr/#inbox">Inbox</a>
+    <a href="https://temp-mail.gr/#faq">FAQ</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="badge">Νομικό έγγραφο</div>
+  <h1>Όροι Χρήσης</h1>
+  <p>Παρακαλούμε διαβάστε προσεκτικά τους παρόντες όρους πριν χρησιμοποιήσετε την υπηρεσία μας.</p>
+  <div class="update-badge">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Τελευταία ενημέρωση: <strong>12 Μαΐου 2026</strong>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>Περιεχόμενα</h2>
+    <ol>
+      <li><a href="#s1">Αποδοχή Όρων</a></li>
+      <li><a href="#s2">Περιγραφή Υπηρεσίας</a></li>
+      <li><a href="#s3">Προϋποθέσεις Χρήσης</a></li>
+      <li><a href="#s4">Απαγορευμένες Χρήσεις</a></li>
+      <li><a href="#s5">Διαθεσιμότητα & Διακοπές</a></li>
+      <li><a href="#s6">Πνευματικά Δικαιώματα</a></li>
+      <li><a href="#s7">Περιορισμός Ευθύνης</a></li>
+      <li><a href="#s8">Τροποποιήσεις Όρων</a></li>
+      <li><a href="#s9">Εφαρμοστέο Δίκαιο</a></li>
+      <li><a href="#s10">Επικοινωνία</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2>Αποδοχή Όρων</h2>
+    </div>
+    <p>Χρησιμοποιώντας την υπηρεσία Temp-Mail.gr αποδέχεστε πλήρως και ανεπιφύλακτα τους παρόντες Όρους Χρήσης. Εάν δεν συμφωνείτε με οποιονδήποτε από τους παρόντες όρους, παρακαλούμε να απέχετε από τη χρήση της υπηρεσίας.</p>
+    <p>Η χρήση της υπηρεσίας συνεπάγεται αυτομάτως την αποδοχή των παρόντων όρων, καθώς και της <a href="/privacy.html" style="color:var(--accent)">Πολιτικής Απορρήτου</a> μας.</p>
+    <div class="highlight-box info">
+      <p><strong>Σημείωση:</strong> Η υπηρεσία απευθύνεται σε άτομα ηλικίας 13 ετών και άνω. Ανήλικοι κάτω των 13 ετών δεν επιτρέπεται να χρησιμοποιούν την υπηρεσία.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2>Περιγραφή Υπηρεσίας</h2>
+    </div>
+    <p>Το Temp-Mail.gr παρέχει δωρεάν, ανώνυμες, προσωρινές διευθύνσεις ηλεκτρονικού ταχυδρομείου (disposable email) για χρήση μιας χρήσης. Η υπηρεσία επιτρέπει στους χρήστες:</p>
+    <ul>
+      <li>Να δημιουργούν προσωρινές διευθύνσεις email χωρίς εγγραφή</li>
+      <li>Να λαμβάνουν email σε πραγματικό χρόνο</li>
+      <li>Να προβάλλουν μηνύματα και συνημμένα αρχεία</li>
+      <li>Να προστατεύουν την ιδιωτικότητά τους κατά τις ηλεκτρονικές εγγραφές</li>
+    </ul>
+    <div class="highlight-box warn">
+      <p><strong>Προσοχή:</strong> Κάθε διεύθυνση email λήγει αυτόματα μετά από <strong>10 λεπτά αδράνειας</strong>. Δεν αποθηκεύουμε μόνιμα δεδομένα χρηστών.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2>Προϋποθέσεις Χρήσης</h2>
+    </div>
+    <p>Για να χρησιμοποιήσετε την υπηρεσία, αποδέχεστε ότι:</p>
+    <ul>
+      <li>Θα χρησιμοποιείτε την υπηρεσία μόνο για νόμιμους σκοπούς</li>
+      <li>Δεν θα προσπαθήσετε να παρακάμψετε τα τεχνικά μέτρα ασφαλείας</li>
+      <li>Δεν θα χρησιμοποιείτε αυτοματοποιημένα scripts για μαζική δημιουργία διευθύνσεων</li>
+      <li>Θα σέβεστε τους όρους χρήσης τρίτων υπηρεσιών που εγγράφεστε μέσω temp email</li>
+      <li>Κατανοείτε ότι τα δεδομένα είναι προσωρινά και μπορεί να διαγραφούν ανά πάσα στιγμή</li>
+    </ul>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2>Απαγορευμένες Χρήσεις</h2>
+    </div>
+    <p>Απαγορεύεται ρητά η χρήση της υπηρεσίας για:</p>
+    <ul>
+      <li>Παράνομες δραστηριότητες κάθε είδους</li>
+      <li>Αποστολή ή λήψη spam, phishing ή κακόβουλου περιεχομένου</li>
+      <li>Παραβίαση δικαιωμάτων τρίτων (πνευματικά δικαιώματα, εμπορικά σήματα κλπ.)</li>
+      <li>Δημιουργία ψεύτικων λογαριασμών για παράκαμψη περιορισμών υπηρεσιών</li>
+      <li>Οποιαδήποτε χρήση που παραβιάζει την ελληνική ή ευρωπαϊκή νομοθεσία</li>
+      <li>Αποστολή υλικού σεξουαλικής εκμετάλλευσης ανηλίκων (CSAM)</li>
+      <li>Απάτη, εκβιασμό ή οικονομικά εγκλήματα</li>
+    </ul>
+    <div class="highlight-box warn">
+      <p><strong>Σημαντικό:</strong> Διατηρούμε το δικαίωμα να αναστείλουμε ή να αποκλείσουμε οποιονδήποτε χρήστη παραβιάζει τους παρόντες όρους, χωρίς προηγούμενη ειδοποίηση.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2>Διαθεσιμότητα & Διακοπές</h2>
+    </div>
+    <p>Το Temp-Mail.gr παρέχεται "ως έχει" (as-is) χωρίς εγγύηση συνεχούς διαθεσιμότητας. Ενδέχεται να υπάρξουν διακοπές λόγω:</p>
+    <ul>
+      <li>Τακτικής συντήρησης ή αναβαθμίσεων</li>
+      <li>Τεχνικών προβλημάτων τρίτων παρόχων (Cloudflare, Upstash, Render)</li>
+      <li>Απρόβλεπτων συμβάντων ή ανωτέρας βίας</li>
+    </ul>
+    <p>Δεν αναλαμβάνουμε καμία ευθύνη για απώλεια δεδομένων ή ζημίες που προκύπτουν από διακοπές της υπηρεσίας.</p>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2>Πνευματικά Δικαιώματα</h2>
+    </div>
+    <p>Όλο το περιεχόμενο της ιστοσελίδας Temp-Mail.gr, συμπεριλαμβανομένου του κώδικα, του σχεδιασμού, των κειμένων και των γραφικών, αποτελεί πνευματική ιδιοκτησία του Temp-Mail.gr και προστατεύεται από την ισχύουσα νομοθεσία.</p>
+    <p>Απαγορεύεται η αναπαραγωγή, διανομή ή τροποποίηση οποιουδήποτε τμήματος της υπηρεσίας χωρίς γραπτή άδεια.</p>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2>Περιορισμός Ευθύνης</h2>
+    </div>
+    <p>Το Temp-Mail.gr δεν φέρει ευθύνη για:</p>
+    <ul>
+      <li>Απώλεια δεδομένων λόγω λήξης της προσωρινής διεύθυνσης</li>
+      <li>Περιεχόμενο εισερχόμενων μηνυμάτων τρίτων</li>
+      <li>Ζημίες από κακή χρήση της υπηρεσίας</li>
+      <li>Τυχόν αδυναμία λήψης email από τρίτες υπηρεσίες</li>
+    </ul>
+    <div class="highlight-box info">
+      <p>Η υπηρεσία παρέχεται <strong>δωρεάν</strong> και χωρίς εγγύηση αδιάλειπτης λειτουργίας. Χρησιμοποιείτε την υπηρεσία με δική σας ευθύνη.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2>Τροποποιήσεις Όρων</h2>
+    </div>
+    <p>Διατηρούμε το δικαίωμα να τροποποιούμε τους παρόντες Όρους Χρήσης ανά πάσα στιγμή. Οι αλλαγές τίθενται σε ισχύ άμεσα μετά τη δημοσίευσή τους στην παρούσα σελίδα.</p>
+    <p>Συνεχίζοντας να χρησιμοποιείτε την υπηρεσία μετά από τυχόν τροποποίηση, αποδέχεστε τους νέους όρους.</p>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <h2>Εφαρμοστέο Δίκαιο</h2>
+    </div>
+    <p>Οι παρόντες Όροι Χρήσης διέπονται από το ελληνικό δίκαιο και την ευρωπαϊκή νομοθεσία, συμπεριλαμβανομένου του Γενικού Κανονισμού Προστασίας Δεδομένων (GDPR — Κανονισμός ΕΕ 2016/679).</p>
+    <p>Οποιαδήποτε διαφορά σχετίζεται με τους παρόντες όρους θα επιλύεται αποκλειστικά από τα αρμόδια δικαστήρια της Ελλάδας.</p>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Επικοινωνία</h2>
+    </div>
+    <p>Για ερωτήσεις ή απορίες σχετικά με τους παρόντες Όρους Χρήσης, μπορείτε να επικοινωνήσετε μαζί μας:</p>
+    <div class="highlight-box info">
+      <p>📧 Email: <strong>contact@temp-mail.gr</strong><br/>
+      🌐 Ιστοσελίδα: <strong>https://temp-mail.gr</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://temp-mail.gr/">Αρχική</a>
+    <a href="https://temp-mail.gr/terms.html">Όροι Χρήσης</a>
+    <a href="https://temp-mail.gr/privacy.html">Πολιτική Απορρήτου</a>
+    <a href="https://temp-mail.gr/#faq">FAQ</a>
+  </div>
+  <p>© 2026 Temp-Mail.gr — Δωρεάν προσωρινό email στην Ελλάδα</p>
+</footer>
+
+</body>
+</html>
