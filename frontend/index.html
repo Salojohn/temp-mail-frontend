@@ -876,10 +876,7 @@
           <button class="toggle-btn" id="btnPlain" onclick="switchView('plain')">Plain Text</button>
         </div>
         <div class="msg-view-body" id="msgBody">
-          ${m.body_html
-            ? `<iframe id="msgIframe" sandbox="allow-same-origin" title="Email περιεχόμενο"></iframe>`
-            : `<div class="msg-view-plain">${esc(m.body_plain||'(Κενό μήνυμα)')}</div>`
-          }
+          <div class="msg-view-plain">${esc(m.body_plain||'(Κενό μήνυμα)')}</div>
         </div>
         ${attBar}
       `;
