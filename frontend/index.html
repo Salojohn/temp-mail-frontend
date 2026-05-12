@@ -885,14 +885,22 @@
       `;
 
       // Load iframe
-      if (m.body_html) {
-        const iframe = $('#msgIframe', view);
-        const blob = new Blob([m.body_html], {type:'text/html'});
-        iframe.src = URL.createObjectURL(blob);
-        iframe.style.height = '100%'; iframe.style.minHeight = '360px';
-        view._plain = m.body_plain || '';
-        view._html  = m.body_html;
-      }
+      if (m.body_html && !m.body_html.includes('Ξ')) {
+  const iframe = $('#msgIframe', view);
+  const blob = new Blob([m.body_html], {type:'text/html;charset=utf-8'});
+  iframe.src = URL.createObjectURL(blob);
+  iframe.style.height = '100%'; iframe.style.minHeight = '360px';
+  view._plain = m.body_plain || '';
+  view._html  = m.body_html;
+} else {
+  // Fallback σε plain text αν το HTML έχει broken encoding
+  view._plain = m.body_plain || '';
+  view._html  = '';
+  // Δείξε plain text αμέσως
+  $('#btnHtml', view)?.classList.remove('active');
+  $('#btnPlain', view)?.classList.add('active');
+  $('#msgBody', view).innerHTML = `<div class="msg-view-plain">${esc(m.body_plain || '(Κενό μήνυμα)')}</div>`;
+}
 
     } catch(e) {
       console.error(e);
