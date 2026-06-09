@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="el">
+<!doctype html>
+<html lang="el" dir="ltr">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>Πολιτική Απορρήτου — Temp-Mail.gr</title>
 <meta name="description" content="Η Πολιτική Απορρήτου του Temp-Mail.gr. Μάθετε ποια δεδομένα συλλέγουμε, πώς τα χρησιμοποιούμε και πώς προστατεύουμε την ιδιωτικότητά σας. GDPR συμβατό."/>
@@ -11,469 +11,611 @@
 <meta property="og:description" content="GDPR-συμβατή Πολιτική Απορρήτου της υπηρεσίας δωρεάν προσωρινού email Temp-Mail.gr"/>
 <meta property="og:url" content="https://temp-mail.gr/privacy.html"/>
 <meta property="og:type" content="website"/>
-<meta name="theme-color" content="#0D0F13"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<meta name="theme-color" content="#050810"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <style>
-  :root {
-    --bg: #0D0F13;
-    --bg2: #13161C;
-    --bg3: #1A1E27;
-    --border: rgba(255,255,255,0.07);
-    --text: #E8EAF0;
-    --muted: #8891A4;
-    --accent: #4AFFA3;
-    --heading: #FFFFFF;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.75;
-    min-height: 100vh;
-  }
+:root{
+  --sf:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono","Space Mono","JetBrains Mono",ui-monospace,monospace;
+  --bg:#f5f5f7;--bg2:#fbfbfd;--bg3:#ffffff;--bg4:#f5f5f7;--bg5:#e8e8ed;
+  --b:rgba(0,0,0,.07);--b2:rgba(0,0,0,.11);--b3:rgba(0,0,0,.16);
+  --fg:#1d1d1f;--fg2:#6e6e73;--fg3:#9a9aa0;
+  --ac:#0071e3;--ac2:#2997ff;--acd:rgba(0,113,227,.075);--acb:rgba(0,113,227,.18);
+  --rd:#ff3b30;--yl:#ff9500;--ok:#34c759;
+  --r:18px;--rlg:28px;
+  --shs:0 2px 8px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.04);
+  --shm:0 10px 30px rgba(0,0,0,.07),0 2px 8px rgba(0,0,0,.04);
+  --shl:0 24px 70px rgba(0,0,0,.11),0 8px 22px rgba(0,0,0,.05);
+  --ease:cubic-bezier(.16,1,.3,1)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sf);background:var(--bg);color:var(--fg);
+  -webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;letter-spacing:-.012em
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 85% -10%,rgba(0,113,227,.10),transparent 36%),
+    radial-gradient(circle at -10% 18%,rgba(52,199,89,.08),transparent 32%),
+    linear-gradient(180deg,#fbfbfd 0%,#f5f5f7 48%,#fff 100%)
+}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sf);cursor:pointer;border:none;outline:none;background:none}
+.W{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px);position:relative;z-index:1}
 
-  header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(13,15,19,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 18px;
-    color: var(--heading); text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .logo span { color: var(--accent); }
-  nav a {
-    color: var(--muted); text-decoration: none;
-    font-size: 14px; font-weight: 500;
-    transition: color .2s; margin-left: 24px;
-  }
-  nav a:hover { color: var(--accent); }
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:.5px solid var(--b)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:54px;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:650;letter-spacing:-.35px}
+.logo-sq{
+  width:30px;height:30px;border-radius:8px;background:var(--ac);
+  display:grid;place-items:center;flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0,113,227,.28)
+}
+.brand-tld{color:var(--ac)}
+nav.d{display:flex;gap:4px}
+nav.d a{
+  padding:6px 12px;border-radius:999px;color:var(--fg2);
+  font-size:13px;font-weight:500;transition:color .16s,background .16s
+}
+nav.d a:hover{color:var(--fg);background:rgba(0,0,0,.04)}
+.nbtn{
+  background:var(--ac);color:#fff;font-weight:600;font-size:13px;
+  padding:8px 16px;border-radius:999px;
+  transition:filter .16s,transform .14s,box-shadow .16s;
+  box-shadow:0 4px 16px rgba(0,113,227,.24);letter-spacing:-.2px
+}
+.nbtn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,113,227,.28)}
+.ham{
+  display:none;padding:8px;border-radius:10px;
+  border:.5px solid var(--b2);color:var(--fg);background:rgba(255,255,255,.7)
+}
 
-  .page-hero {
-    padding: 72px 24px 48px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(74,255,163,0.04) 0%, transparent 100%);
-  }
-  .page-hero .badge {
-    display: inline-block;
-    background: rgba(74,255,163,0.1);
-    color: var(--accent);
-    border: 1px solid rgba(74,255,163,0.2);
-    border-radius: 100px;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: .08em; text-transform: uppercase;
-    padding: 4px 14px; margin-bottom: 20px;
-  }
-  .page-hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 800; color: var(--heading);
-    line-height: 1.15; margin-bottom: 16px;
-  }
-  .page-hero p { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto 24px; }
-  .update-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 8px; padding: 8px 16px;
-    font-size: 13px; color: var(--muted);
-  }
-  .update-badge strong { color: var(--text); }
+/* ── DRAWER ── */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.28);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .24s;z-index:300}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;height:100dvh;width:min(82vw,320px);
+  background:rgba(255,255,255,.94);backdrop-filter:blur(22px);
+  border-left:.5px solid var(--b2);transform:translateX(100%);
+  transition:transform .28s var(--ease);z-index:301;
+  display:flex;flex-direction:column;padding:20px;gap:4px
+}
+.drawer.on{transform:translateX(0)}
+.dcls{align-self:flex-end;background:var(--bg4);border:.5px solid var(--b2);border-radius:10px;padding:8px 12px;color:var(--fg);font-size:16px;margin-bottom:10px}
+.drawer a{padding:13px 12px;border-radius:12px;font-size:15px;font-weight:650;color:var(--fg);transition:background .14s}
+.drawer a:hover{background:rgba(0,0,0,.04)}
 
-  .container { max-width: 860px; margin: 0 auto; padding: 60px 24px 100px; }
+/* ── PAGE HERO ── */
+.page-hero{
+  padding:72px 0 56px;
+  border-bottom:.5px solid var(--b);
+  position:relative;z-index:1
+}
+.page-hero-inner{max-width:760px}
+.pg-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--acd);border:.5px solid var(--acb);
+  color:var(--ac);padding:7px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:.02em;margin-bottom:24px
+}
+.pg-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(52,199,89,.16)}
+.page-hero h1{
+  font-size:clamp(36px,5.5vw,68px);font-weight:750;
+  line-height:1;letter-spacing:-.055em;margin-bottom:16px
+}
+.page-hero .hl{color:var(--ac)}
+.page-hero .lead{
+  font-size:clamp(15px,1.6vw,18px);color:var(--fg2);
+  line-height:1.65;max-width:54ch;margin-bottom:28px
+}
+.update-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.88);border:.5px solid var(--b2);
+  border-radius:12px;padding:10px 16px;
+  font-size:13px;color:var(--fg2);
+  box-shadow:var(--shs)
+}
+.update-tag svg{color:var(--ac);flex-shrink:0}
+.update-tag strong{color:var(--fg);font-weight:600}
 
-  /* GDPR SUMMARY CARDS */
-  .gdpr-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 56px;
-  }
-  .gdpr-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-  }
-  .gdpr-card .icon {
-    font-size: 28px; margin-bottom: 10px;
-  }
-  .gdpr-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px; font-weight: 700;
-    color: var(--accent); text-transform: uppercase;
-    letter-spacing: .06em; margin-bottom: 6px;
-  }
-  .gdpr-card p { font-size: 13px; color: var(--muted); margin: 0; }
+/* ── LAYOUT ── */
+.legal-wrap{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:48px;
+  padding:56px 0 100px;
+  align-items:start;
+  position:relative;z-index:1
+}
+.toc-sticky{position:sticky;top:74px}
+.toc-card{
+  background:rgba(255,255,255,.88);border:.5px solid var(--b);
+  border-radius:22px;padding:24px;
+  box-shadow:var(--shs)
+}
+.toc-title{
+  font-size:11px;font-weight:650;color:var(--fg3);
+  text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px
+}
+.toc-title::before{content:"";width:14px;height:2px;background:var(--ac);border-radius:2px}
+.toc-card ol{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-card ol li a{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:10px;
+  font-size:13px;color:var(--fg2);
+  transition:color .16s,background .16s
+}
+.toc-card ol li a:hover{color:var(--fg);background:rgba(0,113,227,.06)}
+.toc-card ol li a.active{color:var(--ac);background:var(--acd)}
+.toc-num{
+  font-family:var(--mono);font-size:10px;font-weight:700;
+  color:var(--ac);min-width:18px
+}
 
-  .toc {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 56px;
-  }
-  .toc h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .1em;
-    color: var(--accent); margin-bottom: 16px;
-  }
-  .toc ol { list-style: none; counter-reset: toc; }
-  .toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 10px; padding: 5px 0; }
-  .toc ol li::before {
-    content: counter(toc, decimal-leading-zero);
-    font-size: 11px; font-weight: 700; color: var(--accent); min-width: 22px;
-  }
-  .toc a { color: var(--text); text-decoration: none; font-size: 14px; transition: color .2s; }
-  .toc a:hover { color: var(--accent); }
+/* ── GDPR SUMMARY GRID ── */
+.gdpr-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:12px;margin-bottom:48px
+}
+.gdpr-card{
+  background:rgba(255,255,255,.88);border:.5px solid var(--b);
+  border-radius:18px;padding:20px 16px;text-align:center;
+  box-shadow:var(--shs);transition:transform .2s var(--ease),box-shadow .2s
+}
+.gdpr-card:hover{transform:translateY(-2px);box-shadow:var(--shm)}
+.gdpr-icon{font-size:26px;margin-bottom:10px}
+.gdpr-card h3{
+  font-size:12px;font-weight:650;color:var(--ac);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px
+}
+.gdpr-card p{font-size:12px;color:var(--fg3);line-height:1.5}
 
-  .section { margin-bottom: 52px; scroll-margin-top: 80px; }
-  .section-header {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 20px; padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-num {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: rgba(74,255,163,0.1);
-    border: 1px solid rgba(74,255,163,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-size: 13px; font-weight: 700; color: var(--accent); flex-shrink: 0;
-  }
-  .section h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--heading); }
-  .section p { color: var(--text); margin-bottom: 14px; font-size: 15px; }
-  .section p:last-child { margin-bottom: 0; }
-  .section ul { margin: 12px 0 16px 0; padding-left: 0; list-style: none; }
-  .section ul li {
-    position: relative; padding-left: 20px;
-    color: var(--text); font-size: 15px; margin-bottom: 8px;
-  }
-  .section ul li::before {
-    content: '▸'; position: absolute; left: 0;
-    color: var(--accent); font-size: 12px; top: 3px;
-  }
+/* ── SECTIONS ── */
+.legal-content{display:flex;flex-direction:column;gap:0}
+.lsec{
+  padding:40px 0;
+  border-bottom:.5px solid var(--b);
+  scroll-margin-top:80px
+}
+.lsec:last-child{border-bottom:none}
+.sec-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sec-num{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  color:#fff;background:var(--ac);
+  width:30px;height:30px;border-radius:9px;
+  display:grid;place-items:center;flex-shrink:0
+}
+.lsec h2{
+  font-size:20px;font-weight:650;color:var(--fg);
+  letter-spacing:-.03em
+}
+.lsec p{
+  font-size:14.5px;color:var(--fg2);line-height:1.75;
+  margin-bottom:14px
+}
+.lsec p:last-child{margin-bottom:0}
+.lsec p strong{color:var(--fg);font-weight:600}
+.lsec ul{list-style:none;margin:12px 0 16px;padding:0}
+.lsec ul li{
+  position:relative;padding-left:18px;
+  font-size:14.5px;color:var(--fg2);line-height:1.7;margin-bottom:8px
+}
+.lsec ul li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--ac);flex-shrink:0
+}
+.lsec ul li strong{color:var(--fg);font-weight:600}
+.lsec a{color:var(--ac);text-decoration:underline;text-underline-offset:3px}
 
-  .data-table {
-    width: 100%; border-collapse: collapse;
-    margin: 16px 0; font-size: 14px;
-    border-radius: 10px; overflow: hidden;
-  }
-  .data-table th {
-    background: var(--bg3);
-    color: var(--accent);
-    font-family: 'Syne', sans-serif;
-    font-size: 12px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .06em;
-    padding: 12px 16px; text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .data-table td {
-    padding: 12px 16px; color: var(--text);
-    border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-  }
-  .data-table tr:last-child td { border-bottom: none; }
-  .data-table .yes { color: var(--accent); font-weight: 600; }
-  .data-table .no { color: #FF6B6B; font-weight: 600; }
+/* ── CALLOUT BOXES ── */
+.callout{
+  border-radius:16px;padding:18px 20px;
+  margin:16px 0;font-size:13.5px;line-height:1.7
+}
+.callout p{margin:0;font-size:13.5px}
+.callout.info{
+  background:var(--acd);border:.5px solid var(--acb);color:var(--fg2)
+}
+.callout.info strong{color:var(--fg)}
+.callout.ok{
+  background:rgba(52,199,89,.07);border:.5px solid rgba(52,199,89,.22);color:var(--fg2)
+}
+.callout.ok strong{color:var(--fg)}
+.callout.warn{
+  background:rgba(255,149,0,.07);border:.5px solid rgba(255,149,0,.25);color:var(--fg2)
+}
+.callout.warn strong{color:var(--fg)}
 
-  .highlight-box {
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 10px; padding: 20px 24px; margin: 16px 0;
-  }
-  .highlight-box.info { border-left: 3px solid var(--accent); }
-  .highlight-box.warn { border-left: 3px solid #FFB547; }
-  .highlight-box.good { border-left: 3px solid var(--accent); background: rgba(74,255,163,0.04); }
-  .highlight-box p { margin: 0; font-size: 14px; color: var(--muted); }
-  .highlight-box strong { color: var(--text); }
+/* ── DATA TABLE ── */
+.dtable-wrap{
+  border:.5px solid var(--b);border-radius:18px;
+  overflow:hidden;margin:16px 0;
+  box-shadow:var(--shs)
+}
+.dtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.dtable th{
+  background:var(--bg4);padding:12px 16px;text-align:left;
+  font-size:11px;font-weight:650;color:var(--fg2);
+  text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:.5px solid var(--b)
+}
+.dtable td{
+  padding:12px 16px;color:var(--fg2);
+  border-bottom:.5px solid var(--b);
+  background:#fff
+}
+.dtable tr:last-child td{border-bottom:none}
+.dtable tbody tr:nth-child(even) td{background:var(--bg4)}
+.dtable .yes{color:var(--ok);font-weight:650}
+.dtable .no{color:var(--rd);font-weight:650}
 
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 32px 24px; text-align: center;
-  }
-  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
-  .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color .2s; }
-  .footer-links a:hover { color: var(--accent); }
-  footer p { color: var(--muted); font-size: 13px; }
+/* ── FOOTER ── */
+footer{
+  border-top:.5px solid var(--b);padding:46px 0;
+  position:relative;z-index:1;
+  background:rgba(255,255,255,.45)
+}
+.fg{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:44px;margin-bottom:36px
+}
+.fbc .brand{margin-bottom:14px;display:inline-flex}
+.fbc p{font-size:13px;color:var(--fg3);line-height:1.67;max-width:30ch}
+.fc h4{
+  font-size:11.5px;font-weight:650;color:var(--fg2);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px
+}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fc li a{font-size:13px;color:var(--fg3);transition:color .16s}
+.fc li a:hover{color:var(--fg)}
+.fbot{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;padding-top:24px;border-top:.5px solid var(--b)
+}
+.fcopy,.fleg{font-size:12px;color:var(--fg3)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(14px);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(20px);
+  border:.5px solid var(--b2);color:var(--fg);padding:11px 20px;
+  border-radius:999px;font-size:14px;font-weight:600;
+  box-shadow:var(--shl);opacity:0;transition:opacity .2s,transform .2s;
+  pointer-events:none;z-index:9999;white-space:nowrap
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .legal-wrap{grid-template-columns:1fr}
+  .toc-sticky{position:static}
+  .gdpr-grid{grid-template-columns:repeat(2,1fr)}
+  nav.d,.nbtn{display:none}
+  .ham{display:flex}
+  .fg{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:560px){
+  .W{padding:0 18px}
+  .page-hero h1{font-size:36px}
+  .gdpr-grid{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
 
+<div id="toast" class="toast"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="dcls" id="dcls">✕</button>
+  <a href="/">Αρχική</a>
+  <a href="/#how-it-works">Πώς λειτουργεί</a>
+  <a href="/#features">Χαρακτηριστικά</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/terms.html">Όροι Χρήσης</a>
+</aside>
+
 <header>
-  <a href="https://temp-mail.gr/" class="logo">Temp<span>Mail</span>.gr</a>
-  <nav>
-    <a href="https://temp-mail.gr/#features">Χαρακτηριστικά</a>
-    <a href="https://temp-mail.gr/#inbox">Inbox</a>
-    <a href="https://temp-mail.gr/#faq">FAQ</a>
-  </nav>
+  <div class="W nav">
+    <a class="brand" href="/" aria-label="Temp-Mail.gr – αρχική">
+      <div class="logo-sq">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span>Temp-Mail<span class="brand-tld">.gr</span></span>
+    </a>
+    <nav class="d">
+      <a href="/">Αρχική</a>
+      <a href="/#features">Χαρακτηριστικά</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/terms.html">Όροι Χρήσης</a>
+    </nav>
+    <a href="/" class="nbtn">Δημιούργησε Email →</a>
+    <button class="ham" id="ham" aria-label="Μενού" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
 </header>
 
-<div class="page-hero">
-  <div class="badge">GDPR Συμβατό</div>
-  <h1>Πολιτική Απορρήτου</h1>
-  <p>Σεβόμαστε την ιδιωτικότητά σας. Δείτε ακριβώς τι δεδομένα συλλέγουμε, γιατί και πώς τα προστατεύουμε.</p>
-  <div class="update-badge">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Τελευταία ενημέρωση: <strong>12 Μαΐου 2026</strong>
+<main>
+<div class="W page-hero">
+  <div class="page-hero-inner">
+    <div class="pg-eyebrow">
+      <span class="pg-dot"></span>
+      GDPR Συμβατό · Ενημερώθηκε 12 Μαΐου 2026
+    </div>
+    <h1>Πολιτική <span class="hl">Απορρήτου</span></h1>
+    <p class="lead">Σεβόμαστε την ιδιωτικότητά σας. Δείτε ακριβώς τι δεδομένα συλλέγουμε, γιατί και πώς τα προστατεύουμε.</p>
+    <div class="update-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Τελευταία ενημέρωση: <strong>12 Μαΐου 2026</strong>
+    </div>
   </div>
 </div>
 
-<div class="container">
-
-  <!-- GDPR summary cards -->
-  <div class="gdpr-grid">
-    <div class="gdpr-card">
-      <div class="icon">🚫</div>
-      <h3>Χωρίς Εγγραφή</h3>
-      <p>Δεν απαιτούμε email, όνομα ή λογαριασμό</p>
-    </div>
-    <div class="gdpr-card">
-      <div class="icon">⏱️</div>
-      <h3>Αυτόματη Διαγραφή</h3>
-      <p>Τα δεδομένα διαγράφονται σε 10 λεπτά</p>
-    </div>
-    <div class="gdpr-card">
-      <div class="icon">🔒</div>
-      <h3>Χωρίς Πώληση</h3>
-      <p>Δεν πουλάμε δεδομένα σε τρίτους</p>
-    </div>
-    <div class="gdpr-card">
-      <div class="icon">🇪🇺</div>
-      <h3>GDPR Ready</h3>
-      <p>Πλήρης συμμόρφωση με τον Κανονισμό ΕΕ</p>
+<div class="W">
+  <!-- GDPR summary -->
+  <div style="padding-top:48px">
+    <div class="gdpr-grid">
+      <div class="gdpr-card"><div class="gdpr-icon">🚫</div><h3>Χωρίς Εγγραφή</h3><p>Δεν απαιτούμε email, όνομα ή λογαριασμό</p></div>
+      <div class="gdpr-card"><div class="gdpr-icon">⏱️</div><h3>Αυτόματη Διαγραφή</h3><p>Τα δεδομένα διαγράφονται σε 10 λεπτά</p></div>
+      <div class="gdpr-card"><div class="gdpr-icon">🔒</div><h3>Χωρίς Πώληση</h3><p>Δεν πουλάμε δεδομένα σε τρίτους</p></div>
+      <div class="gdpr-card"><div class="gdpr-icon">🇪🇺</div><h3>GDPR Ready</h3><p>Πλήρης συμμόρφωση με τον Κανονισμό ΕΕ</p></div>
     </div>
   </div>
 
-  <div class="toc">
-    <h2>Περιεχόμενα</h2>
-    <ol>
-      <li><a href="#p1">Ποιοι είμαστε</a></li>
-      <li><a href="#p2">Δεδομένα που συλλέγουμε</a></li>
-      <li><a href="#p3">Πώς χρησιμοποιούμε τα δεδομένα</a></li>
-      <li><a href="#p4">Cookies & Διαφημίσεις Google</a></li>
-      <li><a href="#p5">Τρίτοι πάροχοι υπηρεσιών</a></li>
-      <li><a href="#p6">Διατήρηση δεδομένων</a></li>
-      <li><a href="#p7">Τα δικαιώματά σας (GDPR)</a></li>
-      <li><a href="#p8">Ασφάλεια δεδομένων</a></li>
-      <li><a href="#p9">Αλλαγές πολιτικής</a></li>
-      <li><a href="#p10">Επικοινωνία</a></li>
-    </ol>
-  </div>
+  <div class="legal-wrap">
+    <!-- TOC sidebar -->
+    <div class="toc-sticky">
+      <div class="toc-card">
+        <div class="toc-title">Περιεχόμενα</div>
+        <ol>
+          <li><a href="#p1"><span class="toc-num">01</span>Ποιοι είμαστε</a></li>
+          <li><a href="#p2"><span class="toc-num">02</span>Δεδομένα που συλλέγουμε</a></li>
+          <li><a href="#p3"><span class="toc-num">03</span>Πώς χρησιμοποιούμε</a></li>
+          <li><a href="#p4"><span class="toc-num">04</span>Cookies & AdSense</a></li>
+          <li><a href="#p5"><span class="toc-num">05</span>Τρίτοι πάροχοι</a></li>
+          <li><a href="#p6"><span class="toc-num">06</span>Διατήρηση δεδομένων</a></li>
+          <li><a href="#p7"><span class="toc-num">07</span>Δικαιώματα GDPR</a></li>
+          <li><a href="#p8"><span class="toc-num">08</span>Ασφάλεια</a></li>
+          <li><a href="#p9"><span class="toc-num">09</span>Αλλαγές πολιτικής</a></li>
+          <li><a href="#p10"><span class="toc-num">10</span>Επικοινωνία</a></li>
+        </ol>
+      </div>
+    </div>
 
-  <div class="section" id="p1">
-    <div class="section-header">
-      <div class="section-num">01</div>
-      <h2>Ποιοι είμαστε</h2>
-    </div>
-    <p>Το Temp-Mail.gr είναι δωρεάν υπηρεσία προσωρινού ηλεκτρονικού ταχυδρομείου (disposable email) που λειτουργεί στην Ελλάδα. Η υπηρεσία δεν ανήκει σε εταιρεία αλλά λειτουργεί ως ανεξάρτητο project.</p>
-    <div class="highlight-box info">
-      <p><strong>Υπεύθυνος Επεξεργασίας Δεδομένων:</strong> Temp-Mail.gr<br/>
-      <strong>Επικοινωνία:</strong> contact@temp-mail.gr</p>
-    </div>
-  </div>
+    <!-- Main content -->
+    <div class="legal-content">
 
-  <div class="section" id="p2">
-    <div class="section-header">
-      <div class="section-num">02</div>
-      <h2>Δεδομένα που συλλέγουμε</h2>
-    </div>
-    <p>Έχουμε σχεδιάσει την υπηρεσία για να συλλέγουμε τα <strong>ελάχιστα δυνατά δεδομένα</strong>:</p>
+      <div class="lsec" id="p1">
+        <div class="sec-header">
+          <div class="sec-num">01</div>
+          <h2>Ποιοι είμαστε</h2>
+        </div>
+        <p>Το Temp-Mail.gr είναι δωρεάν υπηρεσία προσωρινού ηλεκτρονικού ταχυδρομείου (disposable email) που λειτουργεί στην Ελλάδα. Η υπηρεσία λειτουργεί ως ανεξάρτητο project.</p>
+        <div class="callout info">
+          <p><strong>Υπεύθυνος Επεξεργασίας Δεδομένων:</strong> Temp-Mail.gr<br/>
+          <strong>Επικοινωνία:</strong> contact@temp-mail.gr</p>
+        </div>
+      </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Τύπος Δεδομένου</th>
-          <th>Συλλέγεται;</th>
-          <th>Σκοπός</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Προσωρινή διεύθυνση email</td>
-          <td class="yes">Ναι</td>
-          <td>Λειτουργία inbox (διαγράφεται σε 10 λεπτά)</td>
-        </tr>
-        <tr>
-          <td>Περιεχόμενο εισερχόμενων email</td>
-          <td class="yes">Ναι</td>
-          <td>Εμφάνιση στο inbox (διαγράφεται αυτόματα)</td>
-        </tr>
-        <tr>
-          <td>IP διεύθυνση</td>
-          <td class="yes">Προσωρινά</td>
-          <td>Rate limiting & προστασία από κατάχρηση</td>
-        </tr>
-        <tr>
-          <td>Cookies διαφήμισης</td>
-          <td class="yes">Ναι (Google)</td>
-          <td>Google AdSense (με συναίνεση)</td>
-        </tr>
-        <tr>
-          <td>Πραγματικό email χρήστη</td>
-          <td class="no">Όχι</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Όνομα / προσωπικά στοιχεία</td>
-          <td class="no">Όχι</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Αριθμός τηλεφώνου</td>
-          <td class="no">Όχι</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <div class="lsec" id="p2">
+        <div class="sec-header">
+          <div class="sec-num">02</div>
+          <h2>Δεδομένα που συλλέγουμε</h2>
+        </div>
+        <p>Έχουμε σχεδιάσει την υπηρεσία για να συλλέγουμε τα <strong>ελάχιστα δυνατά δεδομένα</strong>:</p>
+        <div class="dtable-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>Τύπος Δεδομένου</th><th>Συλλέγεται;</th><th>Σκοπός</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Προσωρινή διεύθυνση email</td><td class="yes">✓ Ναι</td><td>Λειτουργία inbox — διαγράφεται σε 10 λεπτά</td></tr>
+              <tr><td>Περιεχόμενο εισερχόμενων email</td><td class="yes">✓ Ναι</td><td>Εμφάνιση στο inbox — διαγράφεται αυτόματα</td></tr>
+              <tr><td>IP διεύθυνση</td><td class="yes">✓ Προσωρινά</td><td>Rate limiting & προστασία από κατάχρηση</td></tr>
+              <tr><td>Cookies διαφήμισης</td><td class="yes">✓ Ναι (Google)</td><td>Google AdSense — μόνο με συναίνεση</td></tr>
+              <tr><td>Πραγματικό email χρήστη</td><td class="no">✗ Όχι</td><td>—</td></tr>
+              <tr><td>Όνομα / προσωπικά στοιχεία</td><td class="no">✗ Όχι</td><td>—</td></tr>
+              <tr><td>Αριθμός τηλεφώνου</td><td class="no">✗ Όχι</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-  <div class="section" id="p3">
-    <div class="section-header">
-      <div class="section-num">03</div>
-      <h2>Πώς χρησιμοποιούμε τα δεδομένα</h2>
-    </div>
-    <p>Τα δεδομένα που συλλέγουμε χρησιμοποιούνται αποκλειστικά για:</p>
-    <ul>
-      <li>Παροχή της υπηρεσίας προσωρινού email</li>
-      <li>Προστασία από spam και κατάχρηση (rate limiting)</li>
-      <li>Εμφάνιση σχετικών διαφημίσεων μέσω Google AdSense</li>
-      <li>Βελτίωση της απόδοσης και σταθερότητας της υπηρεσίας</li>
-    </ul>
-    <div class="highlight-box good">
-      <p>✅ <strong>Δεν πουλάμε</strong> ποτέ δεδομένα σε τρίτους.<br/>
-      ✅ <strong>Δεν χρησιμοποιούμε</strong> δεδομένα για marketing ή profiling.<br/>
-      ✅ <strong>Δεν κρατάμε</strong> αρχεία email μετά τη λήξη τους.</p>
-    </div>
-  </div>
+      <div class="lsec" id="p3">
+        <div class="sec-header">
+          <div class="sec-num">03</div>
+          <h2>Πώς χρησιμοποιούμε τα δεδομένα</h2>
+        </div>
+        <p>Τα δεδομένα που συλλέγουμε χρησιμοποιούνται αποκλειστικά για:</p>
+        <ul>
+          <li>Παροχή της υπηρεσίας προσωρινού email</li>
+          <li>Προστασία από spam και κατάχρηση (rate limiting)</li>
+          <li>Εμφάνιση διαφημίσεων μέσω Google AdSense</li>
+          <li>Βελτίωση της απόδοσης και σταθερότητας της υπηρεσίας</li>
+        </ul>
+        <div class="callout ok">
+          <p>✅ <strong>Δεν πουλάμε</strong> ποτέ δεδομένα σε τρίτους.<br/>
+          ✅ <strong>Δεν χρησιμοποιούμε</strong> δεδομένα για marketing ή profiling.<br/>
+          ✅ <strong>Δεν κρατάμε</strong> αρχεία email μετά τη λήξη τους.</p>
+        </div>
+      </div>
 
-  <div class="section" id="p4">
-    <div class="section-header">
-      <div class="section-num">04</div>
-      <h2>Cookies & Διαφημίσεις Google</h2>
-    </div>
-    <p>Χρησιμοποιούμε <strong>Google AdSense</strong> για εμφάνιση διαφημίσεων. Η Google χρησιμοποιεί cookies για να εμφανίζει σχετικές διαφημίσεις βάσει των ενδιαφερόντων σας.</p>
-    <p>Τα cookies της Google ενεργοποιούνται μόνο εφόσον αποδεχτείτε τη σχετική ειδοποίηση (cookie banner) κατά την πρώτη σας επίσκεψη.</p>
-    <ul>
-      <li>Μπορείτε να διαχειριστείτε τις προτιμήσεις διαφήμισης στο <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color:var(--accent)">Google Ads Settings</a></li>
-      <li>Μπορείτε να απενεργοποιήσετε τα cookies διαφήμισης μέσω των ρυθμίσεων του browser σας</li>
-      <li>Περισσότερες πληροφορίες: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent)">Πολιτική Απορρήτου Google</a></li>
-    </ul>
-  </div>
+      <div class="lsec" id="p4">
+        <div class="sec-header">
+          <div class="sec-num">04</div>
+          <h2>Cookies & Διαφημίσεις Google</h2>
+        </div>
+        <p>Χρησιμοποιούμε <strong>Google AdSense</strong> για εμφάνιση διαφημίσεων. Η Google χρησιμοποιεί cookies για να εμφανίζει σχετικές διαφημίσεις βάσει των ενδιαφερόντων σας.</p>
+        <p>Τα cookies της Google ενεργοποιούνται μόνο εφόσον αποδεχτείτε τη σχετική ειδοποίηση (cookie banner) κατά την πρώτη σας επίσκεψη.</p>
+        <ul>
+          <li>Μπορείτε να διαχειριστείτε τις προτιμήσεις διαφήμισης στο <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a></li>
+          <li>Μπορείτε να απενεργοποιήσετε τα cookies μέσω των ρυθμίσεων του browser σας</li>
+          <li>Περισσότερες πληροφορίες: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Πολιτική Απορρήτου Google</a></li>
+        </ul>
+      </div>
 
-  <div class="section" id="p5">
-    <div class="section-header">
-      <div class="section-num">05</div>
-      <h2>Τρίτοι πάροχοι υπηρεσιών</h2>
-    </div>
-    <p>Χρησιμοποιούμε αξιόπιστους τρίτους παρόχους για τη λειτουργία της υπηρεσίας:</p>
-    <ul>
-      <li><strong>Cloudflare</strong> — CDN, DNS, Email Routing & προστασία DDoS</li>
-      <li><strong>Upstash Redis</strong> — Προσωρινή αποθήκευση δεδομένων inbox (EU region)</li>
-      <li><strong>Render</strong> — Hosting του API server</li>
-      <li><strong>Google AdSense</strong> — Διαφημίσεις (με συναίνεση χρήστη)</li>
-    </ul>
-    <p>Κάθε πάροχος ακολουθεί τους δικούς του όρους προστασίας δεδομένων και είναι GDPR συμβατός.</p>
-  </div>
+      <div class="lsec" id="p5">
+        <div class="sec-header">
+          <div class="sec-num">05</div>
+          <h2>Τρίτοι πάροχοι υπηρεσιών</h2>
+        </div>
+        <p>Χρησιμοποιούμε αξιόπιστους τρίτους παρόχους για τη λειτουργία της υπηρεσίας:</p>
+        <ul>
+          <li><strong>Cloudflare</strong> — CDN, DNS, Email Routing & προστασία DDoS</li>
+          <li><strong>Upstash Redis</strong> — Προσωρινή αποθήκευση δεδομένων inbox (EU region)</li>
+          <li><strong>Render</strong> — Hosting του API server</li>
+          <li><strong>Google AdSense</strong> — Διαφημίσεις (με συναίνεση χρήστη)</li>
+        </ul>
+        <p>Κάθε πάροχος ακολουθεί τους δικούς του όρους προστασίας δεδομένων και είναι GDPR συμβατός.</p>
+      </div>
 
-  <div class="section" id="p6">
-    <div class="section-header">
-      <div class="section-num">06</div>
-      <h2>Διατήρηση δεδομένων</h2>
-    </div>
-    <p>Ακολουθούμε την αρχή της <strong>ελαχιστοποίησης δεδομένων</strong>:</p>
-    <ul>
-      <li>Τα emails και το inbox διαγράφονται αυτόματα μετά από <strong>10 λεπτά αδράνειας</strong></li>
-      <li>Τα εισερχόμενα μηνύματα διαγράφονται ταυτόχρονα με το inbox</li>
-      <li>Δεν τηρούμε αρχεία ή logs επικοινωνιών</li>
-      <li>IP διευθύνσεις: χρησιμοποιούνται μόνο για rate limiting, χωρίς μόνιμη αποθήκευση</li>
-    </ul>
-    <div class="highlight-box info">
-      <p>⏱️ <strong>Μέγιστη διατήρηση δεδομένων: 10 λεπτά.</strong> Μετά, διαγράφονται αυτόματα και μόνιμα.</p>
-    </div>
-  </div>
+      <div class="lsec" id="p6">
+        <div class="sec-header">
+          <div class="sec-num">06</div>
+          <h2>Διατήρηση δεδομένων</h2>
+        </div>
+        <p>Ακολουθούμε την αρχή της <strong>ελαχιστοποίησης δεδομένων</strong>:</p>
+        <ul>
+          <li>Τα emails και το inbox διαγράφονται αυτόματα μετά από <strong>10 λεπτά αδράνειας</strong></li>
+          <li>Τα εισερχόμενα μηνύματα διαγράφονται ταυτόχρονα με το inbox</li>
+          <li>Δεν τηρούμε αρχεία ή logs επικοινωνιών</li>
+          <li>IP διευθύνσεις: χρησιμοποιούνται μόνο για rate limiting, χωρίς μόνιμη αποθήκευση</li>
+        </ul>
+        <div class="callout info">
+          <p>⏱️ <strong>Μέγιστη διατήρηση δεδομένων: 10 λεπτά.</strong> Μετά, διαγράφονται αυτόματα και μόνιμα.</p>
+        </div>
+      </div>
 
-  <div class="section" id="p7">
-    <div class="section-header">
-      <div class="section-num">07</div>
-      <h2>Τα δικαιώματά σας (GDPR)</h2>
-    </div>
-    <p>Σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR), έχετε τα εξής δικαιώματα:</p>
-    <ul>
-      <li><strong>Δικαίωμα πρόσβασης</strong> — να γνωρίζετε ποια δεδομένα σας έχουμε</li>
-      <li><strong>Δικαίωμα διόρθωσης</strong> — να ζητήσετε διόρθωση ανακριβών δεδομένων</li>
-      <li><strong>Δικαίωμα διαγραφής</strong> — τα δεδομένα διαγράφονται αυτόματα, αλλά μπορείτε να ζητήσετε άμεση διαγραφή</li>
-      <li><strong>Δικαίωμα εναντίωσης</strong> — να αρνηθείτε επεξεργασία για διαφημιστικούς σκοπούς</li>
-      <li><strong>Δικαίωμα φορητότητας</strong> — να λάβετε τα δεδομένα σας σε δομημένη μορφή</li>
-    </ul>
-    <p>Για άσκηση οποιουδήποτε δικαιώματος, επικοινωνήστε: <strong style="color:var(--accent)">contact@temp-mail.gr</strong></p>
-    <p>Έχετε επίσης δικαίωμα καταγγελίας στην <a href="https://www.dpa.gr" target="_blank" rel="noopener" style="color:var(--accent)">Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (ΑΠΔΠΧ)</a>.</p>
-  </div>
+      <div class="lsec" id="p7">
+        <div class="sec-header">
+          <div class="sec-num">07</div>
+          <h2>Τα δικαιώματά σας (GDPR)</h2>
+        </div>
+        <p>Σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR), έχετε τα εξής δικαιώματα:</p>
+        <ul>
+          <li><strong>Δικαίωμα πρόσβασης</strong> — να γνωρίζετε ποια δεδομένα σας έχουμε</li>
+          <li><strong>Δικαίωμα διόρθωσης</strong> — να ζητήσετε διόρθωση ανακριβών δεδομένων</li>
+          <li><strong>Δικαίωμα διαγραφής</strong> — τα δεδομένα διαγράφονται αυτόματα, αλλά μπορείτε να ζητήσετε άμεση διαγραφή</li>
+          <li><strong>Δικαίωμα εναντίωσης</strong> — να αρνηθείτε επεξεργασία για διαφημιστικούς σκοπούς</li>
+          <li><strong>Δικαίωμα φορητότητας</strong> — να λάβετε τα δεδομένα σας σε δομημένη μορφή</li>
+        </ul>
+        <p>Για άσκηση οποιουδήποτε δικαιώματος επικοινωνήστε: <strong>contact@temp-mail.gr</strong></p>
+        <p>Έχετε επίσης δικαίωμα καταγγελίας στην <a href="https://www.dpa.gr" target="_blank" rel="noopener">Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (ΑΠΔΠΧ)</a>.</p>
+      </div>
 
-  <div class="section" id="p8">
-    <div class="section-header">
-      <div class="section-num">08</div>
-      <h2>Ασφάλεια δεδομένων</h2>
-    </div>
-    <p>Λαμβάνουμε τα απαραίτητα τεχνικά μέτρα για την προστασία των δεδομένων σας:</p>
-    <ul>
-      <li>Κρυπτογράφηση HTTPS/TLS για όλες τις επικοινωνίες</li>
-      <li>Αποθήκευση δεδομένων σε servers της ΕΕ (Frankfurt)</li>
-      <li>Rate limiting για αποτροπή κατάχρησης</li>
-      <li>Sandbox εκτέλεση HTML email για προστασία από XSS</li>
-      <li>Αυτόματη διαγραφή δεδομένων — δεν υπάρχει κίνδυνος διαρροής παλαιών δεδομένων</li>
-    </ul>
-    <div class="highlight-box warn">
-      <p><strong>Σημαντικό:</strong> Λόγω της φύσης της υπηρεσίας (δημόσιο inbox), <strong>μην αποστέλλετε ευαίσθητα προσωπικά δεδομένα</strong> σε temp mail διευθύνσεις. Η υπηρεσία προορίζεται για μη εμπιστευτικές εγγραφές.</p>
-    </div>
-  </div>
+      <div class="lsec" id="p8">
+        <div class="sec-header">
+          <div class="sec-num">08</div>
+          <h2>Ασφάλεια δεδομένων</h2>
+        </div>
+        <p>Λαμβάνουμε τα απαραίτητα τεχνικά μέτρα για την προστασία των δεδομένων σας:</p>
+        <ul>
+          <li>Κρυπτογράφηση HTTPS/TLS για όλες τις επικοινωνίες</li>
+          <li>Αποθήκευση δεδομένων σε servers της ΕΕ (Frankfurt)</li>
+          <li>Rate limiting για αποτροπή κατάχρησης</li>
+          <li>Sandbox εκτέλεση HTML email για προστασία από XSS</li>
+          <li>Αυτόματη διαγραφή — δεν υπάρχει κίνδυνος διαρροής παλαιών δεδομένων</li>
+        </ul>
+        <div class="callout warn">
+          <p><strong>Σημαντικό:</strong> Λόγω της φύσης της υπηρεσίας (δημόσιο inbox), <strong>μην αποστέλλετε ευαίσθητα προσωπικά δεδομένα</strong> σε temp mail διευθύνσεις. Η υπηρεσία προορίζεται για μη εμπιστευτικές εγγραφές.</p>
+        </div>
+      </div>
 
-  <div class="section" id="p9">
-    <div class="section-header">
-      <div class="section-num">09</div>
-      <h2>Αλλαγές πολιτικής</h2>
-    </div>
-    <p>Ενδέχεται να ενημερώνουμε την παρούσα Πολιτική Απορρήτου περιοδικά. Κάθε αλλαγή δημοσιεύεται στην παρούσα σελίδα με ενημερωμένη ημερομηνία.</p>
-    <p>Συνεχίζοντας να χρησιμοποιείτε την υπηρεσία μετά από αλλαγές, αποδέχεστε την ενημερωμένη Πολιτική Απορρήτου.</p>
-  </div>
+      <div class="lsec" id="p9">
+        <div class="sec-header">
+          <div class="sec-num">09</div>
+          <h2>Αλλαγές πολιτικής</h2>
+        </div>
+        <p>Ενδέχεται να ενημερώνουμε την παρούσα Πολιτική Απορρήτου περιοδικά. Κάθε αλλαγή δημοσιεύεται στην παρούσα σελίδα με ενημερωμένη ημερομηνία.</p>
+        <p>Συνεχίζοντας να χρησιμοποιείτε την υπηρεσία μετά από αλλαγές, αποδέχεστε την ενημερωμένη Πολιτική Απορρήτου.</p>
+      </div>
 
-  <div class="section" id="p10">
-    <div class="section-header">
-      <div class="section-num">10</div>
-      <h2>Επικοινωνία</h2>
-    </div>
-    <p>Για ερωτήσεις σχετικά με την Πολιτική Απορρήτου ή για άσκηση των δικαιωμάτων σας GDPR:</p>
-    <div class="highlight-box info">
-      <p>📧 Email: <strong>contact@temp-mail.gr</strong><br/>
-      🌐 Ιστοσελίδα: <strong>https://temp-mail.gr</strong><br/>
-      🏛️ ΑΠΔΠΧ: <strong>www.dpa.gr</strong></p>
-    </div>
-  </div>
+      <div class="lsec" id="p10">
+        <div class="sec-header">
+          <div class="sec-num">10</div>
+          <h2>Επικοινωνία</h2>
+        </div>
+        <p>Για ερωτήσεις σχετικά με την Πολιτική Απορρήτου ή για άσκηση των δικαιωμάτων σας GDPR:</p>
+        <div class="callout info">
+          <p>📧 Email: <strong>contact@temp-mail.gr</strong><br/>
+          🌐 Ιστοσελίδα: <strong>https://temp-mail.gr</strong><br/>
+          🏛️ ΑΠΔΠΧ: <strong>www.dpa.gr</strong></p>
+        </div>
+      </div>
 
-</div>
+    </div><!-- /legal-content -->
+  </div><!-- /legal-wrap -->
+</div><!-- /W -->
+</main>
 
 <footer>
-  <div class="footer-links">
-    <a href="https://temp-mail.gr/">Αρχική</a>
-    <a href="https://temp-mail.gr/terms.html">Όροι Χρήσης</a>
-    <a href="https://temp-mail.gr/privacy.html">Πολιτική Απορρήτου</a>
-    <a href="https://temp-mail.gr/#faq">FAQ</a>
+  <div class="W">
+    <div class="fg">
+      <div class="fbc">
+        <a class="brand" href="/">
+          <div class="logo-sq" style="width:28px;height:28px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>Temp-Mail<span class="brand-tld">.gr</span></span>
+        </a>
+        <p>Δωρεάν disposable email για ασφαλείς εγγραφές χωρίς spam. Ανώνυμο, γρήγορο, αξιόπιστο.</p>
+      </div>
+      <div class="fc"><h4>Υπηρεσία</h4><ul><li><a href="/#how-it-works">Πώς λειτουργεί</a></li><li><a href="/#features">Χαρακτηριστικά</a></li><li><a href="/#inbox-section">Inbox</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+      <div class="fc"><h4>Νομικά</h4><ul><li><a href="/terms.html">Όροι Χρήσης</a></li><li><a href="/privacy.html">Πολιτική Απορρήτου</a></li></ul></div>
+      <div class="fc"><h4>Επικοινωνία</h4><ul><li><a href="mailto:contact@temp-mail.gr">contact@temp-mail.gr</a></li><li><a href="https://www.dpa.gr" target="_blank" rel="noopener">ΑΠΔΠΧ</a></li></ul></div>
+    </div>
+    <div class="fbot">
+      <span class="fcopy">© <span id="yr"></span> Temp-Mail.gr — Disposable Email στην Ελλάδα</span>
+      <span class="fleg">GDPR Συμβατό · Για νόμιμη χρήση και δοκιμές.</span>
+    </div>
   </div>
-  <p>© 2026 Temp-Mail.gr — Δωρεάν προσωρινό email στην Ελλάδα</p>
 </footer>
 
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const drawer = document.getElementById('drawer');
+const scrim = document.getElementById('scrim');
+const ham = document.getElementById('ham');
+const dcls = document.getElementById('dcls');
+const openD = () => { drawer.classList.add('on'); scrim.classList.add('on'); document.body.style.overflow = 'hidden'; ham.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+const closeD = () => { drawer.classList.remove('on'); scrim.classList.remove('on'); document.body.style.overflow = ''; ham.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+ham.addEventListener('click', openD);
+dcls.addEventListener('click', closeD);
+scrim.addEventListener('click', closeD);
+window.addEventListener('keydown', e => { if (e.key === 'Escape') closeD(); });
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeD));
+
+// Active TOC highlight on scroll
+const sections = document.querySelectorAll('.lsec');
+const tocLinks = document.querySelectorAll('.toc-card a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.toc-card a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
