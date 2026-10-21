@@ -259,16 +259,89 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.72);backdr
   <div class="eye">FAQ</div>
   <h2 id="h-faq">Συχνές Ερωτήσεις για το Temp Mail</h2>
   <p class="slead">Έχεις απορίες για το Temp-Mail.gr; Εδώ θα βρεις απαντήσεις σε ό,τι χρειάζεσαι να ξέρεις.</p>
+
   <div class="faqs">
-    <div class="fqa">Το temp mail (γνωστό και ως «τεμπ μαιλ» ή «τεμπμαιλ») είναι μια υπηρεσία προσωρινού email που σου επιτρέπει να δημιουργείς δωρεάν διεύθυνση χωρίς εγγραφή. Χρησιμοποιείται για γρήγορες εγγραφές σε sites, δοκιμές υπηρεσιών και προστασία από spam στο προσωπικό σου inbox. Η διεύθυνση λήγει αυτόματα μετά από 10 λεπτά.</div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Τι είναι το προσωρινό email (temp mail);<span class="fqico">+</span></button><div class="fqa">Το προσωρινό email είναι μια disposable διεύθυνση email που δημιουργείς άμεσα, χωρίς εγγραφή ή προσωπικά δεδομένα. Χρησιμοποιείται για γρήγορες εγγραφές σε sites, δοκιμές υπηρεσιών και αποφυγή spam στο κύριο inbox σου. Λήγει αυτόματα μετά από 10 λεπτά.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Είναι ασφαλές το Temp-Mail.gr;<span class="fqico">+</span></button><div class="fqa">Ναι, είναι πλήρως ασφαλές. Τα HTML emails ανοίγουν σε απομονωμένο sandbox iframe — δεν εκτελείται κανένα JavaScript, δεν φορτώνονται εξωτερικοί trackers. Δεν αποθηκεύουμε προσωπικά δεδομένα, IPs ή cookies. Κάθε inbox διαγράφεται αυτόματα.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Πόσο διαρκεί το προσωρινό email;<span class="fqico">+</span></button><div class="fqa">Κάθε διεύθυνση και τα μηνύματά της διατηρούνται για 10 λεπτά από τη δημιουργία τους. Μετά διαγράφονται αυτόματα χωρίς ίχνος. Αν χρειαστείς περισσότερο χρόνο, δημιούργησε απλά νέα διεύθυνση με ένα κλικ.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Κοστίζει κάτι το Temp-Mail.gr;<span class="fqico">+</span></button><div class="fqa">Όχι, είναι εντελώς δωρεάν. Δεν απαιτείται εγγραφή, πιστωτική κάρτα ή οποιαδήποτε χρέωση. Η υπηρεσία παρέχεται δωρεάν χωρίς εγγραφή, πιστωτική κάρτα ή οποιαδήποτε χρέωση.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Μπορώ να στείλω email από το Temp-Mail.gr;<span class="fqico">+</span></button><div class="fqa">Όχι. Το Temp-Mail.gr είναι υπηρεσία παραλαβής email μόνο (receive-only). Δεν υποστηρίζεται αποστολή email για λόγους ασφαλείας και αποφυγής κατάχρησης.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Γιατί να μην χρησιμοποιώ το κύριο email μου;<span class="fqico">+</span></button><div class="fqa">Κάθε φορά που δίνεις το πραγματικό σου email ρισκάρεις: spam εκστρατείες, phishing attacks, πώληση δεδομένων σε data brokers, και data breaches. Το temp mail σε προστατεύει διατηρώντας το κύριο inbox σου καθαρό και ασφαλές.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Δουλεύει για email verification;<span class="fqico">+</span></button><div class="fqa">Ναι, δουλεύει τέλεια. Εγγράψου με τη διεύθυνσή σου @temp-mail.gr, λάβε το confirmation email στο Live Inbox και επαλήθευσε τον λογαριασμό σου άμεσα. Τα verification emails φτάνουν σε λίγα δευτερόλεπτα.</div></div>
-    <div class="fqi"><button class="fqq" aria-expanded="false">Μπορούν άλλοι να δουν τα email μου;<span class="fqico">+</span></button><div class="fqa">Θεωρητικά, κάποιος που γνωρίζει την ακριβή διεύθυνσή σου θα μπορούσε να την επισκεφτεί. Για αυτό, μην χρησιμοποιείς temp mail για ευαίσθητες πληροφορίες, passwords ή τραπεζικά δεδομένα. Χρησιμοποίησέ το αποκλειστικά για εγγραφές και επαληθεύσεις.</div></div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Τι είναι το προσωρινό email (temp mail);
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Το temp mail (γνωστό και ως «τεμπ μαιλ» ή «τεμπμαιλ») είναι μια υπηρεσία προσωρινού email που σου επιτρέπει να δημιουργείς δωρεάν διεύθυνση χωρίς εγγραφή. Χρησιμοποιείται για γρήγορες εγγραφές σε sites, δοκιμές υπηρεσιών και προστασία από spam στο προσωπικό σου inbox. Η διεύθυνση λήγει αυτόματα μετά από 10 λεπτά.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Είναι ασφαλές το Temp-Mail.gr;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Ναι, είναι πλήρως ασφαλές. Τα HTML emails ανοίγουν σε απομονωμένο sandbox iframe — δεν εκτελείται κανένα JavaScript, δεν φορτώνονται εξωτερικοί trackers. Δεν αποθηκεύουμε προσωπικά δεδομένα, IPs ή cookies. Κάθε inbox διαγράφεται αυτόματα.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Πόσο διαρκεί το προσωρινό email;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Κάθε διεύθυνση και τα μηνύματά της διατηρούνται για 10 λεπτά από τη δημιουργία τους. Μετά διαγράφονται αυτόματα χωρίς ίχνος. Αν χρειαστείς περισσότερο χρόνο, δημιούργησε απλά νέα διεύθυνση με ένα κλικ.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Κοστίζει κάτι το Temp-Mail.gr;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Όχι, είναι εντελώς δωρεάν. Δεν απαιτείται εγγραφή, πιστωτική κάρτα ή οποιαδήποτε χρέωση.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Μπορώ να στείλω email από το Temp-Mail.gr;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Όχι. Το Temp-Mail.gr είναι υπηρεσία παραλαβής email μόνο (receive-only). Δεν υποστηρίζεται αποστολή email για λόγους ασφαλείας και αποφυγής κατάχρησης.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Γιατί να μην χρησιμοποιώ το κύριο email μου;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Κάθε φορά που δίνεις το πραγματικό σου email ρισκάρεις: spam εκστρατείες, phishing attacks, πώληση δεδομένων σε data brokers και data breaches. Το temp mail σε προστατεύει διατηρώντας το κύριο inbox σου καθαρό και ασφαλές.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Δουλεύει για email verification;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Ναι, μπορείς να χρησιμοποιήσεις τη διεύθυνσή σου @temp-mail.gr για εγγραφές σε υπηρεσίες που επιτρέπουν προσωρινά email. Αν η υπηρεσία αποδέχεται τη διεύθυνση, μπορείς να λάβεις το confirmation email στο Live Inbox και να ολοκληρώσεις την επαλήθευση.
+      </div>
+    </div>
+
+    <div class="fqi">
+      <button class="fqq" aria-expanded="false">
+        Μπορούν άλλοι να δουν τα email μου;
+        <span class="fqico">+</span>
+      </button>
+      <div class="fqa">
+        Θεωρητικά, κάποιος που γνωρίζει την ακριβή διεύθυνσή σου θα μπορούσε να αποκτήσει πρόσβαση στα μηνύματα, ανάλογα με τον τρόπο πρόσβασης στο inbox. Για αυτό, μην χρησιμοποιείς temp mail για ευαίσθητες πληροφορίες, passwords ή τραπεζικά δεδομένα. Χρησιμοποίησέ το αποκλειστικά για μη ευαίσθητες εγγραφές και δοκιμές.
+      </div>
+    </div>
+
   </div>
 </section>
 
